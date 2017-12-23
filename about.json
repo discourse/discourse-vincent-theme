@@ -1,0 +1,19 @@
+{
+  "name": "Vincent",
+  "about_url": "",
+  "license_url": "",
+   "color_schemes": {
+       "Scheme Name": {
+          "primary": "ddd",
+          "secondary": "111",
+          "tertiary": "00BCD4",
+          "quaternary": "9E9E9E",
+          "header background": "131418",
+          "header primary": "ccc",
+          "highlight": "9E9E9E",
+          "danger": "96000e",
+          "success": "00bf9a",
+          "love": "f50057"
+        }
+    }
+}

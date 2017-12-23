@@ -1,0 +1,1090 @@
+/* Sorted ------------------------------------------------------------------------------------------------------------- */
+
+// Reset     ------------------------------------------------------------------------------------
+
+* {
+	box-sizing: border-box;
+}
+
+body,
+html {
+	margin: 0;
+	padding: 0;
+}
+
+// background none ---------------------------------------------------------------------------------
+
+.main-content.has-sidebars .container.list-container,
+.user-profile.widget-container,
+.main-content.has-sidebars .container.posts,
+.topic-body .reply-to-tab,
+.list-controls a,
+.d-header-icons a.icon,
+.avatar-wrapper,
+.user-navigation .nav-stacked a,
+#user-card,
+.user-content,
+.main-content .nav-drop .nav-dropdown-menu a:hover,
+.list-controls .category-dropdown-menu a:hover,
+.list-controls .category-dropdown-menu a:hover,
+li.toggle-maximize a,
+a.mention,
+a.mention-group,
+.user-badge,
+#user-card.show-badges .more-user-badges,
+.list-controls .category-breadcrumb li.bullet > .dropdown-header,
+.user-profile .profile-actions,
+.widget-container.app a,
+.menu-links-header a:hover,
+.extra-info-wrapper .discourse-tag.box,
+.d-header-icons .icon:hover,
+.d-header-icons .icon:active,
+.user-profile.widget-container .widget-inner,
+.widget-container,
+.d-editor-container .d-editor-button-bar .btn,
+.reply *.topic-body,
+tr.topic-list-item-separator + .topic-list-item {
+	background: none !important;
+}
+
+// fonts ------------------------------------------------------------------------------------
+
+html {
+	font-family: "Roboto", sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 300;
+}
+
+#topic-title h1 {
+	font-size: 1.25em;
+}
+
+.user-stream .excerpt {
+	line-height: 2;
+}
+
+.user-navigation .nav-stacked a.active {
+	font-weight: unset;
+}
+
+header #site-text-logo {
+	line-height: inherit;
+}
+
+.main-content.topic.has-sidebars
+	.posts-wrapper
+	.small-action
+	.small-action-desc,
+#topic-title h1 {
+	font-weight: normal;
+}
+
+.cooked p,
+.cooked .lightbox-wrapper,
+.main-content.topic.has-sidebars
+	.posts-wrapper
+	.small-action
+	.small-action-desc,
+#topic-title h1 {
+	line-height: 1.4;
+}
+
+.main-content.topic.has-sidebars
+	.posts-wrapper
+	.small-action
+	.small-action-desc {
+	font-size: 1em;
+}
+
+.cooked p {
+	font-size: 1.15em;
+}
+
+section.navigation-container {
+	text-transform: capitalize;
+}
+
+// Margins ----------------------------------------------------------------------------------------------
+
+// 0 auto -----------------------------------------------
+
+aside.sidebar,
+.main-content,
+img.avatar,
+ol.category-breadcrumb,
+section.navigation-container,
+td.main-link .topic-thumbnail,
+td.main-link .topic-title,
+#topic-footer-buttons,
+.user-profile .avatar,
+.sidebar-container.fixed,
+.main-content .regular,
+#topic-title,
+.d-header img.avatar,
+.d-header .contents,
+.d-header .d-header-icons,
+.d-header-icons li,
+.user-profile .profile-actions,
+.alert {
+	margin: 0 auto !important;
+}
+
+// zero -------------------------------------------------
+
+.topic-list-item,
+#list-area,
+.d-header .contents,
+.main-content.topic.has-sidebars .topic-meta-data,
+aside.quote,
+.d-header button.login-button {
+	margin: 0 !important;
+}
+
+// small all sides ------------------------------------
+
+.topic-avatar,
+.topic-meta-data,
+.main-content.topic.has-sidebars
+	.posts-wrapper
+	.small-action
+	.small-action-desc {
+	margin: 0.5em !important;
+}
+
+// large all sides ------------------------------------
+
+.badges .content-list ul li {
+	margin: 1em !important;
+}
+
+// Large on side only ----------------------------------
+
+.user-main .about .secondary dd,
+.main-content {
+	margin: 0 1em !important;
+}
+
+// up-down medium only ---------------------------------
+
+#reply-control .d-editor-preview img:not(.thumbnail),
+.cooked img:not(.thumbnail),
+.top-title-buttons,
+.user-stream .excerpt,
+td.main-link .topic-excerpt,
+.main-content.topic.has-sidebars .topic-body,
+.alert,
+.topic-post article.boxed,
+.main-content.topic.has-sidebars #topic-title,
+.categories-widget ul li,
+.time-gap.small-action.clearfix,
+.admin-controls {
+	margin: 0.75em 0 !important;
+}
+
+// Top zero -------------------------------------------
+
+.widget-container .widget-list,
+.user-main .about.collapsed-info .details,
+#user-card .user-card-avatar,
+.main-content.topic.has-sidebars
+	.posts-wrapper
+	.small-action
+	.small-action-desc,
+.main-content.topic.has-sidebars #topic-title,
+.top-lists,
+.user-table {
+	margin-top: 0 !important;
+}
+
+// custom margin ---------------------------------------------
+
+.list-controls .btn,
+.main-content.topic.has-sidebars .topic-body,
+.list-controls .nav {
+	margin-bottom: 0 !important;
+}
+
+.main-content.nav-menu-enabled ol.category-breadcrumb {
+	margin-top: 1px;
+}
+
+.boxed.white {
+	margin-bottom: 10em;
+}
+
+.sidebar-container .sidebar-content > div,
+.topic-details .topic-excerpt,
+.topic-details .topic-excerpt {
+	margin-bottom: 1.5em;
+}
+
+.d-header .contents {
+	margin: 4px 0;
+}
+
+.d-header-icons .icon {
+	margin: 0 2px;
+}
+
+.topic-list-item:first-of-type,
+.d-header .icon {
+	margin-top: -2px;
+}
+
+#user-card .user-card-avatar {
+	margin-right: 0.5em;
+}
+
+.extra-info-wrapper .badge-wrapper.bullet {
+	margin-top: 2px;
+}
+
+ul.subcat-list,
+.topic-users {
+	margin-left: 1em !important;
+}
+
+.lightbox-wrapper {
+	display: block;
+}
+
+#reply-control #reply-title {
+	margin-bottom: 10px;
+}
+
+blockquote {
+	margin: 1.25em !important;
+}
+
+.user-main .about .details img.avatar,
+.user-main .about .details .primary h1,
+.user-stream-item.item {
+	margin: 1em !important;
+}
+
+.topic-map .avatar {
+	margin-right: 4px !important;
+}
+
+section.navigation-container {
+	margin: 0.5em 0;
+}
+
+//  Box-shadow -------------------------------------------------------------------------------------------
+
+// box shadow set -------------------------------------------------
+
+.main-content.topic.has-sidebars #topic-title,
+.menu-panel,
+#share-link.visible,
+.widget-container.app,
+.user-stream .item,
+.user-stream .user-stream-item,
+.user-profile .avatar img,
+.topic-body,
+.main-content.topic.has-sidebars #topic-title,
+.list-controls:after,
+.widget-container .widget-inner {
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+		0 3px 1px -2px rgba(0, 0, 0, 0.2) !important;
+}
+
+// box shadow none -------------------------------------------------
+
+.user-profile.widget-container .widget-inner,
+#user-card.show-badges,
+.user-right .topic-list-item,
+#reply-control,
+.reply *.topic-body {
+	box-shadow: none !important;
+}
+
+// color primary ---------------------------------------------------------------------------------------
+
+.discourse-tag.box,
+.main-content.topic.has-sidebars
+	.posts-wrapper
+	.small-action
+	.small-action-desc,
+span.hashtag,
+.settings .setting.overridden h3,
+.d-header-icons .icon:hover,
+.d-header-icons .icon:active,
+.extra-info-wrapper .discourse-tag.box {
+	color: #00bcd4 !important;
+}
+
+// background primary ----------------------------------------------------------------------------------
+
+.timeline-container .topic-timeline .timeline-handle,
+.btn:active,
+.btn:focus,
+.media .media-left img,
+.modal-dialog .modal-content,
+.modal-dialog.cascading-modal .modal-header,
+.z-depth-1-half,
+ul.instagram-photos li img {
+	background: #00bcd4 !important;
+}
+
+// color secondary ---------------------------------------------------------------------------------------
+
+.nav-pills > li > a:hover,
+.layouts-nav-button > li > a:hover,
+button#create-topic,
+.btn:active,
+.btn:focus,
+.btn:hover,
+.media .media-left img,
+.modal-dialog .modal-content,
+.modal-dialog.cascading-modal .modal-header,
+.z-depth-1-half,
+ul.instagram-photos li img,
+button#create-topic,
+.badge-notification,
+a:hover,
+.btn,
+nav.post-controls button.delete.d-hover,
+.nav-pills > li.active > a,
+.layouts-nav-button > li.active > a,
+.nav-pills > li > a.active,
+.layouts-nav-button > li > a.active,
+.nav-stacked a.active,
+.discourse-tag.box:hover,
+button.cancel:hover,
+button.ok:hover {
+	color: white !important;
+}
+
+// background secondary ----------------------------------------------------------------------------------
+
+.main-content.topic.has-sidebars #topic-title,
+.widget-container .widget-inner,
+.topic-body,
+.user-profile .profile-top,
+.user-table,
+.badge-card,
+ul.cat-list,
+ul.general,
+.boxed.white,
+.alert.alert-info,
+.body-page,
+.topic-list,
+.topic-list tr:nth-of-type(odd),
+.category-list,
+.search-container,
+.search-advanced-options,
+.user-stream-item.item,
+tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
+.topic-meta-data,
+.reply > .row,
+.category-boxes .category-box-inner,
+.category-boxes-with-topics .category-box-inner {
+	background: rgba(19, 20, 24, 0.9) !important;
+}
+
+// custom backgrounds ---------------------------------------------------------------------------------
+
+.btn:not(:hover),
+.nav-pills > li > a:hover,
+.layouts-nav-button > li > a:hover,
+.admin-controls,
+.topic-map,
+.discourse-tag.box {
+	background: rgba(255, 255, 255, 0.1) !important;
+}
+
+button.cancel:hover {
+	background: #96000e !important;
+}
+
+button.ok:hover {
+	background: #00bf9a !important;
+}
+
+.modal-backdrop {
+	background-color: rgba(22, 22, 22, 0.7);
+}
+
+#user-card .card-content,
+.user-nav {
+	background: #131418;
+}
+
+// padding ----------------------------------------------------------------------------------
+
+// zero -------------------------------------------------
+
+.topic-users > .inline,
+.widget-container.app,
+.widget-container.app.widget-container .widget-multi-title,
+a.mention,
+a.mention-group,
+.user-profile .profile-actions,
+.main-content.topic.has-sidebars #topic-title,
+.cooked .lightbox-wrapper,
+.main-content.topic.has-sidebars .topic-post > .boxed > .row,
+.main-content.topic.has-sidebars .topic-body,
+.topic-post article.boxed,
+.main-content.topic.has-sidebars
+	.posts-wrapper
+	.small-action
+	.small-action-desc,
+.widget-container,
+.topic-avatar,
+.topic-body {
+	padding: 0 !important;
+}
+
+// small all sides ------------------------------------
+
+.user-badge,
+#user-card.show-badges .more-user-badges,
+.topic-list-item,
+.widget-container .widget-list li,
+.badge-info {
+	padding: 0.75em !important;
+}
+
+// medium all sides ------------------------------------
+
+.topic-list-item,
+.user-stream .item,
+.user-stream .user-stream-item,
+.user-table,
+.user-main .about.collapsed-info .details,
+#user-card .card-content,
+.admin-contents table td,
+.main-content.topic.has-sidebars #topic-title,
+.main-content .list-controls,
+.main-content.nav-menu-enabled .list-controls,
+aside.quote,
+.body-page,
+.search-container,
+.search-advanced-options {
+	padding: 1em !important;
+}
+
+// Large on side only ----------------------------------
+
+.main-content.topic.has-sidebars #topic-title .container,
+.topic-list .topic-list-item-separator td span,
+.main-content .nav-drop .selected-nav-item,
+.topic-body .regular,
+.main-content.topic.has-sidebars .topic-meta-data {
+	padding: 0 1.25em !important;
+}
+
+// Top zero ------------------------------------------
+
+.d-header,
+.topic-list-item,
+.sidebar-container .sidebar-content > div,
+.d-header .icon,
+.user-profile.widget-container .widget-inner,
+.app > .widget-inner {
+	padding-top: 0 !important;
+}
+
+// custom padding ------------------------------------
+
+.topic-map .buttons .btn {
+	padding: 3px 25px;
+}
+
+.sidebar-container .sidebar-content > div,
+.user-profile > .widget-inner {
+	padding-bottom: 0 !important;
+}
+.content-wrapper {
+	padding-bottom: 150px !important;
+}
+
+.user-right {
+	padding-left: 1em;
+}
+
+.reply {
+	padding-top: 1em;
+}
+
+.create-new-topic {
+	padding: 5px 0px 0px 5px;
+}
+
+.d-header .contents {
+	padding: 1px 0;
+}
+
+.list-controls .category-breadcrumb a.badge-category,
+.list-controls .category-breadcrumb .dropdown-header {
+	padding: 5px 8px 0 0;
+}
+
+nav.post-controls {
+	padding: 0 0 1em;
+}
+
+#main-outlet {
+	padding-top: 55px;
+}
+
+.admin-content .admin-contents,
+.admin-detail {
+	padding: 2em;
+}
+
+.boxed.white,
+.user-table {
+	padding-bottom: 3em !important;
+}
+
+// border  ----------------------------------------------------------------------------------
+
+// border none ------------------------------------
+
+.main-content.has-sidebars .container.posts,
+.user-profile.widget-container,
+.main-content.nav-menu-enabled .list-controls,
+div.menu-links-header a,
+.user-main .about.collapsed-info .details,
+.user-main .about .secondary,
+.user-badge,
+#user-card.show-badges .more-user-badges,
+.d-editor-button-bar button,
+.topic-list-item,
+.topic-title,
+.widget-container,
+.user-profile .profile-actions button,
+.user-profile .profile-actions .widget-component-connector,
+.topic-post article.boxed,
+.main-content.topic.has-sidebars #topic-title,
+.user-stream .item,
+.user-stream .user-stream-item,
+.d-header img.avatar,
+.topic-status-info,
+.main-content .list-controls,
+.main-content.nav-menu-enabled .list-controls,
+.main-content.has-sidebars .container.list-container,
+.user-profile .avatar img,
+img.avatar,
+.topic-status-info,
+.topic-avatar,
+.topic-body,
+.topic-map,
+.topic-map section {
+	border: none !important;
+}
+
+// border 1px  -----------------------------------------
+
+.menu-panel,
+#share-link.visible,
+.admin-controls,
+.user-stream .item,
+.user-stream .user-stream-item,
+#user-card .card-content,
+#user-card.show-badges .badge-section .user-badge,
+#user-card.show-badges .badge-section .more-user-badges,
+.badge-card .badge-contents,
+nav.post-controls .post-admin-menu,
+.badges .content-list ul li {
+	border: 1px solid !important;
+}
+
+// border-top --------------------------------------
+
+hr,
+.post-links-container .post-links,
+.admin-contents table td,
+.main-content.topic.has-sidebars #topic-footer-buttons {
+	border-top: 1px solid !important;
+}
+
+// border-bottom ----------------------------------
+
+.topic-list .topic-list-item-separator td,
+.nav-stacked li,
+.admin-contents table td,
+.widget-container .widget-multi-title a.widget-link.list-title.active,
+header.d-header.clearfix,
+.user-profile .avatar img {
+	border-bottom: 1px solid !important;
+}
+
+// border-color ------------------------------------
+
+.user-profile .avatar img,
+img.avatar,
+.menu-panel,
+#share-link.visible,
+.topic-list .topic-list-item-separator td,
+.admin-controls,
+.topic-status-info,
+.admin-controls .nav.nav-pills li.active a,
+hr,
+.nav-stacked li,
+.widget-container.app,
+.post-links-container .post-links,
+.user-stream .item,
+.user-stream .user-stream-item,
+#user-card .card-content,
+#user-card.show-badges .badge-section .user-badge,
+#user-card.show-badges .badge-section .more-user-badges,
+.badge-card .badge-contents,
+nav.post-controls .post-admin-menu,
+.badges .content-list ul li,
+.admin-contents table td,
+.reply,
+.widget-container .widget-multi-title a.widget-link.list-title.active,
+header.d-header.clearfix,
+.main-content.topic.has-sidebars #topic-footer-buttons,
+.main-content.topic.has-sidebars
+	.posts-wrapper
+	.small-action
+	.small-action-desc,
+.timeline-container .topic-timeline .timeline-scrollarea,
+.widget-container .widget-list li,
+.admin-list-item,
+section.about table td,
+section.about table th,
+.display-row,
+.search-advanced-options,
+.user-stream-item.item,
+.category-boxes .category-box-inner,
+.category-boxes-with-topics .category-box-inner {
+	border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+// border-radius 0 ------------------------------------
+
+.main-content.has-sidebars .container.list-container,
+.user-profile.widget-container,
+.main-content.nav-menu-enabled .list-controls,
+.main-content.topic.has-sidebars #topic-title,
+.widget-container.app,
+.user-stream .item,
+.user-stream .user-stream-item,
+a.mention,
+a.mention-group,
+.topic-post article.boxed,
+.main-content .list-controls,
+.main-content.nav-menu-enabled .list-controls,
+.user-profile img.avatar,
+.d-header img.avatar {
+	border-radius: 0 !important;
+}
+
+// border-radius 100vw ------------------------------------
+
+.badge-wrapper.bullet .badge-category-parent-bg,
+.badge-wrapper.bullet .badge-category-bg,
+img.avatar {
+	border-radius: 100vw;
+}
+
+// custom borders ------------------------------------
+
+img.avatar,
+.docked .d-header {
+	border-bottom: none;
+}
+
+.drop-down-visible .d-header-icons .active .icon:after {
+	border-top: none;
+}
+
+.user-right .topic-list-item {
+	border-right: none !important;
+}
+
+.admin-detail {
+	border-left: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+#reply-control.closed {
+	border-top: none;
+}
+
+.category-boxes .category-box-inner,
+.category-boxes-with-topics .category-box-inner {
+	border-width: 1px;
+}
+
+// text-align  ----------------------------------------------------------------------------------
+
+// center ------------------------------------
+
+.topic-meta,
+.main-content.topic.has-sidebars #topic-title,
+.main-content.topic.has-sidebars
+	.posts-wrapper
+	.small-action
+	.small-action-desc {
+	text-align: center;
+}
+
+// height and width ----------------------------------------------------------------------------------------------
+
+// width 100% -----------------------------------------------
+
+.main-content .regular,
+.widget-container .widget-inner {
+	width: 100%;
+}
+
+// height auto -----------------------------------------------
+
+#reply-control .d-editor-preview img:not(.thumbnail),
+.cooked img:not(.thumbnail) {
+	height: auto !important;
+}
+
+// max-width 95vw -----------------------------------------------
+
+.main-content,
+.alert,
+body.navigation-topics .d-header .wrap,
+.d-header .wrap,
+#share-link.visible {
+	max-width: 95vw;
+}
+
+// custom -----------------------------------------------
+
+.popup-menu {
+	width: 225px !important;
+}
+
+.d-header img.avatar {
+	height: 32px;
+	width: 32px;
+}
+
+.wrap {
+	width: 1100px;
+	max-width: 95vw;
+}
+
+.topic-map-post img.avatar {
+	height: 25px;
+	width: 25px;
+}
+
+.badge-card .badge-contents .badge-icon {
+	height: 99px;
+}
+
+header.d-header.clearfix {
+	height: 32px;
+}
+
+#reply-control .d-editor-preview img:not(.thumbnail),
+.cooked img:not(.thumbnail) {
+	max-width: 100% !important;
+}
+
+.badge-card .badge-contents {
+	min-height: 100px;
+}
+
+.d-header .contents,
+.d-header .d-header-icons,
+.d-header-icons li {
+	line-height: 32px;
+	height: 32px !important;
+}
+
+.admin-nav {
+	width: 19%;
+}
+
+.admin-detail {
+	width: 81%;
+}
+
+// float  ------------------------------------------------------------------------------------
+
+// float left -----------------------------------------------
+
+#user-card .user-card-avatar {
+	float: left;
+}
+
+// float right -----------------------------------------------
+
+.create-new-topic {
+	float: right;
+}
+
+// Animation  ----------------------------------------------------------------------------------
+
+a,
+.discourse-tag.box,
+.menu-links-header a,
+.widget-container.app a,
+.discourse-no-touch .topic-body .actions .fade-out,
+.widget-container .widget-multi-title a.widget-link.list-title,
+.nav-pills > li > a,
+.layouts-nav-button > li > a,
+.btn-icon {
+	transition: all ease 0.3s;
+}
+
+.topic-body.highlighted,
+.topic-list > tbody > tr.highlighted {
+	animation: none;
+}
+
+.post-stream,
+.topic-list-item,
+.list-controls > .container > section,
+#main-outlet,
+.widget-container .widget-list {
+	animation: Vincent 0.5s ease-out;
+}
+
+@keyframes Vincent {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+// body background ---------------------------------------------------------------------------
+
+body {
+	position: relative;
+	background-attachment: scroll;
+}
+
+body:after,
+body:before {
+	content: "";
+	position: fixed;
+	width: 100vw;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	height: 100vh;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	transform: translate3d(0, 0, 0);
+	will-change: transform;
+	z-index: -1;
+}
+
+body:before {
+	background-size: cover;
+	background-position: center;
+	background-image: url(data:image/svg+xml;base64,77u/PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTQ3LjMzMzMiIGhlaWdodD0iMTM2MiI+PHBhdGggZmlsbD0iIzQwM2QzZSIgZD0iTTAgNjgxVjBoMjU0Ny4zMzMzdjEzNjJIMHoiLz48cGF0aCBmaWxsPSIjM2UzYzNkIiBkPSJNMCA2ODFWMGgyNTQ3LjMzMzN2MTM2Mkgwem04OTcuMzMzMzIgMTMzLjMyNDJjMjE2Ljc3MjE4LTE0NC45NjQ4IDIwNC43ODkyOC0xMzYuODQ5NDcgMjA0LjA2NTU4LTEzOC4yMDE3My0uOTY4LTEuODA4NjctOTMuNDEwMS0xMzYuMzU0MjQtOTQuMzYzNC0xMzcuMzQxODMtLjcwMzItLjcyODU1LTE0LjgyMzMxIDE1LjMxNy03OS40NDUzOCA5MC4yNzg0MS0xNzcuNzE5MjYgMjA2LjE1NDAyLTE2Mi4zNzA4IDE4OC41ODY0OC0xNjQuOTQ1NiAxODguNzkyNzUtMS4yNzExMy4xMDE4LTIyLjk5Ny0yLjM2MjQtNDguMjc5Ni01LjQ3NjA3LTI1LjI4MjYtMy4xMTM2Ni00Ni4wOTUtNS41MzQ1My00Ni4yNDk4LTUuMzc5NzMtLjM4MjMzLjM4MjMzLTIuMjAyMjItMi4zMDggMzguNTE3NTQgNTYuOTQwMzMgMjUuOTk0OCAzNy44MjMwNyAzNi41OTI5MyA1Mi43Mzc0IDM3LjMzMzMzIDUyLjUzODA3LjU2ODczLS4xNTMwNyA2OS41ODQtNDYuMTIwNjcgMTUzLjM2NzMzLTEwMi4xNTAyeiIvPjxwYXRoIGZpbGw9IiMzYzM5M2EiIGQ9Ik0wIDY4MVYwaDI1NDcuMzMzM3YxMzYybC02NzIuODMzMy0uMDI1Yy01MzIuMTc0OC0uMDItNjcyLjk4MzEtLjE5NzEtNjczLjU0OTctLjg0NjgtMS4wMzk4LTEuMTkyLTYwLjQ1NTQtMjE2LjYwNjQtNjAuMTgxLTIxOC4xODk0LjEyNjktLjczMiAzNS4yNjI4LTQxLjk1NzggNzguMDc5OC05MS42MTI4IDQ3LjM1MDctNTQuOTEyODMgNzcuNzEwOS05MC42NDIwMyA3Ny40OTYzLTkxLjIwMTEtLjE5NC0uNTA1NTMtNDMuNzc2LTY0LjIxODYtOTYuODQ5LTE0MS41ODQ1My01My4wNzMtNzcuMzY1OTQtOTkuNzk2NC0xNDUuNTk4MzQtMTAzLjgyOTctMTUxLjYyNzYtMTcuNDMzNi0yNi4wNjA3Mi04OC4xNzg1LTEyOC41NDY0LTg5LjE2MzEtMTI5LjE2NzQ1LS44NjY1LS41NDY1NS0xLjU4OS0uMTAzMTctMy42MjYxIDIuMjI1MTYtMS4zOTkzIDEuNTk5MjUtMzkuMDE4NzEgNDUuMjM1MTktODMuNTk4NjUgOTYuOTY4NzdDNzc2Ljg3OTM5IDgwMi4xODg4IDc2NC4zOTQ5OSA4MTYuNjI4MzMgNzYzLjY5MDg2IDgxNi44OTM0Yy0uMzguMTQzLTIyLjI3NjgtMi4zODg1My00OC42NTk2Ny01LjYyNTY3LTI2LjM4MjgtMy4yMzcxMy00OC4xMTQ3My01LjczOTczLTQ4LjI5MzEzLTUuNTYxMzMtLjE3ODQ1LjE3ODQgMy4yNTc1MyA1LjU3ODY3IDcuNjM1NCAxMi4wMDA1MyAxNy41NTQ0IDI1Ljc1MDE0IDY4LjE2ODczIDk5LjAzMjE0IDcxLjI5MzIgMTAzLjIyMTg3IDguNzU5OTMgMTEuNzQ2NiAzMDEuNDcyNjQgNDM4Ljg4NzMgMzAxLjQ1OTQ0IDQzOS45MDQ1LS4wMTQgMS4xMTAyLTI1LjM5NjQgMS4xNjY3LTUyMy41NzA1NSAxLjE2NjdIMHoiLz48cGF0aCBmaWxsPSIjMzkzNzM4IiBkPSJNMjIuMzI5OTM0IDEzNjEuMTYzN2MtMS42NDQ0MTgtLjgyNzQtMjAuNDQ1MDc1NS0yOC4xMzIyLTIwLjg1ODExOC0zMC4yOTI4LS4xNjM3MjctLjg1NjUtLjU2MTg2NDgxLTEuNzIwNi0uODg0NzUwNzEtMS45MjAxQy4yNDkzOTE1MyAxMzI4Ljc0MjEgMCAxMDQ2LjM4ODkgMCA2NjQuMjkzOTlWMGgyNTQ3LjMzMzN2MTM2MkgxMjAxLjVsLS4wMzktMS41Yy0uMDIxLS44MjUtMTMuNDI4NC00OS44ODg1LTI5Ljc5MzEtMTA5LjAyOTktMTYuMzY0OC01OS4xNDE2LTI5LjY1OTctMTA3Ljk0MzctMjkuNTQ0NC0xMDguNDQ5My4xMTU0LS41MDU3IDM1LjA5NzctNDEuMzY3MSA3Ny43Mzg0LTkwLjgwMzQgNTkuNjc1LTY5LjE4NTIgNzcuNDctOTAuMjExMDcgNzcuMjc0NC05MS4zMDQtLjEzOTgtLjc4MS04LjkyNzctMTQuMDYxMDctMTkuNTI4Ni0yOS41MTEyNy0xMC42MDA5LTE1LjQ1MDI2LTU0LjM3NDQtNzkuMjQ3NC05Ny4yNzQ0LTE0MS43NzE1My00Mi45LTYyLjUyNDEzLTg2LjctMTI2LjQyMzg1LTk3LjMzMzMtMTQxLjk5OTQyLTM4LjE1MjItNTUuODg0NzktNzUuMzgxOS0xMDkuNjI2Ni03OC0xMTIuNTk0NTctMS40NjY3LTEuNjYyNjItNDcuNjk3NTEtNjguNjM3NzYtMTAyLjczNTE4LTE0OC44MzM2NS01NS4wMzc2Ni04MC4xOTU4OC0xMDAuNTQ1MjYtMTQ2LjExMTQ1LTEwMS4xMjgtMTQ2LjQ3OTAzLS44NDA0LS41MzAxMi0xOC42MTIyNiAxMS4wNjg2Mi04NS45MzE1MyA1Ni4wODI5Ni00Ni42NzkyNyAzMS4yMTMyMS0xMjcuMDIxNjYgODQuOTMxNzctMTc4LjUzODMzIDExOS4zNzQ1OC01OS40NDkwNyAzOS43NDYyMi05My42NjY2NyA2My4wMTM3LTkzLjY2NjY3IDYzLjY5MjAxIDAgLjU4NzggNTAuMTA4NzIgNzQuMDU2NzMgMTExLjM1MjcxIDE2My4yNjQyOSA2MS4yNDM5OSA4OS4yMDc1NiAxMTEuNjQzOTggMTYzLjAwMjE2IDExMiAxNjMuOTg4MDMuNTQxMjIgMS40OTg4NyA1MS40ODEyOSA3NS44MzQ5MyA4NS4zMTM5NiAxMjQuNDk3NDcgMjQuNTcxNCAzNS4zNDE3MyAyOTQuODEzNDQgNDI5LjE5MDEzIDI5NS4xOTE5NCA0MzAuMjEwMDMuNDEyMSAxLjExMDYtMjQuMTk5MSAxLjE2MjgtNTExLjM3OTUzIDEuMDg0OC0zNDIuNzI2OTktLjA1NS01MTIuMjU0MDE0LS4zMDQtNTEzLjE0OTEzNi0uNzU0NHoiLz48cGF0aCBmaWxsPSIjMmUyYzJjIiBkPSJNMjEuODAzNzI2IDEzNTkuODMzM2MtMi44MDc5OTUtMy44MDg1LTIwLjIyMTAyNTgtMjkuNDQ0MS0yMS4wMjgxNTMyOC0zMC45NTc4LS41OTA1NjY1OC0xLjEwNzYtLjcyNjQ4MTM5LTEyMS4xNjY0LS41NjU2NTY1My00OTkuNjY2NjNDLjMyNjM0NTIgNTU1LjE5Mzk4LjY1NDAzOTcyIDMzMC4xLjkzODEyNjI1IDMyOSAxLjIyMjIxMjggMzI3LjkgMjkuMTAyMzUxIDI1OCA2Mi44OTM5ODkgMTczLjY2NjY3IDExMC4yMzIzOSA1NS41MjQ4NTUgMTI0LjU4ODQ5IDIwLjMzMzMzMyAxMjUuNDQ1MSAyMC4zMzMzMzNjLjcyOTU1IDAgMzguMTgwMzkgNTMuOTc2NTQgMTA4LjkzMjIgMTU2Ljk5OTk5NyA1OS4zMDEyMyA4Ni4zNSAxMzAuMDgwOTMgMTg5LjQxMDY0IDE1Ny4yODgyMiAyMjkuMDIzNjRzNDkuODAxMjIgNzIuNjQ2NjQgNTAuMjA4NzMgNzMuNDA4MDhjLjQwNzUyLjc2MTQ1IDUwLjU4OTA2IDczLjk1MDgxIDExMS41MTQ1NCAxNjIuNjQzMDMgNjAuOTI1NDggODguNjkyMjUgMTExLjEwNTU3IDE2Mi4wMDg1OSAxMTEuNTExMzIgMTYyLjkyNTI1QzY2NS42OTg0OCA4MDcuMTM3IDczOS4zOTg5MiA5MTQuODAwNiA3NDEuMzQwODYgOTE3YzEuNTUwNCAxLjc1NjA3IDMwNS4zMjU4NCA0NDQuMTExOCAzMDUuMzI1ODQgNDQ0LjYxMzUgMCAuMjEyNi0yMzAuMjM0NzguMzg2NS01MTEuNjMyNzguMzg2NUgyMy40MDExODh6bTE1NTEuNDgxMjc0IDEuMzEyMmMtMS4yNjMyLS45Nzg2LTI3My45MzIyLTM5Ny45MDAwMy0yNzUuNDI5MS00MDAuOTM5NDMtLjU3NjMtMS4xNy00NC4zNTk4LTY1LjIyLTk3LjI5NjktMTQyLjMzMzM0LTUyLjkzNzEtNzcuMTEzMzMtOTcuNzIxMS0xNDIuNDU2MDYtOTkuNTItMTQ1LjIwNjA2LTguMDMwMy0xMi4yNzU4Ni05Mi43MjE3LTEzNS4yMDkwNC05NC4zODIzLTEzNy0xLjAxOTktMS4xLTQ3LjI5MTcxLTY4LjE2NDgyLTEwMi44MjYxOC0xNDkuMDMyOTItNTUuNTM0NDYtODAuODY4MS0xMDIuMzA5MjYtMTQ4LjgxODEtMTAzLjk0NC0xNTEtNC44Ny02LjQ5OTkzLTE2MC4zMDIyMi0yMzMuMTk4ODIxLTE2MC43NTgzOS0yMzQuNDY3MDgzM0M2MzguNzI4NjEuMDU1OTAzNDcgNjg0LjQzNjUyIDAgMTU5My4wMjA5IDBoOTU0LjMxMjR2MTM2MmwtNDg2LjUtLjAyMWMtMzgxLjM4MTMtLjAxNy00ODYuNzI2NS0uMTk2Ny00ODcuNTQ4My0uODMzNHoiLz48cGF0aCBmaWxsPSIjMmEyODI4IiBkPSJNMjMuMzMzMzMzIDEzNjEuMzg5M2MwLS43MDkyLTIwLjE5NDgzMzctMzAuMzgyNC0yMi4wNzI1OTYzLTMyLjQzMjNDLjA0NzEyMzk3IDEzMjcuNjMyMiAwIDEzMjUuNjY5OCAwIDEyNzYuNDU3di01MS4xMjM3aDEuODc2NTM3N2MxLjAzMjA5NTggMCA4OC41Mjk1NjEzIDEwLjYzODQgMTk0LjQzODgyMjMgMjMuNjQwOCAxMDUuOTA5MjUgMTMuMDAyNSAxOTIuODE0ODEgMjMuNDg0OCAxOTMuMTIzNDUgMjMuMjk0LjMwODY1LS4xOTA3LjU2MTE4LTI2LjgyMTguNTYxMTgtNTkuMTggMC00Ni4wNzAyLjE4MDc4LTU5LjA1NzguODMzMzQtNTkuODY4Mi40NTgzMy0uNTY5MiA0NS4wODMzMy0zMC41OTQ0IDk5LjE2NjY2LTY2LjcyMjcgNTQuMDgzMzQtMzYuMTI4MyAxMzIuNjc5ODEtODguNjY1MTMgMTc0LjY1ODgzLTExNi43NDg1MyA3MS43MzkzLTQ3Ljk5MjU0IDc2LjM5MDk3LTUwLjk5MTE0IDc3LjQxNDQ0LTQ5LjkwNDY3LjU5ODg2LjYzNTggNjguOTUwNjYgOTkuOTg5OSAxNTEuODkyODYgMjIwLjc4NyA4Mi45NDIyIDEyMC43OTcxIDE1MS4zMDU3OCAyMjAuMDEyNSAxNTEuOTE4OTggMjIwLjQ3ODguOTAyNC42ODYyLTk2LjQ1MDcxLjg1MTktNTEwLjcxODQ0Ljg2OS0zMDkuNTM1MTQuMDEzLTUxMS44MzMzMjctLjIyMDItNTExLjgzMzMyNy0uNTg5NXpNMTQzNi41NjEyIDExNjEuNWMtNzUuNzQxMi0xMTAuMjc1LTEzNy45MzgyLTIwMS4yMjM4LTEzOC4yMTU2LTIwMi4xMDg0LS4yNzc0LS44ODQ2Ny00Mi44Njc1LTYzLjI4NDY3LTk0LjY0NDctMTM4LjY2NjY3LTEwOC4zOTk5LTE1Ny44MTg2My05OS40Mjk4LTE0NC41OTk2Ni05OC42NDQyLTE0NS4zNjkgMS4zMDYxLTEuMjc4OTMgNDM2LjY3MjItMjkyLjI0OTc1IDQzNy42NzE1LTI5Mi41MTE2My42MTM4LS4xNjA4MyAzNC41NTE0IDIyLjEwMTk5IDgwLjQ0NjIgNTIuNzcyMDkgNDMuNjYxNiAyOS4xNzc2NiA3OS42ODQ3IDUzLjA1MDI4IDgwLjA1MTQgNTMuMDUwMjguNjAzNCAwIDI1LjY0MDQtMjguOTIzOTQgMTUzLjY5NTktMTc3LjU1NjI0QzE4NzkuMjQ1NCAyODUuMTk5NjkgMTg5Ny45MDAyIDI2NCAxODk4LjM3NjggMjY0Yy40NzY2IDAgMS4wMjM2LjUyNSAxLjIxNTQgMS4xNjY2Ny4zNzU5IDEuMjU3ODIgNjkuNzQ2MiAyNTAuOTU5MDggMTAwLjc5OTggMzYyLjgzMzMzIDEwLjQzMjMgMzcuNTgzMzMgMTkuNDIxMiA2OS41NjggMTkuOTc1NCA3MS4wNzcwNyAxLjE3MiAzLjE5MS0yNi4wMTYzLTE1LjIwMDA3IDI2NS45NjU5IDE3OS45MDgxMyAxMDEuOTMzMyA2OC4xMTM4NyAxODUuNzQzOSAxMjQuMjI4MiAxODYuMjQ1NyAxMjQuNjk4Ni43Ni43MTI1LjM3MDUgMS4yNTE2LTIuMzMzNCAzLjIyOTYtMS43ODUxIDEuMzA1OS03MS41NjE1IDQ3LjkwOTctMTU1LjA1ODcgMTAzLjU2MzktMTA1LjU3NzEgNzAuMzcxMy0xNTEuODE5MyAxMDEuNTQ4OC0xNTEuODMzMyAxMDIuMzY5NS0uMDExLjY0OTEgOS4wMDMzIDMzLjY0OCAyMC4wMzIyIDczLjMzMDkgMTEuMDI4OCAzOS42ODI4IDIwLjE1NyA3Mi45NzY3IDIwLjI4NDcgNzMuOTg2NGwuMjMyNCAxLjgzNTloLTYyOS42MzA1ek0zMzAuNjY2NjYgNzY1LjQwODg3Yy0xODAuOTUtMjIuMjQ3LTMyOS4zNzQ5OTM0LTQwLjY4MjgtMzI5LjgzMzMyNjY4LTQwLjk2ODM0Qy4xNjk3MzkzIDcyNC4wMjcwNyAwIDY4NC4wNzE3MyAwIDUyOC4yODAxOVYzMzIuNjM5MDVsNjIuMTA3MDU3LTE1NS4xNTI4NkM5Ni4yNjU5MzkgOTIuMTUyMTIgMTI0LjU3NzI3IDIxLjkzMjcxNyAxMjUuMDIxMTMgMjEuNDQzMDc0Yy42NjA3Mi0uNzI4ODc1IDEuMDQ2NTktLjU0NzU5NyAyLjEyODY0IDEgLjcyNjg5IDEuMDM5NjQzIDUxLjA2NzcgNzQuMzQwMjU5IDExMS44Njg0NyAxNjIuODkwMjU2IDYwLjgwMDc2IDg4LjU1IDEzMC44NDg3NyAxOTAuNTU4OTEgMTU1LjY2MjIzIDIyNi42ODY0NyAyNC44MTM0OCAzNi4xMjc1NSA0NS40Nzc2OCA2Ni4zNjMzOCA0NS45MjA0NiA2Ny4xOTA3MS40NDI3OC44MjczNCA0OS40NzgyMiA3Mi4zNjg0MyAxMDguOTY3NjUgMTU4Ljk4MDIgMTIyLjI2NjM0IDE3OC4wMDk4OSAxMTMuNjY5NSAxNjUuNDUyMDIgMTE0LjE4NTI0IDE2Ni43OTYwMi4zMDMwOC43ODk4Ny0uMTA0NjYuOTk3Ni0xLjg0OTE3Ljk0MjI3LTEuMjMwOS0uMDM5MS0xNTAuMjg3OTktMTguMjczMTMtMzMxLjIzNzk5LTQwLjUyMDEzem0yMjE1Ljk5OTk0LTI2LjQxNzk0YzAtLjU1NDkzLS4zMDg0LTEuNTI5OTMtLjY4NTQtMi4xNjY2Ni0uMzc3LS42MzY2Ny0xMC44OTM4LTM3LjkwNzYtMjMuMzcwOS04Mi44MjQyNy04NS4zOTA4LTMwNy40MDIyNy04Ny4zMzU0LTMxNC4zMTY3Ny04OC44MTQ1LTMxNS44MDEzNy0uODA0NC0uODA3NDItOTMuNTYyNS02My4wNzI0Mi0yMDYuMTI5Mi0xMzguMzY2NjVDMjExNS4xIDEyNC41Mzc3NCAyMDIzIDYyLjUxNDk2OCAyMDIzIDYyLjAwMzU5MmMwLS41MTEzNzYgMjAuNTI2MS0xNC42NzEzODQgNDUuNjEzNi0zMS40NjY2ODNMMjExNC4yMjczIDBoNDMzLjEwNnYzNzBjMCAyMDMuNS0uMTUgMzcwLS4zMzMzIDM3MC0uMTgzNCAwLS4zMzM0LS40NTQwNy0uMzMzNC0xLjAwOTA3ek05MDYuMjgzNjUgMzg4LjgzNzMzYy01NS4zMzkzMy04MC41NzI4LTEwMS42NDc5OS0xNDcuODQ3OC0xMDIuOTA4MTMtMTQ5LjUtMS4yNjAwNi0xLjY1MjItMzcuODI1MDYtNTQuNzU0LTgxLjI1NTQtMTE4LjAwNC00My40MzA0LTYzLjI0OTk5Ny03OS45NzM4OC0xMTYuNDI0OTk2Ny04MS4yMDc3OC0xMTguMTY2NjYzM0w2MzguNjY4ODggMGg0MTUuMzY1NDJjMzczLjA2NjUgMCA0MTUuMzA3LjEwNDExODYzIDQxNC43OTMxIDEuMDIyNDIyN0MxNDY3LjQ5IDMuNDEyMTA1MSAxMDA4LjQyNDMgNTM1LjMzMzMzIDEwMDcuNjk5MiA1MzUuMzMzMzNjLS40MzkyIDAtNDYuMDc2MjEtNjUuOTIzMi0xMDEuNDE1NTUtMTQ2LjQ5NnoiLz48cGF0aCBmaWxsPSIjMjUyMjIzIiBkPSJNMjMuOTE2NjY2IDEzNjEuNjY2N2MtLjA0NTgzLS4xODM0LS4xMjA4MzMtLjYwNS0uMTY2NjY2LS45MzctLjE2NjE3Ny0xLjIwMzctMjEuOTk0MDctMzIuNjU3Ni0yMi40NjIzNjM4LTMyLjM2ODEtLjI2NDY5MTEuMTYzNS0uNjYyNjkxOTItLjE3NTQtLjg4NDQ0NjM1LS43NTMzQy4xODE0MzU0NCAxMzI3LjAzMDQgMCAxMzAzLjkyNjUgMCAxMjc2LjI2NjF2LTUwLjI5MTVsMS41LjMzODVjNC43ODE1NDg1IDEuMDc4OSAzODMuNjUzODEgNDcuMTc0MyAzODcuNDk5OTkgNDcuMTQ1IDYuMDQ3ODctLjA0NiAyODAuMzA3IDMzLjU4MjIgMjgxLjIwNDUzIDM0LjQ3OTguNjQyMjcuNjQyMiAxNS4wNjE5NCA1MS40NDc2IDE1LjEwNzQ3IDUzLjIyODguMDE3My42NjU2LTY2LjU0NTA3LjgzMzMtMzMwLjY0NTMzLjgzMzMtMTgxLjg2NjY2IDAtMzMwLjcwNDE2LS4xNS0zMzAuNzQ5OTk0LS4zMzMzek0xNTcxLjk1IDEzNTguMTM2NWMtMS4zMTA4LTIuMDkxNy02My4wMzM2LTkyLjA5NC0xMzcuMTYxOS0yMDAuMDA0OXMtMTM1LjA2NjYtMTk2LjczOTUzLTEzNS40MTg0LTE5Ny4zOTY5M2MtLjQ1MDctLjg0MjItLjM0MzktMS42MTc0Ny4zNjE5LTIuNjI1IDIuODQwNi00LjA1NTc0IDQwMi42MjYyLTQ2Ny4zMDkxNiA0MDQuMjY0LTQ2OC40NDMgMS4wNTkyLS43MzMzNCAyNi40NzI0LTI5LjgzMzM0IDU2LjQ3MzUtNjQuNjY2NjdzNzMuMDkxMi04NC44NTgzMyA5NS43NTU2LTExMS4xNjY2N0MxODc4Ljg4OTIgMjg3LjUyNSAxODk3LjcxMDQgMjY2IDE4OTguMDQ5NyAyNjZjLjMzOTMgMCAuNjE2OS4xNjE3Ny42MTY5LjM1OTQ4IDAgLjMyMTA1IDUxLjkzMzggMTg3LjM2MjUyIDEwMS42MTYgMzY1Ljk3Mzg1IDEwLjA5NzIgMzYuMyAxOC45NSA2Ny4yIDE5LjY3MyA2OC42NjY2Ny43MjMgMS40NjY2NyA4LjM1ODMgMjguMDE2NjcgMTYuOTY3NCA1OSA4LjYwOSAzMC45ODMzMyA0MC4yNzMyIDE0NC45MDEyNyA3MC4zNjQ5IDI1My4xNTA5IDMwLjA5MTYgMTA4LjI0OTcgNTQuNzE2NCAxOTcuNzk5NyA1NC43MjE3IDE5OSAuMDEgMS44MDY3IDM5LjQ4NjIgMTQ1LjAwOSA0MC45ODkgMTQ4LjY4MjQuNDU0MiAxLjExMDItMTQuNzU4MSAxLjE2NTItMzE0LjA5NCAxLjEzNjZsLTMxNC41NzEzLS4wMy0yLjM4MzMtMy44MDMyek0zMzIuNjY2NjYgNzY0LjI5MTRjLTE3OS44NS0yMi4xMjc2Ny0zMjguMjc0OTkzNC00MC4yOTQwNy0zMjkuODMzMzI2Ny00MC4zNjk4N0wwIDcyMy43ODM4VjUyOC4wNDAyNWMwLTE2Mi4xNzA1OC4xNTI2OTQ4Ny0xOTUuOTY5MTIuODkwMjcwMjYtMTk3LjA1ODU4LjQ4OTY0ODU0LS43MjMyNSAyOC41NzAzMDc3NC03MC41NDEyNSA2Mi40MDE0NjQ3NC0xNTUuMTUxMUM5Ny4xMjI4OTIgOTEuMjIwNzEzIDEyNS4wMzgxOCAyMS44NDkwODEgMTI1LjMyNTcxIDIxLjY3MTM4Yy41MTg2Mi0uMzIwNTMgMzEzLjM4OTcyIDQ1NC42NjQ4NSAzMTUuMzc3MiA0NTguNjI5ODQuNTY5OTUgMS4xMzcwMiA1MC43NDQ5NSA3NC40MzU5NSAxMTEuNSAxNjIuODg2NTEgNjAuNzU1MDYgODguNDUwNTQgMTEwLjQ2Mzc1IDE2MC45Njc2IDExMC40NjM3NSAxNjEuMTQ5MDcgMCAuMTgxNC0uNjc1LjI5NzY3LTEuNS4yNTgzMy0uODI1LS4wMzkzLTE0OC42NS0xOC4xNzYtMzI4LjUtNDAuMzAzNzN6bTIyMTMuNjcxNDQtMjguNDU4MDdjLS43ODc2LTUuMDA2NDYtMTA5LjEyMzUtMzk0LjA2OTY4LTExMC40NzQyLTM5Ni43NDI1LTEuMTA1NS0yLjE4NzQzLTk0LjUzMDYtMzM2LjY5ODkzODktOTQuNTMwNi0zMzguNDY5NTcyOTdDMjM0MS4zMzMzLjI0MDAzOTQ5IDIzODEuMTMwMiAwIDI0NDQuMzMzMyAwaDEwM3YzNjkuMzMzMzNjMCAyMDMuMTMzMzQtLjEyMzYgMzY5LjMzMzM0LS4yNzQ3IDM2OS4zMzMzNC0uMTUxMiAwLS40NzU0LTEuMjc1LS43MjA1LTIuODMzMzR6TTkwNS45OTI5OSAzODcuMTk1ODRjLTU1LjQ1NzYtODAuNzc0MzgtMTAxLjY1MTY3LTE0Ny43NjI1MS0xMDIuNjUzNDctMTQ4Ljg2MjUxLTEuMDAxODYtMS4xLTM4LjA2MTMzLTU0LjgtODIuMzU0NC0xMTkuMzMzMzMtNDQuMjkzLTY0LjUzMzMzMy04MC43ODQ1OC0xMTcuNDMzMzMzMy04MS4wOTIzLTExNy41NTU1NTU1LS4zMDc3Mi0uMTIyMjIyMy0uNTU5NS0uNDk3MjIyMy0uNTU5NS0uODMzMzMzMzlDNjM5LjMzMzMyLjI0MTM5NTY1IDgwMy4xNTI2NiAwIDEwNTQuMDU0MSAwaDQxNC43MjA5bC0yLjIyMDkgMi4zNDYwMDYyYy0xLjIyMTQgMS4yOTAzMDM0LTEwNC44MjA4IDEyMS4zNDQxMDM4LTIzMC4yMjA4IDI2Ni43ODYyMjM4LTEyNS40IDE0NS40NDIxMi0yMjguMzM5NCAyNjQuNTQ5NTUtMjI4Ljc1NDIgMjY0LjY4MzE3LS40MTQ4LjEzMzYyLTQ2LjEyODUxLTY1Ljg0NTE5LTEwMS41ODYxMS0xNDYuNjE5NTZ6Ii8+PHBhdGggZmlsbD0iIzIxMWUxZiIgZD0iTTM4OS45OTk5OSAxMzE4LjM3MjdjMC0yMy45OTUuMjU3LTQzLjc4NjIuNTcxMTEtNDMuOTgwMy43OTQ1MS0uNDkxMSAyNzguMjk1MDkgMzMuNTk4IDI3OS4wMDIzNiAzNC4yNzM1LjQxNDkzLjM5NjMgMTUuMDUzMDYgNTEuOTc3NSAxNS4wODgyNiA1My4xNjc0IDAgLjA5Mi02Ni4yOTUwNi4xNjY3LTE0Ny4zMjgzOS4xNjY3SDM4OS45OTk5OXpNMTU3NCAxMzYwLjk4MTRjMC0uNTYwMi02MS44MjQ0LTkxLjAyNTEtMTM3LjM4NzYtMjAxLjAzMjktMTIwLjA3MDMtMTc0LjgwMzEtMTM3LjI3NTgtMjAwLjE1MTE3LTEzNi41LTIwMS4wOTk1NyA2LjE0MjItNy41MDkyNiA0MDIuODk5Ny00NjcuNDA1NDcgNDAzLjc0MTUtNDY3Ljk5MTY2IDEuMDA1OC0uNzAwMzYgMjIuMjEzOCAxMy4yNjY3NCAxNTcuNDIwOCAxMDMuNjczNiA4NS45NDIxIDU3LjQ2NTY0IDE1Ni44MDU3IDEwNS4yMjk4NiAxNTcuNDc0NiAxMDYuMTQyNzMgMS4wNjAzIDEuNDQ2ODcgMTQxLjQzNTcgNTA0LjY2MDMgMTQyLjM5MiA1MTAuNDQyMWwuMzQ5OSAyLjExNTgtMTExLjU4NTcgNzQuMzg0MkwxOTM4LjMxOTggMTM2MmgtMTgyLjE1OTljLTE2Mi45NTI3IDAtMTgyLjE1OTktLjEwNzQtMTgyLjE1OTktMS4wMTg2ek02Mi43MDA4NDEgNjUwLjMzMDQxYy0zMy4xNDc5MzgtMjIuMTg0OTQtNjAuODE2MTQ3My00MC44MzE0NC02MS40ODQ5MDk2LTQxLjQzNjY2LTEuMTY5NTk1NjMtMS4wNTg0Ny0xLjIxNDE0NTgxLTYuMzM2Mi0xLjE2OTA3NDU2LTEzOC40OTcwOC4wMjU3NzEyNy03NS41NjgxNi4zMDQ2ODU2OC0xMzcuOTk2NjcuNjE5ODA5ODItMTM4LjczLjMxNTEyNDEzLS43MzMzNC42MDc5ODA1NC0xLjAzMzM0LjY1MDc5MjA0LS42NjY2Ny4wNDI4MTEzLjM2NjY3IDI3LjkzMzc4MjMtNjguOTMzMzMgNjEuOTc5OTM0My0xNTRDOTcuMzQzNTQ1IDkxLjkzMzMzMyAxMjUuNDU0NjEgMjIuNDY0MjAxIDEyNS43NjY0MSAyMi42MjQxNTFjLjMxMTgxLjE1OTk1IDUzLjYzMDUxIDc3LjU1OTk0OSAxMTguNDg2IDE3MS45OTk5OTlTMzc5LjY3MzY4IDM5MS44MTM3MSA0MDEuMDY1MjMgNDIyLjk1NjRjMjguOTk5NTMgNDIuMjE4NjcgMzguNzE1OTIgNTYuODM3MzMgMzguMTk0NzMgNTcuNDY1MzMtMS40NTMxIDEuNzUwODgtMzEzLjg5MjMzIDIxMC4yNDQ5NC0zMTUuMDYzMDIgMjEwLjI0NDk0LS42NzQ5MSAwLTI4LjM0ODE2MS0xOC4xNTEzNC02MS40OTYwOTktNDAuMzM2MjZ6TTI0OTIgMzc3LjAxMDY4Yy00Mi41MzQ4LTI4LjQzMjQtNTQuNTg3NS0zNi43OTIzMy01NS41MDM2LTM4LjQ5ODI1LS42NDM3LTEuMTk4NS0yMi4wMzA0LTc3LjMyOTEtNDcuNTI2Mi0xNjkuMTc5MS0yNS40OTU3LTkxLjg0OTk5Ny00Ni41MTQyLTE2Ny41MjQ5OTY3LTQ2LjcwOC0xNjguMTY2NjYzM0MyMzQxLjkyOC4wNTkwODAwOSAyMzQ3LjExMTQgMCAyNDQ0LjYyMTcgMGgxMDIuNzExNnYyMDYuNjY2NjdjMCAxMTMuNjY2NjYtLjIyNSAyMDYuNjY1ODgtLjUgMjA2LjY2NDkxLS4yNzUtLjAwMDY3LTI0Ljk1LTE2LjM0NTM3LTU0LjgzMzMtMzYuMzIwOXpNNzIxLjk5OTk5IDExOS41NjAwMUM2NzcuODE2NjYgNTUuMTcwNDc0IDY0MS4wODUwOSAxLjkyODI5NjcgNjQwLjM3NDI4IDEuMjQ0MDYyNCA2MzkuMTEyNjkuMDI5NjI4MTUgNjQzLjA1MTMgMCA4MDUuNzUzNDYgMGgxNjYuNjcxNTNsNC4wMjY1MyAyLjVjMTIuOTA3OTMgOC4wMTQyMzEgODguMjU1MTggNTkuMDQ2NDYxIDg4LjA1NzE4IDU5LjY0MDU0Ny0uMzQ5NiAxLjA0ODc4OC0yNTkuOTc2MjQgMTc0LjUyOTIxMy0yNjEuMTY1NTggMTc0LjUwODczMy0uNTg0MDYtLjAxMDEtMzQuODc4NjYtNDkuMzc1MzctODEuMzQzMTMtMTE3LjA4OTI3eiIvPjwvc3ZnPg==);
+}
+
+body:after {
+	background: linear-gradient(to left, #c33764, #1d2671);
+	opacity: 0.18;
+}
+
+// Inputs --------------------------------------------
+
+input:focus + * + .desc {
+	color: white !important;
+}
+
+.desc {
+	transition: all ease 0.5s;
+	margin-top: 4px;
+}
+
+input {
+	transition: all ease 0.5s;
+}
+
+input[type="date"]:focus:not([readonly]),
+input[type="datetime-local"]:focus:not([readonly]),
+input[type="email"]:focus:not([readonly]),
+input[type="number"]:focus:not([readonly]),
+input[type="password"]:focus:not([readonly]),
+input[type="search-md"]:focus:not([readonly]),
+input[type="search"]:focus:not([readonly]),
+input[type="tel"]:focus:not([readonly]),
+input[type="text"]:focus:not([readonly]),
+input[type="time"]:focus:not([readonly]),
+input[type="url"]:focus:not([readonly]),
+textarea.md-textarea:focus:not([readonly]) {
+	border-color: rgba(255, 255, 255, 0.2);
+	border-bottom: 1px solid #00bcd4;
+	box-shadow: 0 1px 0 0 #00bcd4;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+	padding: 15px 10px !important;
+}
+
+.select-box-kit.combo-box .select-box-kit-header,
+.select-box-kit.combo-box .select-kit-header,
+.select-kit.combo-box .select-box-kit-header,
+.select-kit.combo-box .select-kit-header {
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+// Media queries ------------------------------------------------------------------------------------
+
+@media (min-width: 850px) {
+	.topic-meta-data {
+		padding: 1.5em !important;
+	}
+}
+
+@media (max-width: 850px) {
+	body {
+		background: none !important;
+	}
+
+	.topic-list th,
+	.topic-list td {
+		padding: 0.75em !important;
+	}
+
+	.topic-map {
+		margin-bottom: 0;
+	}
+}
+
+// Extras ------------------------------------------------------------------------------------
+
+.pace .pace-progress {
+	background: #00bcd4;
+}
+
+.spinner {
+	height: 35px;
+	width: 35px;
+	border: none;
+	box-shadow: inset 0 1px 1px #00bcd4;
+	margin: 60px auto 0px auto;
+}
+
+.d-header-icons .badge-notification {
+	top: 0;
+	right: -9px !important;
+}
+
+.d-header-icons .unread-notifications {
+	background-color: #e91e63;
+}
+
+li#current-user a:not(.badge-notification) {
+	margin-right: 0;
+	padding-right: 0;
+}
+
+.category-boxes .category-box-inner:hover,
+.category-boxes-with-topics .category-box-inner:hover {
+	background: rgba(255, 255, 255, 0.1);
+	cursor: pointer;
+}
+
+.btn:hover .d-icon {
+	opacity: 1;
+}
+
+// TESTS --------------------------------------------
+
+.user-nav {
+	margin: 10px 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.topic-meta-data {
+	padding: 35px;
+	margin: 0 !important;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reply * .topic-meta-data {
+	padding: 0;
+	border-bottom: none;
+}
+
+#topic-title .title-wrapper,
+#topic-footer-buttons {
+	background: rgba(19, 20, 24, 0.9);
+	padding: 1em;
+	display: inline-block;
+	margin: 0 auto;
+	width: 750px;
+	max-width: 100%;
+}
+
+.list-controls,
+.top-lists,
+.topic-list-bottom {
+	margin: 1em 0;
+	background: rgba(19, 20, 24, 0.9);
+	padding: 0.75em;
+}
+
+.period-chooser .top-date-string {
+	color: #909090;
+}
+
+.category-list tbody tr,
+.reply > .row {
+	border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.topic-list thead,
+.category-list thead {
+	background: rgba(255, 255, 255, 0.9);
+}
+
+nav.post-controls .highlight-action,
+.topic-list .topic-list-item-separator td span {
+	color: #d0d0d0;
+}
+
+.user-main .about .secondary dd {
+	display: inline;
+}
+
+.top-title-buttons,
+.user-badge,
+#user-card.show-badges .more-user-badges {
+	display: inline-block;
+}
+
+.main-content .nav-drop .selected-nav-item {
+	line-height: 30px;
+	height: 30px;
+}
+
+.user-badge,
+#user-card.show-badges .more-user-badges {
+	line-height: 19px;
+}
