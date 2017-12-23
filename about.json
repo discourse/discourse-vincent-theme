@@ -4,12 +4,12 @@
   "license_url": "",
    "color_schemes": {
        "Vincent Dark": {
-          "primary": "ddd",
-          "secondary": "111",
+          "primary": "dddddd",
+          "secondary": "111111",
           "tertiary": "00BCD4",
           "quaternary": "9E9E9E",
           "header background": "131418",
-          "header primary": "ccc",
+          "header primary": "cccccc",
           "highlight": "9E9E9E",
           "danger": "96000e",
           "success": "00bf9a",
