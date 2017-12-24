@@ -24,24 +24,18 @@ html {
 
 // box shadow set -------------------------------------------------
 
-.main-content.topic.has-sidebars #topic-title,
 .menu-panel,
 #share-link.visible,
-.widget-container.app,
 .user-stream .item,
 .user-stream .user-stream-item,
-.user-profile .avatar img,
 .topic-body,
-.main-content.topic.has-sidebars #topic-title,
-.list-controls:after,
-.widget-container .widget-inner {
+.list-controls:after {
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
 		0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 // box shadow none -------------------------------------------------
 
-.user-profile.widget-container .widget-inner,
 #user-card.show-badges,
 .user-right .topic-list-item,
 #reply-control,
@@ -52,10 +46,7 @@ html {
 // color primary ---------------------------------------------------------------------------------------
 
 .discourse-tag.box,
-.main-content.topic.has-sidebars
-	.posts-wrapper
-	.small-action
-	.small-action-desc,
+.posts-wrapper .small-action .small-action-desc,
 span.hashtag,
 .settings .setting.overridden h3,
 .d-header-icons .icon:hover,
@@ -108,10 +99,7 @@ button.ok:hover {
 
 // background main ----------------------------------------------------------------------------------
 
-.main-content.topic.has-sidebars #topic-title,
-.widget-container .widget-inner,
 .topic-body,
-.user-profile .profile-top,
 .user-table,
 .badge-card,
 ul.cat-list,
@@ -158,24 +146,18 @@ button.ok:hover {
 	background: #00bf9a;
 }
 
-.modal-backdrop {
-	background-color: rgba(22, 22, 22, 0.7);
-}
-
-.topic-list thead {
-	background: rgba(255, 255, 255, 0.9);
-}
-
 #user-card .card-content,
 .user-nav {
 	background: #131418;
 }
 
+.modal-backdrop,
+.topic-list thead {
+	background-color: rgba(22, 22, 22, 0.7);
+}
+
 // background none ---------------------------------------------------------------------------------
 
-.main-content.has-sidebars .container.list-container,
-.user-profile.widget-container,
-.main-content.has-sidebars .container.posts,
 .topic-body .reply-to-tab,
 .list-controls a,
 .d-header-icons a.icon,
@@ -192,13 +174,10 @@ a.mention-group,
 .user-badge,
 #user-card.show-badges .more-user-badges,
 .list-controls .category-breadcrumb li.bullet > .dropdown-header,
-.user-profile .profile-actions,
-.widget-container.app a,
 .menu-links-header a:hover,
 .extra-info-wrapper .discourse-tag.box,
 .d-header-icons .icon:hover,
 .d-header-icons .icon:active,
-.user-profile.widget-container .widget-inner,
 .widget-container,
 .d-editor-container .d-editor-button-bar .btn,
 .reply *.topic-body,
@@ -210,8 +189,6 @@ tr.topic-list-item-separator + .topic-list-item {
 
 // border none ------------------------------------
 
-.main-content.has-sidebars .container.posts,
-.user-profile.widget-container,
 .main-content.nav-menu-enabled .list-controls,
 div.menu-links-header a,
 .user-main .about.collapsed-info .details,
@@ -221,9 +198,6 @@ div.menu-links-header a,
 .d-editor-button-bar button,
 .topic-list-item,
 .topic-title,
-.widget-container,
-.user-profile .profile-actions button,
-.user-profile .profile-actions .widget-component-connector,
 .topic-post article.boxed,
 .main-content.topic.has-sidebars #topic-title,
 .user-stream .item,
@@ -233,7 +207,6 @@ div.menu-links-header a,
 .main-content .list-controls,
 .main-content.nav-menu-enabled .list-controls,
 .main-content.has-sidebars .container.list-container,
-.user-profile .avatar img,
 img.avatar,
 .topic-status-info,
 .topic-avatar,
@@ -263,8 +236,7 @@ nav.post-controls .post-admin-menu,
 
 hr,
 .post-links-container .post-links,
-.admin-contents table td,
-.main-content.topic.has-sidebars #topic-footer-buttons {
+.admin-contents table td {
 	border-top: 1px solid !important;
 }
 
@@ -273,15 +245,12 @@ hr,
 .topic-list .topic-list-item-separator td,
 .nav-stacked li,
 .admin-contents table td,
-.widget-container .widget-multi-title a.widget-link.list-title.active,
-header.d-header.clearfix,
-.user-profile .avatar img {
+header.d-header.clearfix {
 	border-bottom: 1px solid !important;
 }
 
 // border-color ------------------------------------
 
-.user-profile .avatar img,
 img.avatar,
 .menu-panel,
 #share-link.visible,
@@ -291,7 +260,6 @@ img.avatar,
 .admin-controls .nav.nav-pills li.active a,
 hr,
 .nav-stacked li,
-.widget-container.app,
 .post-links-container .post-links,
 .user-stream .item,
 .user-stream .user-stream-item,
@@ -303,15 +271,8 @@ nav.post-controls .post-admin-menu,
 .badges .content-list ul li,
 .admin-contents table td,
 .reply,
-.widget-container .widget-multi-title a.widget-link.list-title.active,
 header.d-header.clearfix,
-.main-content.topic.has-sidebars #topic-footer-buttons,
-.main-content.topic.has-sidebars
-	.posts-wrapper
-	.small-action
-	.small-action-desc,
 .timeline-container .topic-timeline .timeline-scrollarea,
-.widget-container .widget-list li,
 .admin-list-item,
 section.about table td,
 section.about table th,
@@ -325,11 +286,7 @@ section.about table th,
 
 // border-radius 0 ------------------------------------
 
-.main-content.has-sidebars .container.list-container,
-.user-profile.widget-container,
 .main-content.nav-menu-enabled .list-controls,
-.main-content.topic.has-sidebars #topic-title,
-.widget-container.app,
 .user-stream .item,
 .user-stream .user-stream-item,
 a.mention,
@@ -337,7 +294,6 @@ a.mention-group,
 .topic-post article.boxed,
 .main-content .list-controls,
 .main-content.nav-menu-enabled .list-controls,
-.user-profile img.avatar,
 .d-header img.avatar {
 	border-radius: 0;
 }
@@ -416,29 +372,14 @@ header #site-text-logo {
 	line-height: inherit;
 }
 
-.main-content.topic.has-sidebars
-	.posts-wrapper
-	.small-action
-	.small-action-desc,
 #topic-title h1 {
 	font-weight: normal;
 }
 
 .cooked p,
 .cooked .lightbox-wrapper,
-.main-content.topic.has-sidebars
-	.posts-wrapper
-	.small-action
-	.small-action-desc,
 #topic-title h1 {
 	line-height: 1.4;
-}
-
-.main-content.topic.has-sidebars
-	.posts-wrapper
-	.small-action
-	.small-action-desc {
-	font-size: 1em;
 }
 
 .cooked p {
@@ -461,15 +402,12 @@ section.navigation-container,
 td.main-link .topic-thumbnail,
 td.main-link .topic-title,
 #topic-footer-buttons,
-.user-profile .avatar,
-.sidebar-container.fixed,
 .main-content .regular,
 #topic-title,
 .d-header img.avatar,
 .d-header .contents,
 .d-header .d-header-icons,
 .d-header-icons li,
-.user-profile .profile-actions,
 .alert {
 	margin: 0 auto;
 }
@@ -479,7 +417,6 @@ td.main-link .topic-title,
 .topic-list-item,
 #list-area,
 .d-header .contents,
-.main-content.topic.has-sidebars .topic-meta-data,
 aside.quote,
 .d-header button.login-button,
 .topic-meta-data {
@@ -488,11 +425,7 @@ aside.quote,
 
 // small all sides ------------------------------------
 
-.topic-avatar,
-.main-content.topic.has-sidebars
-	.posts-wrapper
-	.small-action
-	.small-action-desc {
+.topic-avatar {
 	margin: 0.5em;
 }
 
@@ -516,10 +449,8 @@ aside.quote,
 .top-title-buttons,
 .user-stream .excerpt,
 td.main-link .topic-excerpt,
-.main-content.topic.has-sidebars .topic-body,
 .alert,
 .topic-post article.boxed,
-.main-content.topic.has-sidebars #topic-title,
 .categories-widget ul li,
 .time-gap.small-action.clearfix,
 .admin-controls {
@@ -528,14 +459,8 @@ td.main-link .topic-excerpt,
 
 // Top zero -------------------------------------------
 
-.widget-container .widget-list,
 .user-main .about.collapsed-info .details,
 #user-card .user-card-avatar,
-.main-content.topic.has-sidebars
-	.posts-wrapper
-	.small-action
-	.small-action-desc,
-.main-content.topic.has-sidebars #topic-title,
 .top-lists,
 .user-table {
 	margin-top: 0;
@@ -544,7 +469,6 @@ td.main-link .topic-excerpt,
 // custom margin ---------------------------------------------
 
 .list-controls .btn,
-.main-content.topic.has-sidebars .topic-body,
 .list-controls .nav {
 	margin-bottom: 0;
 }
@@ -624,24 +548,13 @@ section.navigation-container {
 // padding zero -------------------------------------------------
 
 .topic-users > .inline,
-.widget-container.app,
-.widget-container.app.widget-container .widget-multi-title,
 a.mention,
 a.mention-group,
-.user-profile .profile-actions,
-.main-content.topic.has-sidebars #topic-title,
 .cooked .lightbox-wrapper,
-.main-content.topic.has-sidebars .topic-post > .boxed > .row,
-.main-content.topic.has-sidebars .topic-body,
 .topic-post article.boxed,
-.main-content.topic.has-sidebars
-	.posts-wrapper
-	.small-action
-	.small-action-desc,
-.widget-container,
 .topic-avatar,
 .topic-body,
-.reply * .topic-meta-data  {
+.reply * .topic-meta-data {
 	padding: 0 !important;
 }
 
@@ -650,7 +563,6 @@ a.mention-group,
 .user-badge,
 #user-card.show-badges .more-user-badges,
 .topic-list-item,
-.widget-container .widget-list li,
 .badge-info {
 	padding: 0.75em;
 }
@@ -664,7 +576,6 @@ a.mention-group,
 .user-main .about.collapsed-info .details,
 #user-card .card-content,
 .admin-contents table td,
-.main-content.topic.has-sidebars #topic-title,
 .main-content .list-controls,
 .main-content.nav-menu-enabled .list-controls,
 aside.quote,
@@ -676,7 +587,6 @@ aside.quote,
 
 // Large on side only ----------------------------------
 
-.main-content.topic.has-sidebars #topic-title .container,
 .topic-list .topic-list-item-separator td span,
 .main-content .nav-drop .selected-nav-item,
 .topic-body .regular {
@@ -688,9 +598,7 @@ aside.quote,
 .d-header,
 .topic-list-item,
 .sidebar-container .sidebar-content > div,
-.d-header .icon,
-.user-profile.widget-container .widget-inner,
-.app > .widget-inner {
+.d-header .icon {
 	padding-top: 0;
 }
 
@@ -700,8 +608,7 @@ aside.quote,
 	padding: 3px 25px;
 }
 
-.sidebar-container .sidebar-content > div,
-.user-profile > .widget-inner {
+.sidebar-container .sidebar-content > div {
 	padding-bottom: 0;
 }
 .content-wrapper {
@@ -760,12 +667,7 @@ nav.post-controls {
 
 // center ------------------------------------
 
-.topic-meta,
-.main-content.topic.has-sidebars #topic-title,
-.main-content.topic.has-sidebars
-	.posts-wrapper
-	.small-action
-	.small-action-desc {
+.topic-meta {
 	text-align: center;
 }
 
@@ -773,8 +675,7 @@ nav.post-controls {
 
 // width 100% -----------------------------------------------
 
-.main-content .regular,
-.widget-container .widget-inner {
+.main-content .regular {
 	width: 100%;
 }
 
@@ -869,9 +770,7 @@ header.d-header.clearfix {
 a,
 .discourse-tag.box,
 .menu-links-header a,
-.widget-container.app a,
 .discourse-no-touch .topic-body .actions .fade-out,
-.widget-container .widget-multi-title a.widget-link.list-title,
 .nav-pills > li > a,
 .layouts-nav-button > li > a,
 .btn-icon {
@@ -886,8 +785,7 @@ a,
 .post-stream,
 .topic-list-item,
 .list-controls > .container > section,
-#main-outlet,
-.widget-container .widget-list {
+#main-outlet {
 	animation: Vincent 0.5s ease-out;
 }
 
@@ -941,7 +839,7 @@ body:after {
 // Inputs --------------------------------------------
 
 input:focus + * + .desc {
-	color: $trim-color;
+	color: $trim-color !important;
 }
 
 .desc {
