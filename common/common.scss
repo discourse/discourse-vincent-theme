@@ -1,16 +1,16 @@
 $trim-color: white;
-$main-color: #00BCD4;
+$main-color: #00bcd4;
 $main-background: rgba(19, 20, 24, 0.9);
 $secondary-background: rgba(255, 255, 255, 0.1);
 $border-color: rgba(255, 255, 255, 0.1);
 $box-shadow-value: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
 	0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 $body-background-gradient-direction: bottom right;
-$body-background-gradient-color-first: #9C27B0;
-$body-background-gradient-color-second: #673AB7;
+$body-background-gradient-color-first: #9c27b0;
+$body-background-gradient-color-second: #673ab7;
 $body-background-pattern-opacity: 1;
 $body-background-gradient-opacity: 0.1;
-$body-admin-background-gradient-opacity: 0.35;
+$body-admin-background-gradient-opacity: 0.15;
 
 /* Sorted ------------------------------------------------------------------------------------------------------------- */
 
@@ -59,7 +59,7 @@ html {
 	box-shadow: $n;
 }
 
-// color primary ---------------------------------------------------------------------------------------
+// main color ---------------------------------------------------------------------------------------
 
 .discourse-tag.box,
 .posts-wrapper .small-action .small-action-desc,
@@ -78,27 +78,7 @@ nav.post-controls button.bookmark.bookmarked,
 	color: $main-color;
 }
 
-// background main-color ----------------------------------------------------------------------------------
-
-.timeline-container .topic-timeline .timeline-handle,
-.btn:active,
-.btn:focus,
-.media .media-left img,
-.modal-dialog .modal-content,
-.modal-dialog.cascading-modal .modal-header,
-.z-depth-1-half,
-ul.instagram-photos li img,
-.btn-primary:hover,
-.btn-primary.btn-hover,
-.nav-pills > li.active > a,
-.layouts-nav-button > li.active > a,
-.nav-pills > li > a.active,
-.layouts-nav-button > li > a.active,
-.open .grippie {
-	background: $main-color;
-}
-
-// color trim ---------------------------------------------------------------------------------------
+// trim color ---------------------------------------------------------------------------------------
 
 .nav-pills > li > a:hover,
 .layouts-nav-button > li > a:hover,
@@ -127,7 +107,36 @@ button.ok:hover {
 	color: $trim-color !important;
 }
 
-// background main ----------------------------------------------------------------------------------
+.list-cell,
+.table-heading,
+.category-list td,
+.category-list th,
+.topic-list td,
+.topic-list th {
+	color: darken($trim-color, 40%);
+}
+
+// background main color ----------------------------------------------------------------------------------
+
+.timeline-container .topic-timeline .timeline-handle,
+.btn:active,
+.btn:focus,
+.media .media-left img,
+.modal-dialog .modal-content,
+.modal-dialog.cascading-modal .modal-header,
+.z-depth-1-half,
+ul.instagram-photos li img,
+.btn-primary:hover,
+.btn-primary.btn-hover,
+.nav-pills > li.active > a,
+.layouts-nav-button > li.active > a,
+.nav-pills > li > a.active,
+.layouts-nav-button > li > a.active,
+.open .grippie {
+	background: $main-color;
+}
+
+// main background  ----------------------------------------------------------------------------------
 
 .topic-body,
 .user-table,
@@ -138,13 +147,13 @@ ul.general,
 .alert.alert-info,
 .body-page,
 .topic-list,
-.topic-list tr:nth-of-type(odd),
+.topic-list tbody tr:nth-of-type(odd),
 .category-list,
+.category-list tbody tr:nth-of-type(odd),
 .search-container,
 .search-advanced-options,
 .user-stream-item.item,
 tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
-.topic-meta-data,
 .reply > .row,
 .category-boxes .category-box-inner,
 .category-boxes-with-topics .category-box-inner,
@@ -164,8 +173,7 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .layouts-nav-button > li > a:hover,
 .admin-controls,
 .topic-map,
-.discourse-tag.box,
-.category-list thead {
+.discourse-tag.box {
 	background: $secondary-background;
 }
 
@@ -182,9 +190,14 @@ button.ok:hover {
 	background: #131418;
 }
 
-.modal-backdrop,
-.topic-list thead {
-	background-color: rgba(22, 22, 22, 0.7);
+.modal-backdrop {
+	background-color: darken($trim-color, 60%);
+}
+
+table.topic-list > thead,
+table.category-list > thead,
+.topic-meta-data {
+	background: lighten($main-background, 10%);
 }
 
 // background none ---------------------------------------------------------------------------------
@@ -895,8 +908,8 @@ body.admin-interface:after {
 	opacity: $body-admin-background-gradient-opacity;
 	background: linear-gradient(
 		to $body-background-gradient-direction,
-		lighten($body-background-gradient-color-first, 55%),
-		lighten($body-background-gradient-color-second, 55%)
+		lighten($body-background-gradient-color-first, 20%),
+		lighten($body-background-gradient-color-second, 20%)
 	);
 }
 
@@ -1015,7 +1028,7 @@ input[type="color"] {
 
 @media (min-width: 850px) {
 	.topic-meta-data {
-		padding: 1.5em !important;
+		padding: 1em !important;
 	}
 }
 
@@ -1075,7 +1088,7 @@ li#current-user a:not(.badge-notification) {
 // TESTS --------------------------------------------
 
 .topic-meta-data {
-	padding: 35px;
+	padding: 30px;
 	border-bottom: 1px solid $border-color;
 }
 
