@@ -1,5 +1,5 @@
 $trim-color: white;
-$main-color: #00bcd4;
+$main-color: #009688;
 $main-background: rgba(19, 20, 24, 0.9);
 $secondary-background: rgba(255, 255, 255, 0.1);
 $border-color: rgba(255, 255, 255, 0.1);
@@ -51,7 +51,14 @@ span.hashtag,
 .settings .setting.overridden h3,
 .d-header-icons .icon:hover,
 .d-header-icons .icon:active,
-.extra-info-wrapper .discourse-tag.box {
+.extra-info-wrapper .discourse-tag.box,
+a,
+a:visited,
+.d-icon.d-icon-d-tracking,
+.d-icon.d-icon-d-watching,
+#topic-footer-buttons .bookmark.bookmarked .d-icon-bookmark,
+nav.post-controls button.bookmark.bookmarked,
+.bookmark.bookmarked {
 	color: $main-color;
 }
 
@@ -64,7 +71,9 @@ span.hashtag,
 .modal-dialog .modal-content,
 .modal-dialog.cascading-modal .modal-header,
 .z-depth-1-half,
-ul.instagram-photos li img {
+ul.instagram-photos li img,
+.btn-primary:hover,
+.btn-primary.btn-hover {
 	background: $main-color;
 }
 
