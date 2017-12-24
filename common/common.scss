@@ -1,10 +1,15 @@
 $trim-color: white;
-$main-color: #00BCD4;
+$main-color: #00bcd4;
 $main-background: rgba(19, 20, 24, 0.9);
 $secondary-background: rgba(255, 255, 255, 0.1);
 $border-color: rgba(255, 255, 255, 0.1);
-$body-background-gradient-right: #c33764;
-$body-background-gradient-left: #1d2671;
+$box-shadow-value: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+	0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+$body-background-gradient-direction: bottom right;
+$body-background-gradient-color-first: darkred;
+$body-background-gradient-color-second: darkblue;
+$body-background-gradient-opacity: 0.3;
+$n: none;
 
 /* Sorted ------------------------------------------------------------------------------------------------------------- */
 
@@ -37,9 +42,8 @@ html {
 .topic-list,
 #topic-title .title-wrapper,
 .admin-content,
-.full-width>ul.nav.nav-pills {
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
-		0 3px 1px -2px rgba(0, 0, 0, 0.2);
+.full-width > ul.nav.nav-pills {
+	box-shadow: $box-shadow-value;
 }
 
 // box shadow none -------------------------------------------------
@@ -48,7 +52,7 @@ html {
 .user-right .topic-list-item,
 #reply-control,
 .reply *.topic-body {
-	box-shadow: none;
+	box-shadow: $n;
 }
 
 // color primary ---------------------------------------------------------------------------------------
@@ -82,10 +86,10 @@ nav.post-controls button.bookmark.bookmarked,
 ul.instagram-photos li img,
 .btn-primary:hover,
 .btn-primary.btn-hover,
-.nav-pills>li.active>a,
-.layouts-nav-button>li.active>a,
-.nav-pills>li>a.active,
-.layouts-nav-button>li>a.active {
+.nav-pills > li.active > a,
+.layouts-nav-button > li.active > a,
+.nav-pills > li > a.active,
+.layouts-nav-button > li > a.active {
 	background: $main-color;
 }
 
@@ -144,7 +148,7 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .list-controls,
 .top-lists,
 .topic-list-bottom,
-.full-width >ul.nav.nav-pills {
+.full-width > ul.nav.nav-pills {
 	background: $main-background;
 }
 
@@ -156,7 +160,8 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .admin-controls,
 .topic-map,
 .discourse-tag.box,
-.category-list thead {
+.category-list thead,
+body {
 	background: $secondary-background;
 }
 
@@ -204,7 +209,7 @@ a.mention-group,
 .d-editor-container .d-editor-button-bar .btn,
 .reply *.topic-body,
 tr.topic-list-item-separator + .topic-list-item {
-	background: none;
+	background: $n;
 }
 
 // border  ----------------------------------------------------------------------------------
@@ -235,7 +240,7 @@ img.avatar,
 .topic-body,
 .topic-map,
 .topic-map section {
-	border: none !important;
+	border: $n !important;
 }
 
 // border 1px  -----------------------------------------
@@ -333,15 +338,15 @@ img.avatar {
 img.avatar,
 .docked .d-header,
 .reply * .topic-meta-data {
-	border-bottom: none;
+	border-bottom: $n;
 }
 
 .drop-down-visible .d-header-icons .active .icon:after {
-	border-top: none;
+	border-top: $n;
 }
 
 .user-right .topic-list-item {
-	border-right: none;
+	border-right: $n;
 }
 
 .admin-detail {
@@ -349,7 +354,7 @@ img.avatar,
 }
 
 #reply-control.closed {
-	border-top: none;
+	border-top: $n;
 }
 
 .category-boxes .category-box-inner,
@@ -448,7 +453,7 @@ aside.quote,
 // small all sides ------------------------------------
 
 .topic-avatar {
-	margin: .5em;
+	margin: 0.5em;
 }
 
 // large all sides ------------------------------------
@@ -476,7 +481,7 @@ td.main-link .topic-excerpt,
 .categories-widget ul li,
 .time-gap.small-action.clearfix,
 .admin-controls {
-	margin: .75em 0;
+	margin: 0.75em 0;
 }
 
 // Top zero -------------------------------------------
@@ -684,8 +689,8 @@ nav.post-controls {
 	padding-top: 3px !important;
 }
 
-.user-nav, 
-.full-width>ul.nav.nav-pills {
+.user-nav,
+.full-width > ul.nav.nav-pills {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
@@ -856,11 +861,11 @@ body:before {
 
 body:after {
 	background: linear-gradient(
-		to left,
-		$body-background-gradient-right,
-		$body-background-gradient-left
+		to $body-background-gradient-direction,
+		$body-background-gradient-color-first,
+		$body-background-gradient-color-second
 	);
-	opacity: 0.18;
+	opacity: $body-background-gradient-opacity;
 }
 
 // Inputs --------------------------------------------
@@ -1020,12 +1025,13 @@ nav.post-controls .highlight-action,
 	line-height: 19px;
 }
 
-
-.user-nav, .full-width>ul.nav.nav-pills {
-    text-align: center;
+.user-nav,
+.full-width > ul.nav.nav-pills {
+	text-align: center;
 }
 
-.nav-pills>li, .layouts-nav-button>li {
-    float:none;
-    display: inline-block;
+.nav-pills > li,
+.layouts-nav-button > li {
+	float: none;
+	display: inline-block;
 }
