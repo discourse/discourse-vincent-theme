@@ -60,7 +60,11 @@ span.hashtag,
 .settings .setting.overridden h3,
 .d-header-icons .icon:hover,
 .d-header-icons .icon:active,
-.extra-info-wrapper .discourse-tag.box {
+.extra-info-wrapper .discourse-tag.box,
+a,
+a:visited,
+.d-icon.d-icon-d-tracking, .d-icon.d-icon-d-watching
+{
 	color: $main-color;
 }
 
@@ -73,7 +77,7 @@ span.hashtag,
 .modal-dialog .modal-content,
 .modal-dialog.cascading-modal .modal-header,
 .z-depth-1-half,
-ul.instagram-photos li img {
+ul.instagram-photos li img{
 	background: $main-color;
 }
 
