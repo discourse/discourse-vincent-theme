@@ -10,11 +10,12 @@ $body-background-gradient-color-first: darkred;
 $body-background-gradient-color-second: darkblue;
 $body-background-pattern-opacity: 1.0;
 $body-background-gradient-opacity: 0.2;
-$n: none;
 
 /* Sorted ------------------------------------------------------------------------------------------------------------- */
 
 // Reset and outline   ------------------------------------------------------------------------------------
+
+$n: none;
 
 * {
 	box-sizing: border-box;
