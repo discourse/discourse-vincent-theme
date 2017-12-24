@@ -73,7 +73,11 @@ nav.post-controls button.bookmark.bookmarked,
 .z-depth-1-half,
 ul.instagram-photos li img,
 .btn-primary:hover,
-.btn-primary.btn-hover {
+.btn-primary.btn-hover,
+.nav-pills>li.active>a,
+.layouts-nav-button>li.active>a,
+.nav-pills>li>a.active,
+.layouts-nav-button>li>a.active {
 	background: $main-color;
 }
 
@@ -131,7 +135,8 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 #topic-footer-buttons,
 .list-controls,
 .top-lists,
-.topic-list-bottom {
+.topic-list-bottom,
+.full-width >ul.nav.nav-pills {
 	background: $main-background;
 }
 
@@ -667,7 +672,8 @@ nav.post-controls {
 	padding-top: 3px !important;
 }
 
-.user-nav {
+.user-nav, 
+.full-width>ul.nav.nav-pills {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
