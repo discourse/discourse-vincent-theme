@@ -29,7 +29,15 @@ html {
 .user-stream .item,
 .user-stream .user-stream-item,
 .topic-body,
-.list-controls:after {
+.alert,
+.list-controls,
+.top-lists,
+.topic-list-bottom,
+#topic-footer-buttons,
+.topic-list,
+#topic-title .title-wrapper,
+.admin-content,
+.full-width>ul.nav.nav-pills {
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
 		0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
@@ -440,7 +448,7 @@ aside.quote,
 // small all sides ------------------------------------
 
 .topic-avatar {
-	margin: 0.5em;
+	margin: .5em;
 }
 
 // large all sides ------------------------------------
@@ -468,7 +476,7 @@ td.main-link .topic-excerpt,
 .categories-widget ul li,
 .time-gap.small-action.clearfix,
 .admin-controls {
-	margin: 0.75em 0;
+	margin: .75em 0;
 }
 
 // Top zero -------------------------------------------
@@ -503,6 +511,10 @@ td.main-link .topic-excerpt,
 
 .d-header .contents {
 	margin: 4px 0;
+}
+
+.desc {
+	margin-top: 4px;
 }
 
 .d-header-icons .icon {
@@ -705,8 +717,6 @@ nav.post-controls {
 
 .main-content,
 .alert,
-body.navigation-topics .d-header .wrap,
-.d-header .wrap,
 #share-link.visible,
 .wrap {
 	max-width: 95vw;
@@ -788,7 +798,9 @@ a,
 .discourse-no-touch .topic-body .actions .fade-out,
 .nav-pills > li > a,
 .layouts-nav-button > li > a,
-.btn-icon {
+.btn-icon,
+input,
+.desc {
 	transition: all ease 0.3s;
 }
 
@@ -855,15 +867,6 @@ body:after {
 
 input:focus + * + .desc {
 	color: $trim-color !important;
-}
-
-.desc {
-	transition: all ease 0.5s;
-	margin-top: 4px;
-}
-
-input {
-	transition: all ease 0.5s;
 }
 
 input[type="date"]:focus:not([readonly]),
@@ -994,7 +997,7 @@ nav.post-controls .highlight-action,
 .topic-list .topic-list-item-separator td span,
 .period-chooser .top-date-string,
 .nav-stacked a {
-	color: #d0d0d0;
+	color: inherit;
 }
 
 .user-main .about .secondary dd {
@@ -1015,4 +1018,14 @@ nav.post-controls .highlight-action,
 .user-badge,
 #user-card.show-badges .more-user-badges {
 	line-height: 19px;
+}
+
+
+.user-nav, .full-width>ul.nav.nav-pills {
+    text-align: center;
+}
+
+.nav-pills>li, .layouts-nav-button>li {
+    float:none;
+    display: inline-block;
 }
