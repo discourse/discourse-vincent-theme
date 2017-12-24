@@ -1,5 +1,5 @@
 $trim-color: white;
-$main-color: #00bcd4;
+$main-color: #00bcd4; 
 $main-background: rgba(19, 20, 24, 0.9);
 $secondary-background: rgba(255, 255, 255, 0.1);
 $border-color: rgba(255, 255, 255, 0.1);
@@ -13,10 +13,11 @@ $n: none;
 
 /* Sorted ------------------------------------------------------------------------------------------------------------- */
 
-// Reset     ------------------------------------------------------------------------------------
+// Reset and outline   ------------------------------------------------------------------------------------
 
 * {
 	box-sizing: border-box;
+	outline-color: $main-color;
 }
 
 body,
@@ -74,7 +75,7 @@ nav.post-controls button.bookmark.bookmarked,
 	color: $main-color;
 }
 
-// background trim ----------------------------------------------------------------------------------
+// background main-color ----------------------------------------------------------------------------------
 
 .timeline-container .topic-timeline .timeline-handle,
 .btn:active,
@@ -89,7 +90,8 @@ ul.instagram-photos li img,
 .nav-pills > li.active > a,
 .layouts-nav-button > li.active > a,
 .nav-pills > li > a.active,
-.layouts-nav-button > li > a.active {
+.layouts-nav-button > li > a.active,
+.open .grippie {
 	background: $main-color;
 }
 
@@ -695,6 +697,10 @@ nav.post-controls {
 	padding-bottom: 10px;
 }
 
+.user-menu .notifications li:not(.show-all) i {
+	padding-top: 8px;
+}
+
 // text-align  ----------------------------------------------------------------------------------
 
 // center ------------------------------------
@@ -891,6 +897,56 @@ textarea.md-textarea:focus:not([readonly]) {
 	box-shadow: 0 1px 0 0 $main-color;
 }
 
+.select2-drop-active {
+	border: 1px solid $main-color;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus {
+	border-color: $main-color;
+	box-shadow: $main-color 0px 0px 2px 0px;
+	outline: 0;
+}
+
+.select2-container-active {
+	box-shadow: $main-color 0px 0px 6px 0px;
+}
+
+#reply-control .tag-chooser.select2-dropdown-open,
+#reply-control .tag-chooser.select2-container-active {
+	border-color: $main-color;
+}
+
+.select-box-kit.combo-box.is-expanded .select-kit-wrapper,
+.select-kit.combo-box.is-expanded .select-kit-wrapper {
+	border: 1px solid $main-color;
+	-webkit-box-shadow: $main-color 0px 0px 2px 0px;
+	box-shadow: $main-color 0px 0px 2px 0px;
+}
+
+.select-box-kit .select-box-kit-row.is-highlighted,
+.select-box-kit .select-kit-row.is-highlighted,
+.select-kit .select-box-kit-row.is-highlighted,
+.select-kit .select-kit-row.is-highlighted,
+.select-box-kit .select-box-kit-row.is-selected.is-highlighted,
+.select-box-kit .select-kit-row.is-selected.is-highlighted,
+.select-kit .select-box-kit-row.is-selected.is-highlighted,
+.select-kit .select-kit-row.is-selected.is-highlighted {
+	background: darken($main-color, 30%);
+}
+
 input[type="text"],
 input[type="password"],
 input[type="datetime"],
@@ -913,6 +969,11 @@ input[type="color"] {
 .select-kit.combo-box .select-box-kit-header,
 .select-kit.combo-box .select-kit-header {
 	border: 1px solid $border-color;
+}
+
+.select-box-kit.dropdown-select-box .dropdown-select-box-header.is-focused,
+.select-kit.dropdown-select-box .dropdown-select-box-header.is-focused {
+	outline-color: $main-color;
 }
 
 // Media queries ------------------------------------------------------------------------------------
