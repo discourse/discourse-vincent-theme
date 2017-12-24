@@ -1,5 +1,5 @@
 $trim-color: white;
-$main-color: #00bcd4; 
+$main-color: #009688;
 $main-background: rgba(19, 20, 24, 0.9);
 $secondary-background: rgba(255, 255, 255, 0.1);
 $border-color: rgba(255, 255, 255, 0.1);
@@ -895,6 +895,15 @@ textarea.md-textarea:focus:not([readonly]) {
 	border-color: rgba(255, 255, 255, 0.2);
 	border-bottom: 1px solid $main-color;
 	box-shadow: 0 1px 0 0 $main-color;
+}
+
+.select-box-kit.combo-box .select-box-kit-header.is-focused,
+.select-box-kit.combo-box .select-kit-header.is-focused,
+.select-kit.combo-box .select-box-kit-header.is-focused,
+.select-kit.combo-box .select-kit-header.is-focused {
+	border: 1px solid $main-color;
+	-webkit-box-shadow: $main-color 0px 0px 2px 0px;
+	box-shadow: $main-color 0px 0px 2px 0px;
 }
 
 .select2-drop-active {
