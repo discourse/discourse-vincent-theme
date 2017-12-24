@@ -44,7 +44,7 @@ a.mention-group,
 .d-editor-container .d-editor-button-bar .btn,
 .reply *.topic-body,
 tr.topic-list-item-separator + .topic-list-item {
-	background: none !important;
+	background: none;
 }
 
 // fonts ------------------------------------------------------------------------------------
@@ -134,7 +134,7 @@ td.main-link .topic-title,
 .d-header-icons li,
 .user-profile .profile-actions,
 .alert {
-	margin: 0 auto !important;
+	margin: 0 auto;
 }
 
 // zero -------------------------------------------------
@@ -156,20 +156,20 @@ aside.quote,
 	.posts-wrapper
 	.small-action
 	.small-action-desc {
-	margin: 0.5em !important;
+	margin: 0.5em;
 }
 
 // large all sides ------------------------------------
 
 .badges .content-list ul li {
-	margin: 1em !important;
+	margin: 1em;
 }
 
 // Large on side only ----------------------------------
 
 .user-main .about .secondary dd,
 .main-content {
-	margin: 0 1em !important;
+	margin: 0 1em;
 }
 
 // up-down medium only ---------------------------------
@@ -186,7 +186,7 @@ td.main-link .topic-excerpt,
 .categories-widget ul li,
 .time-gap.small-action.clearfix,
 .admin-controls {
-	margin: 0.75em 0 !important;
+	margin: 0.75em 0;
 }
 
 // Top zero -------------------------------------------
@@ -201,7 +201,7 @@ td.main-link .topic-excerpt,
 .main-content.topic.has-sidebars #topic-title,
 .top-lists,
 .user-table {
-	margin-top: 0 !important;
+	margin-top: 0;
 }
 
 // custom margin ---------------------------------------------
@@ -209,7 +209,7 @@ td.main-link .topic-excerpt,
 .list-controls .btn,
 .main-content.topic.has-sidebars .topic-body,
 .list-controls .nav {
-	margin-bottom: 0 !important;
+	margin-bottom: 0;
 }
 
 .main-content.nav-menu-enabled ol.category-breadcrumb {
@@ -249,7 +249,7 @@ td.main-link .topic-excerpt,
 
 ul.subcat-list,
 .topic-users {
-	margin-left: 1em !important;
+	margin-left: 1em;
 }
 
 .lightbox-wrapper {
@@ -261,17 +261,17 @@ ul.subcat-list,
 }
 
 blockquote {
-	margin: 1.25em !important;
+	margin: 1.25em;
 }
 
 .user-main .about .details img.avatar,
 .user-main .about .details .primary h1,
 .user-stream-item.item {
-	margin: 1em !important;
+	margin: 1em;
 }
 
 .topic-map .avatar {
-	margin-right: 4px !important;
+	margin-right: 4px;
 }
 
 section.navigation-container {
@@ -294,7 +294,7 @@ section.navigation-container {
 .list-controls:after,
 .widget-container .widget-inner {
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
-		0 3px 1px -2px rgba(0, 0, 0, 0.2) !important;
+		0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 // box shadow none -------------------------------------------------
@@ -304,7 +304,7 @@ section.navigation-container {
 .user-right .topic-list-item,
 #reply-control,
 .reply *.topic-body {
-	box-shadow: none !important;
+	box-shadow: none;
 }
 
 // color primary ---------------------------------------------------------------------------------------
@@ -319,7 +319,7 @@ span.hashtag,
 .d-header-icons .icon:hover,
 .d-header-icons .icon:active,
 .extra-info-wrapper .discourse-tag.box {
-	color: #00bcd4 !important;
+	color: #00bcd4;
 }
 
 // background primary ----------------------------------------------------------------------------------
@@ -332,7 +332,7 @@ span.hashtag,
 .modal-dialog.cascading-modal .modal-header,
 .z-depth-1-half,
 ul.instagram-photos li img {
-	background: #00bcd4 !important;
+	background: #00bcd4;
 }
 
 // color secondary ---------------------------------------------------------------------------------------
@@ -388,7 +388,7 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .reply > .row,
 .category-boxes .category-box-inner,
 .category-boxes-with-topics .category-box-inner {
-	background: rgba(19, 20, 24, 0.9) !important;
+	background: rgba(19, 20, 24, 0.9);
 }
 
 // custom backgrounds ---------------------------------------------------------------------------------
@@ -399,15 +399,15 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .admin-controls,
 .topic-map,
 .discourse-tag.box {
-	background: rgba(255, 255, 255, 0.1) !important;
+	background: rgba(255, 255, 255, 0.1);
 }
 
 button.cancel:hover {
-	background: #96000e !important;
+	background: #96000e;
 }
 
 button.ok:hover {
-	background: #00bf9a !important;
+	background: #00bf9a;
 }
 
 .modal-backdrop {
@@ -451,7 +451,7 @@ a.mention-group,
 .topic-list-item,
 .widget-container .widget-list li,
 .badge-info {
-	padding: 0.75em !important;
+	padding: 0.75em;
 }
 
 // medium all sides ------------------------------------
@@ -470,7 +470,7 @@ aside.quote,
 .body-page,
 .search-container,
 .search-advanced-options {
-	padding: 1em !important;
+	padding: 1em;
 }
 
 // Large on side only ----------------------------------
@@ -480,7 +480,7 @@ aside.quote,
 .main-content .nav-drop .selected-nav-item,
 .topic-body .regular,
 .main-content.topic.has-sidebars .topic-meta-data {
-	padding: 0 1.25em !important;
+	padding: 0 1.25em;
 }
 
 // Top zero ------------------------------------------
@@ -491,7 +491,7 @@ aside.quote,
 .d-header .icon,
 .user-profile.widget-container .widget-inner,
 .app > .widget-inner {
-	padding-top: 0 !important;
+	padding-top: 0;
 }
 
 // custom padding ------------------------------------
@@ -502,10 +502,10 @@ aside.quote,
 
 .sidebar-container .sidebar-content > div,
 .user-profile > .widget-inner {
-	padding-bottom: 0 !important;
+	padding-bottom: 0;
 }
 .content-wrapper {
-	padding-bottom: 150px !important;
+	padding-bottom: 150px;
 }
 
 .user-right {
@@ -544,7 +544,11 @@ nav.post-controls {
 
 .boxed.white,
 .user-table {
-	padding-bottom: 3em !important;
+	padding-bottom: 3em;
+}
+
+.list-controls {
+	padding-top: 3px !important;
 }
 
 // border  ----------------------------------------------------------------------------------
@@ -680,7 +684,7 @@ a.mention-group,
 .main-content.nav-menu-enabled .list-controls,
 .user-profile img.avatar,
 .d-header img.avatar {
-	border-radius: 0 !important;
+	border-radius: 0;
 }
 
 // border-radius 100vw ------------------------------------
@@ -703,7 +707,7 @@ img.avatar,
 }
 
 .user-right .topic-list-item {
-	border-right: none !important;
+	border-right: none;
 }
 
 .admin-detail {
@@ -745,7 +749,7 @@ img.avatar,
 
 #reply-control .d-editor-preview img:not(.thumbnail),
 .cooked img:not(.thumbnail) {
-	height: auto !important;
+	height: auto;
 }
 
 // max-width 95vw -----------------------------------------------
@@ -761,7 +765,7 @@ body.navigation-topics .d-header .wrap,
 // custom -----------------------------------------------
 
 .popup-menu {
-	width: 225px !important;
+	width: 225px;
 }
 
 .d-header img.avatar {
@@ -789,7 +793,7 @@ header.d-header.clearfix {
 
 #reply-control .d-editor-preview img:not(.thumbnail),
 .cooked img:not(.thumbnail) {
-	max-width: 100% !important;
+	max-width: 100%;
 }
 
 .badge-card .badge-contents {
@@ -800,7 +804,7 @@ header.d-header.clearfix {
 .d-header .d-header-icons,
 .d-header-icons li {
 	line-height: 32px;
-	height: 32px !important;
+	height: 32px;
 }
 
 .admin-nav {
@@ -898,7 +902,7 @@ body:after {
 // Inputs --------------------------------------------
 
 input:focus + * + .desc {
-	color: white !important;
+	color: white;
 }
 
 .desc {
@@ -951,7 +955,6 @@ input[type="color"] {
 	border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-
 // Media queries ------------------------------------------------------------------------------------
 
 @media (min-width: 850px) {
@@ -962,12 +965,12 @@ input[type="color"] {
 
 @media (max-width: 850px) {
 	body {
-		background: none !important;
+		background: none;
 	}
 
 	.topic-list th,
 	.topic-list td {
-		padding: 0.75em !important;
+		padding: 0.75em;
 	}
 
 	.topic-map {
@@ -991,7 +994,7 @@ input[type="color"] {
 
 .d-header-icons .badge-notification {
 	top: 0;
-	right: -9px !important;
+	right: -9px;
 }
 
 .d-header-icons .unread-notifications {
@@ -1023,7 +1026,7 @@ li#current-user a:not(.badge-notification) {
 
 .topic-meta-data {
 	padding: 35px;
-	margin: 0 !important;
+	margin: 0;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1056,7 +1059,7 @@ li#current-user a:not(.badge-notification) {
 
 .category-list tbody tr,
 .reply > .row {
-	border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .topic-list thead,
