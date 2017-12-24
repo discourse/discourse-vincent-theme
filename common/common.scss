@@ -1,3 +1,11 @@
+$trim-color: white;
+$main-color: #00bcd4;
+$main-background: rgba(19, 20, 24, 0.9);
+$secondary-background: rgba(255, 255, 255, 0.1);
+$border-color: rgba(255, 255, 255, 0.1);
+$body-background-gradient-right: #c33764;
+$body-background-gradient-left: #1d2671;
+
 /* Sorted ------------------------------------------------------------------------------------------------------------- */
 
 // Reset     ------------------------------------------------------------------------------------
@@ -10,6 +18,147 @@ body,
 html {
 	margin: 0;
 	padding: 0;
+}
+
+//  Box-shadow -------------------------------------------------------------------------------------------
+
+// box shadow set -------------------------------------------------
+
+.main-content.topic.has-sidebars #topic-title,
+.menu-panel,
+#share-link.visible,
+.widget-container.app,
+.user-stream .item,
+.user-stream .user-stream-item,
+.user-profile .avatar img,
+.topic-body,
+.main-content.topic.has-sidebars #topic-title,
+.list-controls:after,
+.widget-container .widget-inner {
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+		0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+// box shadow none -------------------------------------------------
+
+.user-profile.widget-container .widget-inner,
+#user-card.show-badges,
+.user-right .topic-list-item,
+#reply-control,
+.reply *.topic-body {
+	box-shadow: none;
+}
+
+// color primary ---------------------------------------------------------------------------------------
+
+.discourse-tag.box,
+.main-content.topic.has-sidebars
+	.posts-wrapper
+	.small-action
+	.small-action-desc,
+span.hashtag,
+.settings .setting.overridden h3,
+.d-header-icons .icon:hover,
+.d-header-icons .icon:active,
+.extra-info-wrapper .discourse-tag.box {
+	color: $main-color;
+}
+
+// background trim ----------------------------------------------------------------------------------
+
+.timeline-container .topic-timeline .timeline-handle,
+.btn:active,
+.btn:focus,
+.media .media-left img,
+.modal-dialog .modal-content,
+.modal-dialog.cascading-modal .modal-header,
+.z-depth-1-half,
+ul.instagram-photos li img {
+	background: $main-color;
+}
+
+// color trim ---------------------------------------------------------------------------------------
+
+.nav-pills > li > a:hover,
+.layouts-nav-button > li > a:hover,
+button#create-topic,
+.btn:active,
+.btn:focus,
+.btn:hover,
+.media .media-left img,
+.modal-dialog .modal-content,
+.modal-dialog.cascading-modal .modal-header,
+.z-depth-1-half,
+ul.instagram-photos li img,
+button#create-topic,
+.badge-notification,
+a:hover,
+.btn,
+nav.post-controls button.delete.d-hover,
+.nav-pills > li.active > a,
+.layouts-nav-button > li.active > a,
+.nav-pills > li > a.active,
+.layouts-nav-button > li > a.active,
+.nav-stacked a.active,
+.discourse-tag.box:hover,
+button.cancel:hover,
+button.ok:hover {
+	color: $trim-color !important;
+}
+
+// background main ----------------------------------------------------------------------------------
+
+.main-content.topic.has-sidebars #topic-title,
+.widget-container .widget-inner,
+.topic-body,
+.user-profile .profile-top,
+.user-table,
+.badge-card,
+ul.cat-list,
+ul.general,
+.boxed.white,
+.alert.alert-info,
+.body-page,
+.topic-list,
+.topic-list tr:nth-of-type(odd),
+.category-list,
+.search-container,
+.search-advanced-options,
+.user-stream-item.item,
+tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
+.topic-meta-data,
+.reply > .row,
+.category-boxes .category-box-inner,
+.category-boxes-with-topics .category-box-inner {
+	background: $main-background;
+}
+
+// custom backgrounds ---------------------------------------------------------------------------------
+
+.btn:not(:hover),
+.nav-pills > li > a:hover,
+.layouts-nav-button > li > a:hover,
+.admin-controls,
+.topic-map,
+.discourse-tag.box {
+	background: $secondary-background;
+}
+
+button.cancel:hover {
+	background: #96000e;
+}
+
+button.ok:hover {
+	background: #00bf9a;
+}
+
+.modal-backdrop {
+	background-color: rgba(22, 22, 22, 0.7);
+}
+
+#user-card .card-content,
+.user-nav {
+	background: #131418;
 }
 
 // background none ---------------------------------------------------------------------------------
@@ -45,6 +194,178 @@ a.mention-group,
 .reply *.topic-body,
 tr.topic-list-item-separator + .topic-list-item {
 	background: none;
+}
+
+// border  ----------------------------------------------------------------------------------
+
+// border none ------------------------------------
+
+.main-content.has-sidebars .container.posts,
+.user-profile.widget-container,
+.main-content.nav-menu-enabled .list-controls,
+div.menu-links-header a,
+.user-main .about.collapsed-info .details,
+.user-main .about .secondary,
+.user-badge,
+#user-card.show-badges .more-user-badges,
+.d-editor-button-bar button,
+.topic-list-item,
+.topic-title,
+.widget-container,
+.user-profile .profile-actions button,
+.user-profile .profile-actions .widget-component-connector,
+.topic-post article.boxed,
+.main-content.topic.has-sidebars #topic-title,
+.user-stream .item,
+.user-stream .user-stream-item,
+.d-header img.avatar,
+.topic-status-info,
+.main-content .list-controls,
+.main-content.nav-menu-enabled .list-controls,
+.main-content.has-sidebars .container.list-container,
+.user-profile .avatar img,
+img.avatar,
+.topic-status-info,
+.topic-avatar,
+.topic-body,
+.topic-map,
+.topic-map section {
+	border: none !important;
+}
+
+// border 1px  -----------------------------------------
+
+.menu-panel,
+#share-link.visible,
+.admin-controls,
+.user-stream .item,
+.user-stream .user-stream-item,
+#user-card .card-content,
+#user-card.show-badges .badge-section .user-badge,
+#user-card.show-badges .badge-section .more-user-badges,
+.badge-card .badge-contents,
+nav.post-controls .post-admin-menu,
+.badges .content-list ul li {
+	border: 1px solid !important;
+}
+
+// border-top --------------------------------------
+
+hr,
+.post-links-container .post-links,
+.admin-contents table td,
+.main-content.topic.has-sidebars #topic-footer-buttons {
+	border-top: 1px solid !important;
+}
+
+// border-bottom ----------------------------------
+
+.topic-list .topic-list-item-separator td,
+.nav-stacked li,
+.admin-contents table td,
+.widget-container .widget-multi-title a.widget-link.list-title.active,
+header.d-header.clearfix,
+.user-profile .avatar img {
+	border-bottom: 1px solid !important;
+}
+
+// border-color ------------------------------------
+
+.user-profile .avatar img,
+img.avatar,
+.menu-panel,
+#share-link.visible,
+.topic-list .topic-list-item-separator td,
+.admin-controls,
+.topic-status-info,
+.admin-controls .nav.nav-pills li.active a,
+hr,
+.nav-stacked li,
+.widget-container.app,
+.post-links-container .post-links,
+.user-stream .item,
+.user-stream .user-stream-item,
+#user-card .card-content,
+#user-card.show-badges .badge-section .user-badge,
+#user-card.show-badges .badge-section .more-user-badges,
+.badge-card .badge-contents,
+nav.post-controls .post-admin-menu,
+.badges .content-list ul li,
+.admin-contents table td,
+.reply,
+.widget-container .widget-multi-title a.widget-link.list-title.active,
+header.d-header.clearfix,
+.main-content.topic.has-sidebars #topic-footer-buttons,
+.main-content.topic.has-sidebars
+	.posts-wrapper
+	.small-action
+	.small-action-desc,
+.timeline-container .topic-timeline .timeline-scrollarea,
+.widget-container .widget-list li,
+.admin-list-item,
+section.about table td,
+section.about table th,
+.display-row,
+.search-advanced-options,
+.user-stream-item.item,
+.category-boxes .category-box-inner,
+.category-boxes-with-topics .category-box-inner {
+	border-color: $border-color !important;
+}
+
+// border-radius 0 ------------------------------------
+
+.main-content.has-sidebars .container.list-container,
+.user-profile.widget-container,
+.main-content.nav-menu-enabled .list-controls,
+.main-content.topic.has-sidebars #topic-title,
+.widget-container.app,
+.user-stream .item,
+.user-stream .user-stream-item,
+a.mention,
+a.mention-group,
+.topic-post article.boxed,
+.main-content .list-controls,
+.main-content.nav-menu-enabled .list-controls,
+.user-profile img.avatar,
+.d-header img.avatar {
+	border-radius: 0;
+}
+
+// border-radius 100vw ------------------------------------
+
+.badge-wrapper.bullet .badge-category-parent-bg,
+.badge-wrapper.bullet .badge-category-bg,
+img.avatar {
+	border-radius: 100vw;
+}
+
+// custom borders ------------------------------------
+
+img.avatar,
+.docked .d-header {
+	border-bottom: none;
+}
+
+.drop-down-visible .d-header-icons .active .icon:after {
+	border-top: none;
+}
+
+.user-right .topic-list-item {
+	border-right: none;
+}
+
+.admin-detail {
+	border-left: solid 1px $border-color;
+}
+
+#reply-control.closed {
+	border-top: none;
+}
+
+.category-boxes .category-box-inner,
+.category-boxes-with-topics .category-box-inner {
+	border-width: 1px;
 }
 
 // fonts ------------------------------------------------------------------------------------
@@ -278,147 +599,6 @@ section.navigation-container {
 	margin: 0.5em 0;
 }
 
-//  Box-shadow -------------------------------------------------------------------------------------------
-
-// box shadow set -------------------------------------------------
-
-.main-content.topic.has-sidebars #topic-title,
-.menu-panel,
-#share-link.visible,
-.widget-container.app,
-.user-stream .item,
-.user-stream .user-stream-item,
-.user-profile .avatar img,
-.topic-body,
-.main-content.topic.has-sidebars #topic-title,
-.list-controls:after,
-.widget-container .widget-inner {
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
-		0 3px 1px -2px rgba(0, 0, 0, 0.2);
-}
-
-// box shadow none -------------------------------------------------
-
-.user-profile.widget-container .widget-inner,
-#user-card.show-badges,
-.user-right .topic-list-item,
-#reply-control,
-.reply *.topic-body {
-	box-shadow: none;
-}
-
-// color primary ---------------------------------------------------------------------------------------
-
-.discourse-tag.box,
-.main-content.topic.has-sidebars
-	.posts-wrapper
-	.small-action
-	.small-action-desc,
-span.hashtag,
-.settings .setting.overridden h3,
-.d-header-icons .icon:hover,
-.d-header-icons .icon:active,
-.extra-info-wrapper .discourse-tag.box {
-	color: #00bcd4;
-}
-
-// background primary ----------------------------------------------------------------------------------
-
-.timeline-container .topic-timeline .timeline-handle,
-.btn:active,
-.btn:focus,
-.media .media-left img,
-.modal-dialog .modal-content,
-.modal-dialog.cascading-modal .modal-header,
-.z-depth-1-half,
-ul.instagram-photos li img {
-	background: #00bcd4;
-}
-
-// color secondary ---------------------------------------------------------------------------------------
-
-.nav-pills > li > a:hover,
-.layouts-nav-button > li > a:hover,
-button#create-topic,
-.btn:active,
-.btn:focus,
-.btn:hover,
-.media .media-left img,
-.modal-dialog .modal-content,
-.modal-dialog.cascading-modal .modal-header,
-.z-depth-1-half,
-ul.instagram-photos li img,
-button#create-topic,
-.badge-notification,
-a:hover,
-.btn,
-nav.post-controls button.delete.d-hover,
-.nav-pills > li.active > a,
-.layouts-nav-button > li.active > a,
-.nav-pills > li > a.active,
-.layouts-nav-button > li > a.active,
-.nav-stacked a.active,
-.discourse-tag.box:hover,
-button.cancel:hover,
-button.ok:hover {
-	color: white !important;
-}
-
-// background secondary ----------------------------------------------------------------------------------
-
-.main-content.topic.has-sidebars #topic-title,
-.widget-container .widget-inner,
-.topic-body,
-.user-profile .profile-top,
-.user-table,
-.badge-card,
-ul.cat-list,
-ul.general,
-.boxed.white,
-.alert.alert-info,
-.body-page,
-.topic-list,
-.topic-list tr:nth-of-type(odd),
-.category-list,
-.search-container,
-.search-advanced-options,
-.user-stream-item.item,
-tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
-.topic-meta-data,
-.reply > .row,
-.category-boxes .category-box-inner,
-.category-boxes-with-topics .category-box-inner {
-	background: rgba(19, 20, 24, 0.9);
-}
-
-// custom backgrounds ---------------------------------------------------------------------------------
-
-.btn:not(:hover),
-.nav-pills > li > a:hover,
-.layouts-nav-button > li > a:hover,
-.admin-controls,
-.topic-map,
-.discourse-tag.box {
-	background: rgba(255, 255, 255, 0.1);
-}
-
-button.cancel:hover {
-	background: #96000e;
-}
-
-button.ok:hover {
-	background: #00bf9a;
-}
-
-.modal-backdrop {
-	background-color: rgba(22, 22, 22, 0.7);
-}
-
-#user-card .card-content,
-.user-nav {
-	background: #131418;
-}
-
 // padding ----------------------------------------------------------------------------------
 
 // zero -------------------------------------------------
@@ -549,178 +729,6 @@ nav.post-controls {
 
 .list-controls {
 	padding-top: 3px !important;
-}
-
-// border  ----------------------------------------------------------------------------------
-
-// border none ------------------------------------
-
-.main-content.has-sidebars .container.posts,
-.user-profile.widget-container,
-.main-content.nav-menu-enabled .list-controls,
-div.menu-links-header a,
-.user-main .about.collapsed-info .details,
-.user-main .about .secondary,
-.user-badge,
-#user-card.show-badges .more-user-badges,
-.d-editor-button-bar button,
-.topic-list-item,
-.topic-title,
-.widget-container,
-.user-profile .profile-actions button,
-.user-profile .profile-actions .widget-component-connector,
-.topic-post article.boxed,
-.main-content.topic.has-sidebars #topic-title,
-.user-stream .item,
-.user-stream .user-stream-item,
-.d-header img.avatar,
-.topic-status-info,
-.main-content .list-controls,
-.main-content.nav-menu-enabled .list-controls,
-.main-content.has-sidebars .container.list-container,
-.user-profile .avatar img,
-img.avatar,
-.topic-status-info,
-.topic-avatar,
-.topic-body,
-.topic-map,
-.topic-map section {
-	border: none !important;
-}
-
-// border 1px  -----------------------------------------
-
-.menu-panel,
-#share-link.visible,
-.admin-controls,
-.user-stream .item,
-.user-stream .user-stream-item,
-#user-card .card-content,
-#user-card.show-badges .badge-section .user-badge,
-#user-card.show-badges .badge-section .more-user-badges,
-.badge-card .badge-contents,
-nav.post-controls .post-admin-menu,
-.badges .content-list ul li {
-	border: 1px solid !important;
-}
-
-// border-top --------------------------------------
-
-hr,
-.post-links-container .post-links,
-.admin-contents table td,
-.main-content.topic.has-sidebars #topic-footer-buttons {
-	border-top: 1px solid !important;
-}
-
-// border-bottom ----------------------------------
-
-.topic-list .topic-list-item-separator td,
-.nav-stacked li,
-.admin-contents table td,
-.widget-container .widget-multi-title a.widget-link.list-title.active,
-header.d-header.clearfix,
-.user-profile .avatar img {
-	border-bottom: 1px solid !important;
-}
-
-// border-color ------------------------------------
-
-.user-profile .avatar img,
-img.avatar,
-.menu-panel,
-#share-link.visible,
-.topic-list .topic-list-item-separator td,
-.admin-controls,
-.topic-status-info,
-.admin-controls .nav.nav-pills li.active a,
-hr,
-.nav-stacked li,
-.widget-container.app,
-.post-links-container .post-links,
-.user-stream .item,
-.user-stream .user-stream-item,
-#user-card .card-content,
-#user-card.show-badges .badge-section .user-badge,
-#user-card.show-badges .badge-section .more-user-badges,
-.badge-card .badge-contents,
-nav.post-controls .post-admin-menu,
-.badges .content-list ul li,
-.admin-contents table td,
-.reply,
-.widget-container .widget-multi-title a.widget-link.list-title.active,
-header.d-header.clearfix,
-.main-content.topic.has-sidebars #topic-footer-buttons,
-.main-content.topic.has-sidebars
-	.posts-wrapper
-	.small-action
-	.small-action-desc,
-.timeline-container .topic-timeline .timeline-scrollarea,
-.widget-container .widget-list li,
-.admin-list-item,
-section.about table td,
-section.about table th,
-.display-row,
-.search-advanced-options,
-.user-stream-item.item,
-.category-boxes .category-box-inner,
-.category-boxes-with-topics .category-box-inner {
-	border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-// border-radius 0 ------------------------------------
-
-.main-content.has-sidebars .container.list-container,
-.user-profile.widget-container,
-.main-content.nav-menu-enabled .list-controls,
-.main-content.topic.has-sidebars #topic-title,
-.widget-container.app,
-.user-stream .item,
-.user-stream .user-stream-item,
-a.mention,
-a.mention-group,
-.topic-post article.boxed,
-.main-content .list-controls,
-.main-content.nav-menu-enabled .list-controls,
-.user-profile img.avatar,
-.d-header img.avatar {
-	border-radius: 0;
-}
-
-// border-radius 100vw ------------------------------------
-
-.badge-wrapper.bullet .badge-category-parent-bg,
-.badge-wrapper.bullet .badge-category-bg,
-img.avatar {
-	border-radius: 100vw;
-}
-
-// custom borders ------------------------------------
-
-img.avatar,
-.docked .d-header {
-	border-bottom: none;
-}
-
-.drop-down-visible .d-header-icons .active .icon:after {
-	border-top: none;
-}
-
-.user-right .topic-list-item {
-	border-right: none;
-}
-
-.admin-detail {
-	border-left: solid 1px rgba(0, 0, 0, 0.1);
-}
-
-#reply-control.closed {
-	border-top: none;
-}
-
-.category-boxes .category-box-inner,
-.category-boxes-with-topics .category-box-inner {
-	border-width: 1px;
 }
 
 // text-align  ----------------------------------------------------------------------------------
@@ -895,14 +903,18 @@ body:before {
 }
 
 body:after {
-	background: linear-gradient(to left, #c33764, #1d2671);
+	background: linear-gradient(
+		to left,
+		$body-background-gradient-right,
+		$body-background-gradient-left
+	);
 	opacity: 0.18;
 }
 
 // Inputs --------------------------------------------
 
 input:focus + * + .desc {
-	color: white;
+	color: $trim-color;
 }
 
 .desc {
@@ -927,8 +939,8 @@ input[type="time"]:focus:not([readonly]),
 input[type="url"]:focus:not([readonly]),
 textarea.md-textarea:focus:not([readonly]) {
 	border-color: rgba(255, 255, 255, 0.2);
-	border-bottom: 1px solid #00bcd4;
-	box-shadow: 0 1px 0 0 #00bcd4;
+	border-bottom: 1px solid $main-color;
+	box-shadow: 0 1px 0 0 $main-color;
 }
 
 input[type="text"],
@@ -952,7 +964,7 @@ input[type="color"] {
 .select-box-kit.combo-box .select-kit-header,
 .select-kit.combo-box .select-box-kit-header,
 .select-kit.combo-box .select-kit-header {
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	border: 1px solid $border-color;
 }
 
 // Media queries ------------------------------------------------------------------------------------
@@ -981,14 +993,14 @@ input[type="color"] {
 // Extras ------------------------------------------------------------------------------------
 
 .pace .pace-progress {
-	background: #00bcd4;
+	background: $main-color;
 }
 
 .spinner {
 	height: 35px;
 	width: 35px;
 	border: none;
-	box-shadow: inset 0 1px 1px #00bcd4;
+	box-shadow: inset 0 1px 1px $main-color;
 	margin: 60px auto 0px auto;
 }
 
@@ -1008,7 +1020,7 @@ li#current-user a:not(.badge-notification) {
 
 .category-boxes .category-box-inner:hover,
 .category-boxes-with-topics .category-box-inner:hover {
-	background: rgba(255, 255, 255, 0.1);
+	background: $secondary-background;
 	cursor: pointer;
 }
 
@@ -1027,7 +1039,7 @@ li#current-user a:not(.badge-notification) {
 .topic-meta-data {
 	padding: 35px;
 	margin: 0;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-bottom: 1px solid $border-color;
 }
 
 .reply * .topic-meta-data {
@@ -1037,7 +1049,7 @@ li#current-user a:not(.badge-notification) {
 
 #topic-title .title-wrapper,
 #topic-footer-buttons {
-	background: rgba(19, 20, 24, 0.9);
+	background: $main-background;
 	padding: 1em;
 	display: inline-block;
 	margin: 0 auto;
@@ -1049,7 +1061,7 @@ li#current-user a:not(.badge-notification) {
 .top-lists,
 .topic-list-bottom {
 	margin: 1em 0;
-	background: rgba(19, 20, 24, 0.9);
+	background: $main-background;
 	padding: 0.75em;
 }
 
@@ -1059,7 +1071,7 @@ li#current-user a:not(.badge-notification) {
 
 .category-list tbody tr,
 .reply > .row {
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid $border-color;
 }
 
 .topic-list thead,
