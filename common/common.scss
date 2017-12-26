@@ -4,8 +4,6 @@ $main-color: #00bcd4;
 $main-background: rgba(19, 20, 24, 0.9);
 $secondary-background: rgba(255, 255, 255, 0.1);
 
-$staff-background-color: #777;
-
 $border-color: rgba(255, 255, 255, 0.1);
 $box-shadow-value: none;
 
@@ -180,7 +178,8 @@ section.post-menu-area,
 .post-links-container,
 .post-links-container ul li:nth-of-type(even),
 .small-action,
-.offset2 .reply .topic-body .cooked {
+.offset2 .reply .topic-body .cooked,
+.moderator .names span.user-title {
 	background: $main-background;
 }
 
@@ -191,7 +190,9 @@ section.post-menu-area,
 .layouts-nav-button > li > a:hover,
 .admin-controls,
 .discourse-tag.box,
-.topic-map .buttons .btn {
+.topic-map .buttons .btn,
+section.embedded-posts.bottom,
+section.embedded-posts.top {
 	background: $secondary-background;
 }
 
@@ -220,11 +221,6 @@ table.category-list > thead,
 .table-heading,
 .reply .topic-meta-data {
 	background: lighten($main-background, 10%);
-}
-
-.moderator .cooked,
-.moderator .names span.user-title {
-	background-color: $staff-background-color;
 }
 
 // background none ---------------------------------------------------------------------------------
@@ -620,16 +616,17 @@ section.navigation-container {
 	margin-bottom: 1em;
 }
 
-.topic-avatar {
+.topic-avatar,
+.offset2 .topic-avatar {
 	margin-left: 0;
-}
-
-.reply .topic-avatar {
-	margin-left: 0.6em;
 }
 
 .post-links-container ul li {
 	margin-bottom: 0.5em;
+}
+
+.embedded-posts.top {
+	margin-left: 52px;
 }
 
 // padding ----------------------------------------------------------------------------------
@@ -759,21 +756,23 @@ nav.post-controls {
 	padding-bottom: 10px;
 }
 
-.user-menu .notifications li:not(.show-all) i {
-	padding-top: 8px;
-}
-
 .reply .topic-body {
 	padding-left: 0;
 }
 
-.topic-body .contents .cooked {
+.topic-body .contents .cooked,
+.offset2 .cooked {
 	padding-top: 15px;
 }
 
 section.post-menu-area {
 	padding-top: 20px;
 	padding-bottom: 10px;
+}
+
+section.embedded-posts.bottom,
+section.embedded-posts.top {
+	padding: 1em 0.5em 2em 0.5em !important;
 }
 
 // text-align  ----------------------------------------------------------------------------------
@@ -844,6 +843,10 @@ section.post-menu-area {
 
 .admin-detail {
 	width: 81%;
+}
+
+.embedded-posts.top {
+	width: 690px;
 }
 
 // float  ------------------------------------------------------------------------------------
