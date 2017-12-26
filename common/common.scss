@@ -110,7 +110,8 @@ nav.post-controls button.delete.d-hover,
 .nav-stacked a.active,
 .discourse-tag.box:hover,
 button.cancel:hover,
-button.ok:hover {
+button.ok:hover,
+.moderator .names span.user-title {
 	color: $trim-color !important;
 }
 
@@ -120,7 +121,6 @@ button.ok:hover {
 .category-list th,
 .topic-list td,
 .topic-list th,
-.moderator .names span.user-title,
 .latest-topic-list .table-heading,
 .table-heading,
 .moderator .names span.user-title {
@@ -176,7 +176,11 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .latest-topic-list-item:nth-of-type(odd),
 .latest-topic-list,
 .topic-body .contents .cooked,
-section.post-menu-area {
+section.post-menu-area,
+.post-links-container,
+.post-links-container ul li:nth-of-type(even),
+.small-action,
+.offset2 .reply .topic-body .cooked {
 	background: $main-background;
 }
 
@@ -313,7 +317,7 @@ hr,
 .topic-list .topic-list-item-separator td,
 .nav-stacked li,
 .admin-contents table td,
-header.d-header.clearfix {
+header.d-header {
 	border-bottom: 1px solid !important;
 }
 
@@ -406,7 +410,8 @@ img.avatar,
 .reply > .row,
 section.embedded-posts.bottom,
 .category-list tbody tr:first-of-type,
-.reply .topic-body {
+.reply .topic-body,
+.small-action {
 	border-top: 1px solid $border-color;
 }
 
@@ -485,10 +490,6 @@ td.main-link .topic-title,
 #topic-footer-buttons,
 .main-content .regular,
 #topic-title,
-.d-header img.avatar,
-.d-header .contents,
-.d-header .d-header-icons,
-.d-header-icons li,
 .alert {
 	margin: 0 auto;
 }
@@ -497,10 +498,9 @@ td.main-link .topic-title,
 
 .topic-list-item,
 #list-area,
-.d-header .contents,
 aside.quote,
-.d-header button.login-button,
-.topic-meta-data {
+.topic-meta-data,
+.extra-info-wrapper .topic-header-extra {
 	margin: 0 !important;
 }
 
@@ -548,8 +548,7 @@ td.main-link .topic-excerpt,
 .embedded-posts .cooked,
 .topic-body .regular,
 section.post-menu-area,
-.d-header .login-button,
-.d-header button.sign-up-button {
+.post-links-container .post-links {
 	margin-top: 0;
 }
 
@@ -575,21 +574,8 @@ section.post-menu-area {
 	margin-bottom: 1.5em;
 }
 
-.d-header .contents {
-	margin: 4px 0;
-}
-
 .desc {
 	margin-top: 4px;
-}
-
-.d-header-icons .icon {
-	margin: 0 2px;
-}
-
-.topic-list-item:first-of-type,
-.d-header .icon {
-	margin-top: -2px;
 }
 
 #user-card .user-card-avatar {
@@ -635,17 +621,16 @@ section.navigation-container {
 	margin-bottom: 1em;
 }
 
-.d-header .login-button,
-.d-header button.sign-up-button {
-	margin-right: 4px;
-}
-
 .topic-avatar {
 	margin-left: 0;
 }
 
 .reply .topic-avatar {
 	margin-left: 0.6em;
+}
+
+.post-links-container ul li {
+	margin-bottom: 0.5em;
 }
 
 // padding ----------------------------------------------------------------------------------
@@ -696,16 +681,16 @@ aside.quote,
 .topic-list .topic-list-item-separator td span,
 .main-content .nav-drop .selected-nav-item,
 .cooked,
+.moderator .cooked,
 .post-menu-area {
 	padding: 0 1.25em;
 }
 
 // Top zero ------------------------------------------
 
-.d-header,
 .topic-list-item,
 .sidebar-container .sidebar-content > div,
-.d-header .icon {
+.extra-info-wrapper .topic-header-extra {
 	padding-top: 0;
 }
 
@@ -714,6 +699,14 @@ aside.quote,
 .post-links-container,
 .reply .topic-body {
 	padding: 0 1em;
+}
+
+.post-links-container ul li {
+	padding: 0.25em;
+}
+
+.post-links-container .post-links {
+	padding: 1em 0;
 }
 
 .topic-map .buttons .btn {
@@ -738,11 +731,6 @@ aside.quote,
 .create-new-topic {
 	padding: 5px 0px 0px 5px;
 }
-
-.d-header .contents {
-	padding: 1px 0;
-}
-
 .list-controls .category-breadcrumb a.badge-category,
 .list-controls .category-breadcrumb .dropdown-header {
 	padding: 5px 8px 0 0;
@@ -750,10 +738,6 @@ aside.quote,
 
 nav.post-controls {
 	padding: 0 0 1em;
-}
-
-#main-outlet {
-	padding-top: 55px;
 }
 
 .admin-content .admin-contents,
@@ -831,11 +815,6 @@ section.post-menu-area {
 	width: 225px;
 }
 
-.d-header img.avatar {
-	height: 32px;
-	width: 32px;
-}
-
 .wrap {
 	width: 1100px;
 }
@@ -849,10 +828,6 @@ section.post-menu-area {
 	height: 99px;
 }
 
-header.d-header.clearfix {
-	height: 32px;
-}
-
 #reply-control .d-editor-preview img:not(.thumbnail),
 .cooked img:not(.thumbnail),
 #topic-title .title-wrapper,
@@ -862,13 +837,6 @@ header.d-header.clearfix {
 
 .badge-card .badge-contents {
 	min-height: 100px;
-}
-
-.d-header .contents,
-.d-header .d-header-icons,
-.d-header-icons li {
-	line-height: 32px;
-	height: 32px;
 }
 
 .admin-nav {
@@ -939,8 +907,8 @@ body {
 #background {
 	height: 100vh;
 	width: 100vw;
+	-ms-transform: translateZ(0);
 	position: fixed;
-	overflow: hidden;
 	top: 0;
 	left: 0;
 	z-index: -2;
@@ -1119,15 +1087,6 @@ input[type="color"] {
 	margin: 60px auto 0px auto;
 }
 
-.d-header-icons .badge-notification {
-	top: 0;
-	right: -9px;
-}
-
-.d-header-icons .unread-notifications {
-	background-color: #e91e63;
-}
-
 li#current-user a:not(.badge-notification) {
 	margin-right: 0;
 	padding-right: 0;
@@ -1146,7 +1105,7 @@ li#current-user a:not(.badge-notification) {
 // TESTS --------------------------------------------
 
 .topic-meta-data {
-	padding: 0.75em;
+	padding: 0.75em 1em;
 	border-bottom: 1px solid $border-color;
 }
 
@@ -1221,4 +1180,15 @@ section.post-menu-area {
 .vincent {
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
 		0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+header.d-header.clearfix {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+	background: rgba(19, 20, 24, 0.9);
+}
+
+.topic-avatar .avatar-flair {
+	bottom: unset;
+	top: 30px;
+	right: -2px;
 }
