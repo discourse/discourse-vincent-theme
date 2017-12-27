@@ -256,7 +256,8 @@ a.mention-group,
 .widget-container,
 .d-editor-container .d-editor-button-bar .btn,
 .reply *.topic-body,
-tr.topic-list-item-separator + .topic-list-item {
+tr.topic-list-item-separator + .topic-list-item,
+.deleted .topic-body {
 	background: $n;
 }
 
@@ -1179,6 +1180,14 @@ section.post-menu-area {
 .modal.history-modal ins {
 	color: lighten($main-color, 15%);
 	background: darken($main-color, 25%);
+}
+
+.embedded-posts.top {
+	box-sizing: border-box;
+}
+
+.category-list tbody .category {
+	display: inline-block;
 }
 
 // apendex --------------------------
