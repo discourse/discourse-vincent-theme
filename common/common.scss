@@ -13,6 +13,8 @@ $body-background-gradient-color-second: #673ab7;
 $body-background-pattern-opacity: 1;
 $body-background-gradient-opacity: 0.1;
 
+$danger-color: #96000e;
+
 /* Sorted ------------------------------------------------------------------------------------------------------------- */
 
 // Reset and outline   ------------------------------------------------------------------------------------
@@ -20,11 +22,11 @@ $body-background-gradient-opacity: 0.1;
 $n: none;
 
 * {
-	box-sizing: border-box;
 	outline-color: $main-color;
 }
 
-.topic-list .posters {
+.topic-list .posters,
+input {
 	box-sizing: content-box;
 }
 
@@ -66,13 +68,11 @@ html {
 
 // main color ---------------------------------------------------------------------------------------
 
-.discourse-tag.box,
+.discourse-tag,
 .posts-wrapper .small-action .small-action-desc,
-span.hashtag,
 .settings .setting.overridden h3,
 .d-header-icons .icon:hover,
 .d-header-icons .icon:active,
-.extra-info-wrapper .discourse-tag.box,
 a,
 a:visited,
 .d-icon.d-icon-d-tracking,
@@ -106,10 +106,11 @@ nav.post-controls button.delete.d-hover,
 .nav-pills > li > a.active,
 .layouts-nav-button > li > a.active,
 .nav-stacked a.active,
-.discourse-tag.box:hover,
+.discourse-tag:hover,
 button.cancel:hover,
 button.ok:hover,
-.moderator .names span.user-title {
+.moderator .names span.user-title,
+.topic-post.deleted .topic-meta-data * {
 	color: $trim-color !important;
 }
 
@@ -123,6 +124,11 @@ button.ok:hover,
 .table-heading,
 .moderator .names span.user-title {
 	color: darken($trim-color, 40%);
+}
+
+.modal.history-modal del,
+.modal .modal-body p {
+	color: darken($trim-color, 15%);
 }
 
 // background main color ----------------------------------------------------------------------------------
@@ -179,25 +185,26 @@ section.post-menu-area,
 .post-links-container ul li:nth-of-type(even),
 .small-action,
 .offset2 .reply .topic-body .cooked,
-.moderator .names span.user-title {
+.moderator .names span.user-title,
+.topic-post.deleted section.post-actions {
 	background: $main-background;
 }
 
 // custom backgrounds ---------------------------------------------------------------------------------
 
-.btn:not(:hover),
+.btn:not(:hover):not(.btn-danger),
 .nav-pills > li > a:hover,
 .layouts-nav-button > li > a:hover,
 .admin-controls,
-.discourse-tag.box,
 .topic-map .buttons .btn,
 section.embedded-posts.bottom,
 section.embedded-posts.top {
 	background: $secondary-background;
 }
 
-button.cancel:hover {
-	background: #96000e;
+button.cancel:hover,
+.topic-post.deleted .topic-meta-data {
+	background: $danger-color;
 }
 
 button.ok:hover {
@@ -219,7 +226,8 @@ table.category-list > thead,
 .topic-map,
 .latest-topic-list .table-heading,
 .table-heading,
-.reply .topic-meta-data {
+.reply .topic-meta-data,
+.deleted section.embedded-posts .topic-meta-data {
 	background: lighten($main-background, 10%);
 }
 
@@ -242,7 +250,7 @@ a.mention-group,
 #user-card.show-badges .more-user-badges,
 .list-controls .category-breadcrumb li.bullet > .dropdown-header,
 .menu-links-header a:hover,
-.extra-info-wrapper .discourse-tag.box,
+.extra-info-wrapper .discourse-tag,
 .d-header-icons .icon:hover,
 .d-header-icons .icon:active,
 .widget-container,
@@ -406,7 +414,8 @@ img.avatar,
 section.embedded-posts.bottom,
 .category-list tbody tr:first-of-type,
 .reply .topic-body,
-.small-action {
+.small-action,
+.topic-post.deleted section.post-actions {
 	border-top: 1px solid $border-color;
 }
 
@@ -475,7 +484,6 @@ span.bbcode-u {
 
 // 0 auto -----------------------------------------------
 
-aside.sidebar,
 .main-content,
 img.avatar,
 ol.category-breadcrumb,
@@ -493,9 +501,9 @@ td.main-link .topic-title,
 
 .topic-list-item,
 #list-area,
-aside.quote,
 .topic-meta-data,
-.extra-info-wrapper .topic-header-extra {
+.extra-info-wrapper .topic-header-extra,
+.topic-post.deleted section.post-actions .post-action {
 	margin: 0 !important;
 }
 
@@ -520,8 +528,6 @@ aside.quote,
 
 // up-down medium only ---------------------------------
 
-#reply-control .d-editor-preview img:not(.thumbnail),
-.cooked img:not(.thumbnail),
 .top-title-buttons,
 .user-stream .excerpt,
 td.main-link .topic-excerpt,
@@ -619,6 +625,7 @@ section.navigation-container {
 .topic-avatar,
 .offset2 .topic-avatar {
 	margin-left: 0;
+	margin-top: 0;
 }
 
 .post-links-container ul li {
@@ -641,7 +648,8 @@ a.mention-group,
 .topic-avatar,
 .topic-body,
 .embedded-posts.bottom .row,
-.boxed .contents {
+.boxed .contents,
+.topic-post.deleted section.post-actions .post-action {
 	padding: 0 !important;
 }
 
@@ -665,7 +673,6 @@ a.mention-group,
 .admin-contents table td,
 .main-content .list-controls,
 .main-content.nav-menu-enabled .list-controls,
-aside.quote,
 .body-page,
 .search-container,
 .search-advanced-options {
@@ -775,6 +782,10 @@ section.embedded-posts.top {
 	padding: 1em 0.5em 2em 0.5em !important;
 }
 
+.topic-post.deleted section.post-actions {
+	padding: 0.75em 1.75em;
+}
+
 // text-align  ----------------------------------------------------------------------------------
 
 // center ------------------------------------
@@ -809,10 +820,6 @@ section.embedded-posts.top {
 
 // custom -----------------------------------------------
 
-.popup-menu {
-	width: 225px;
-}
-
 .wrap {
 	width: 1100px;
 }
@@ -842,7 +849,7 @@ section.embedded-posts.top {
 }
 
 .admin-detail {
-	width: 81%;
+	width: 75%;
 }
 
 .embedded-posts.top {
@@ -866,14 +873,15 @@ section.embedded-posts.top {
 // Animation  ----------------------------------------------------------------------------------
 
 a,
-.discourse-tag.box,
+.discourse-tag,
 .menu-links-header a,
 .discourse-no-touch .topic-body .actions .fade-out,
 .nav-pills > li > a,
 .layouts-nav-button > li > a,
 .btn-icon,
 input,
-.desc {
+.desc,
+button i {
 	transition: all ease 0.3s;
 }
 
@@ -965,6 +973,7 @@ textarea.md-textarea:focus:not([readonly]) {
 .select-kit.combo-box .select-box-kit-header.is-focused,
 .select-kit.combo-box .select-kit-header.is-focused {
 	border: 1px solid $main-color;
+	border-bottom-color: darken($main-color, 30%);
 	-webkit-box-shadow: $main-color 0px 0px 2px 0px;
 	box-shadow: $main-color 0px 0px 2px 0px;
 }
@@ -1019,28 +1028,19 @@ input[type="color"]:focus {
 	background: darken($main-color, 30%);
 }
 
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"] {
-	padding: 15px 10px !important;
+.select2-drop-active {
+	border-top-color: darken($trim-color, 40%);
 }
 
-.select-box-kit.combo-box .select-box-kit-header,
-.select-box-kit.combo-box .select-kit-header,
-.select-kit.combo-box .select-box-kit-header,
-.select-kit.combo-box .select-kit-header {
-	border: 1px solid $border-color;
+div.ac-wrap {
+	padding-top: 0;
+}
+
+.select2-container * input:focus,
+.ac-wrap > input:focus,
+.user-selector.ember-text-field {
+	box-shadow: none !important;
+	border: none !important;
 }
 
 .select-box-kit.dropdown-select-box .dropdown-select-box-header.is-focused,
@@ -1048,12 +1048,15 @@ input[type="color"] {
 	outline-color: $main-color;
 }
 
+.select2-container-multi.select2-container-active .select2-choices {
+	border: 1px solid $main-color;
+}
+
 // Media queries ------------------------------------------------------------------------------------
 
 @media (max-width: 650px) {
 	.topic-meta-data {
-		padding-bottom: 30px !important;
-		padding-top: 5px !important;
+		padding-bottom: 50px !important;
 	}
 	.topic-avatar {
 		margin-top: 1px;
@@ -1089,11 +1092,6 @@ input[type="color"] {
 	margin: 60px auto 0px auto;
 }
 
-li#current-user a:not(.badge-notification) {
-	margin-right: 0;
-	padding-right: 0;
-}
-
 .category-boxes .category-box-inner:hover,
 .category-boxes-with-topics .category-box-inner:hover {
 	background: $secondary-background;
@@ -1107,7 +1105,7 @@ li#current-user a:not(.badge-notification) {
 // TESTS --------------------------------------------
 
 .topic-meta-data {
-	padding: 0.75em 1em;
+	padding: 0.75em 1.25em;
 	border-bottom: 1px solid $border-color;
 }
 
@@ -1117,6 +1115,7 @@ li#current-user a:not(.badge-notification) {
 	display: inline-block;
 	margin: 0 auto;
 	width: 743px;
+	box-sizing: border-box;
 }
 
 .list-controls,
@@ -1164,17 +1163,22 @@ nav.post-controls .highlight-action,
 	display: inline-block;
 }
 
-.topic-post .row,
-.reply .topic-body {
-	display: flex;
-}
-
-.reply .topic-body {
-	flex-flow: column;
-}
-
 section.post-menu-area {
 	position: relative;
+}
+
+.topic-list .posters a:first-child .avatar.latest:not(.single) {
+	box-shadow: none;
+	border: 2px solid darken($main-color, 5%) !important;
+}
+
+.modal.history-modal .diff-ins {
+	background: darken($main-color, 15%);
+}
+
+.modal.history-modal ins {
+	color: lighten($main-color, 15%);
+	background: darken($main-color, 25%);
 }
 
 // apendex --------------------------
@@ -1186,11 +1190,22 @@ section.post-menu-area {
 
 header.d-header.clearfix {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
-	background: rgba(19, 20, 24, 0.9);
 }
 
 .topic-avatar .avatar-flair {
 	bottom: unset;
 	top: 30px;
 	right: -2px;
+}
+
+// plugin support ------------------------------------------------------------------------------------
+
+// Retort  --------------------------
+
+button.post-retort {
+	z-index: 1;
+}
+
+button.post-retort:first-of-type {
+	margin-left: 1.25em;
 }
