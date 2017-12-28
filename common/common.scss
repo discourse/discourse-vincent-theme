@@ -68,7 +68,6 @@ html {
 
 // main color ---------------------------------------------------------------------------------------
 
-.discourse-tag,
 .posts-wrapper .small-action .small-action-desc,
 .settings .setting.overridden h3,
 .d-header-icons .icon:hover,
@@ -122,8 +121,11 @@ button.ok:hover,
 .topic-list th,
 .latest-topic-list .table-heading,
 .table-heading,
-.moderator .names span.user-title {
-	color: darken($trim-color, 40%);
+.moderator .names span.user-title,
+.education,
+.top-sub-section .topic-info,
+.links-section .domain {
+	color: darken($trim-color, 35%);
 }
 
 .modal.history-modal del,
@@ -147,8 +149,11 @@ ul.instagram-photos li img,
 .layouts-nav-button > li.active > a,
 .nav-pills > li > a.active,
 .layouts-nav-button > li > a.active,
-.open .grippie {
-	background: $main-color;
+.open .grippie,
+.badge-notification.new-posts,
+.badge-notification.unread-posts,
+.admin-controls .nav.nav-pills li.active a {
+	background: darken($main-color, 10%);
 }
 
 // main background  ----------------------------------------------------------------------------------
@@ -471,14 +476,6 @@ header #site-text-logo {
 
 .cooked p {
 	font-size: 1.15em;
-}
-
-section.navigation-container {
-	text-transform: capitalize;
-}
-
-span.bbcode-u {
-	text-decoration: none;
 }
 
 // Margins ----------------------------------------------------------------------------------------------
@@ -1153,11 +1150,6 @@ nav.post-controls .highlight-action,
 	line-height: 19px;
 }
 
-.user-nav,
-.full-width > ul.nav.nav-pills {
-	text-align: center;
-}
-
 .nav-pills > li,
 .layouts-nav-button > li {
 	float: none;
@@ -1182,7 +1174,8 @@ section.post-menu-area {
 	background: darken($main-color, 25%);
 }
 
-.embedded-posts.top {
+.embedded-posts.top,
+#main-outlet {
 	box-sizing: border-box;
 }
 
@@ -1191,13 +1184,30 @@ section.post-menu-area {
 }
 
 .presence-users {
-    background-color: rgba(19, 20, 24, .9);
-    color: #ffffff;
-    padding: .5em;
-    display: block;
-    width: 743px;
-    margin-bottom: 1em;
-    max-width: 100%;
+	background-color: rgba(19, 20, 24, 0.9);
+	color: #ffffff;
+	padding: 0.5em;
+	display: block;
+	width: 743px;
+	margin-bottom: 1em;
+	max-width: 100%;
+}
+
+.categories-list .category-list {
+	margin-left: 0;
+}
+
+.user-table {
+	box-sizing: border-box;
+}
+
+#main-outlet {
+	padding-top: 80px;
+}
+
+#post_1 .post-actions {
+	background: rgba(19, 20, 24, 0.9);
+	padding-bottom: 0.5em;
 }
 
 // apendex --------------------------
@@ -1217,6 +1227,10 @@ header.d-header.clearfix {
 	right: -2px;
 }
 
+span.bbcode-u {
+	text-decoration: none;
+}
+
 // plugin support ------------------------------------------------------------------------------------
 
 // Retort  --------------------------
@@ -1227,4 +1241,12 @@ button.post-retort {
 
 button.post-retort:first-of-type {
 	margin-left: 1.25em;
+}
+
+// Whos online  --------------------------
+
+#whos-online {
+	padding: 1em 1.5em;
+	background: rgba(19, 20, 24, 0.9);
+	margin-bottom: 1em;
 }
