@@ -1,11 +1,10 @@
-$trim-color: white;
-$main-color: #00bcd4;
+// Variables  --------------------------------------------------------------------------------------------
 
+$main-color: #00bcd4;
+$trim-color: white;
 $main-background: rgba(19, 20, 24, 0.9);
 $secondary-background: rgba(255, 255, 255, 0.1);
-
 $border-color: rgba(255, 255, 255, 0.1);
-$box-shadow-value: none;
 
 $body-background-gradient-direction: bottom right;
 $body-background-gradient-color-first: #9c27b0;
@@ -14,20 +13,47 @@ $body-background-pattern-opacity: 1;
 $body-background-gradient-opacity: 0.1;
 
 $danger-color: #96000e;
+$ok-color: #00bf9a;
+$box-shadow-value: none;
 
-/* Sorted ------------------------------------------------------------------------------------------------------------- */
+$animation-speed: 0.4s;
 
-// Reset and outline   ------------------------------------------------------------------------------------
+// fonts -------------------------------------------------------------------------------------------------
+
+html {
+	font-family: "Roboto", sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 300;
+}
+
+.cooked p {
+	font-size: 1.2em;
+	line-height: 1.5;
+}
+
+// Reset   ----------------------------------------------------------------------------------------------
 
 $n: none;
-
-* {
-	outline-color: $main-color;
-}
 
 .topic-list .posters,
 input {
 	box-sizing: content-box;
+}
+
+#topic-title .title-wrapper,
+#topic-footer-buttons,
+.embedded-posts.top,
+#main-outlet,
+.user-table {
+	box-sizing: border-box;
 }
 
 body,
@@ -36,9 +62,17 @@ html {
 	padding: 0;
 }
 
-//  Box-shadow -------------------------------------------------------------------------------------------
+// text-align  ------------------------------------------------------------------------------------------
 
-// box shadow set -------------------------------------------------
+// center ---------------------------------------
+
+.topic-meta {
+	text-align: center;
+}
+
+//  Box-shadow ------------------------------------------------------------------------------------------
+
+// box shadow value -----------------------------
 
 .menu-panel,
 #share-link.visible,
@@ -57,7 +91,7 @@ html {
 	box-shadow: $box-shadow-value;
 }
 
-// box shadow none -------------------------------------------------
+// box shadow none ------------------------------
 
 #user-card.show-badges,
 .user-right .topic-list-item,
@@ -66,7 +100,13 @@ html {
 	box-shadow: $n;
 }
 
-// main color ---------------------------------------------------------------------------------------
+// colors ---------------------------------------------------------------------------------------
+
+// color main color -----------------------------
+
+* {
+	outline-color: $main-color;
+}
 
 .posts-wrapper .small-action .small-action-desc,
 .settings .setting.overridden h3,
@@ -82,7 +122,7 @@ nav.post-controls button.bookmark.bookmarked,
 	color: $main-color;
 }
 
-// trim color ---------------------------------------------------------------------------------------
+// color trim color -----------------------------
 
 .nav-pills > li > a:hover,
 .layouts-nav-button > li > a:hover,
@@ -129,11 +169,18 @@ button.ok:hover,
 }
 
 .modal.history-modal del,
-.modal .modal-body p {
+.modal .modal-body p,
+nav.post-controls .highlight-action,
+.topic-list .topic-list-item-separator td span,
+.period-chooser .top-date-string,
+.nav-stacked a,
+.presence-users {
 	color: darken($trim-color, 15%);
 }
 
-// background main color ----------------------------------------------------------------------------------
+// backgrounds ----------------------------------------------------------------------------------
+
+// background main color ------------------------
 
 .timeline-container .topic-timeline .timeline-handle,
 .btn:active,
@@ -156,7 +203,7 @@ ul.instagram-photos li img,
 	background: darken($main-color, 10%);
 }
 
-// main background  ----------------------------------------------------------------------------------
+// background main background  ------------------
 
 .user-table,
 .badge-card,
@@ -191,38 +238,10 @@ section.post-menu-area,
 .small-action,
 .offset2 .reply .topic-body .cooked,
 .moderator .names span.user-title,
-.topic-post.deleted section.post-actions {
+.topic-post.deleted section.post-actions,
+.presence-users,
+#post_1 .post-actions {
 	background: $main-background;
-}
-
-// custom backgrounds ---------------------------------------------------------------------------------
-
-.btn:not(:hover):not(.btn-danger),
-.nav-pills > li > a:hover,
-.layouts-nav-button > li > a:hover,
-.admin-controls,
-.topic-map .buttons .btn,
-section.embedded-posts.bottom,
-section.embedded-posts.top {
-	background: $secondary-background;
-}
-
-button.cancel:hover,
-.topic-post.deleted .topic-meta-data {
-	background: $danger-color;
-}
-
-button.ok:hover {
-	background: #00bf9a;
-}
-
-#user-card .card-content,
-.user-nav {
-	background: #131418;
-}
-
-.modal-backdrop {
-	background-color: darken($trim-color, 60%);
 }
 
 table.topic-list > thead,
@@ -236,7 +255,39 @@ table.category-list > thead,
 	background: lighten($main-background, 10%);
 }
 
-// background none ---------------------------------------------------------------------------------
+#user-card .card-content,
+.user-nav {
+	background: darken($main-background, 10%);
+}
+
+// background secondary background --------------
+
+.btn:not(:hover):not(.btn-danger),
+.nav-pills > li > a:hover,
+.layouts-nav-button > li > a:hover,
+.admin-controls,
+.topic-map .buttons .btn,
+section.embedded-posts.bottom,
+section.embedded-posts.top {
+	background: $secondary-background;
+}
+
+// background custom background -----------------
+
+button.cancel:hover,
+.topic-post.deleted .topic-meta-data {
+	background: $danger-color;
+}
+
+button.ok:hover {
+	background: $ok-color;
+}
+
+.modal-backdrop {
+	background-color: darken($trim-color, 75%);
+}
+
+// background none ------------------------------
 
 .topic-body .reply-to-tab,
 .list-controls a,
@@ -266,9 +317,9 @@ tr.topic-list-item-separator + .topic-list-item,
 	background: $n;
 }
 
-// border  ----------------------------------------------------------------------------------
+// borders  ----------------------------------------------------------------------------------
 
-// border none ------------------------------------
+// border border none ---------------------------
 
 .main-content.nav-menu-enabled .list-controls,
 div.menu-links-header a,
@@ -298,7 +349,7 @@ img.avatar,
 	border: $n !important;
 }
 
-// border 1px  -----------------------------------------
+// border border 1px  ----------------------------
 
 .menu-panel,
 #share-link.visible,
@@ -314,24 +365,36 @@ nav.post-controls .post-admin-menu,
 	border: 1px solid !important;
 }
 
-// border-top --------------------------------------
+// border border-top ------------------------------
 
 hr,
 .post-links-container .post-links,
-.admin-contents table td {
+.admin-contents table td,
+.category-list tbody tr,
+.reply > .row,
+section.embedded-posts.bottom,
+.category-list tbody tr:first-of-type,
+.reply .topic-body,
+.small-action,
+.topic-post.deleted section.post-actions {
 	border-top: 1px solid !important;
 }
 
-// border-bottom ----------------------------------
+// border border-bottom ---------------------------
 
 .topic-list .topic-list-item-separator td,
 .nav-stacked li,
 .admin-contents table td,
-header.d-header {
+header.d-header,
+.category-list tbody tr,
+.latest-topic-list-item,
+.table-heading,
+.reply .topic-body,
+.topic-meta-data {
 	border-bottom: 1px solid !important;
 }
 
-// border-color ------------------------------------
+// border border-color ----------------------------
 
 img.avatar,
 .menu-panel,
@@ -362,11 +425,23 @@ section.about table th,
 .search-advanced-options,
 .user-stream-item.item,
 .category-boxes .category-box-inner,
-.category-boxes-with-topics .category-box-inner {
+.category-boxes-with-topics .category-box-inner,
+.category-list tbody tr,
+.reply > .row,
+section.embedded-posts.bottom,
+.category-list tbody tr:first-of-type,
+.reply .topic-body,
+.small-action,
+.topic-post.deleted section.post-actions,
+.category-list tbody tr,
+.latest-topic-list-item,
+.table-heading,
+.reply .topic-body,
+.topic-meta-data {
 	border-color: $border-color !important;
 }
 
-// border-radius 0 ------------------------------------
+// border border-radius 0 -------------------------
 
 .main-content.nav-menu-enabled .list-controls,
 .user-stream .item,
@@ -379,22 +454,22 @@ a.mention-group,
 	border-radius: 0;
 }
 
-// border-radius 100vw ------------------------------------
+// border border-radius 100vw ---------------------
 
 .badge-wrapper.bullet .badge-category-parent-bg,
-.badge-wrapper.bullet .badge-category-bg,
-img.avatar {
+.badge-wrapper.bullet .badge-category-bg {
 	border-radius: 100vw;
 }
 
-// custom borders ------------------------------------
+// border custom borders ---------------------------
 
 img.avatar,
 .docked .d-header {
 	border-bottom: $n;
 }
 
-.drop-down-visible .d-header-icons .active .icon:after {
+.drop-down-visible .d-header-icons .active .icon:after,
+#reply-control.closed {
 	border-top: $n;
 }
 
@@ -406,81 +481,14 @@ img.avatar,
 	border-left: solid 1px $border-color;
 }
 
-#reply-control.closed {
-	border-top: $n;
-}
-
 .category-boxes .category-box-inner,
 .category-boxes-with-topics .category-box-inner {
 	border-width: 1px;
 }
 
-.category-list tbody tr,
-.reply > .row,
-section.embedded-posts.bottom,
-.category-list tbody tr:first-of-type,
-.reply .topic-body,
-.small-action,
-.topic-post.deleted section.post-actions {
-	border-top: 1px solid $border-color;
-}
-
-.category-list tbody tr,
-.latest-topic-list-item,
-.table-heading,
-.reply .topic-body {
-	border-bottom: 1px solid $border-color;
-}
-
-// fonts ------------------------------------------------------------------------------------
-
-html {
-	font-family: "Roboto", sans-serif;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-weight: 300;
-}
-
-#topic-title h1 {
-	font-size: 1.25em;
-}
-
-.user-stream .excerpt {
-	line-height: 2;
-}
-
-.user-navigation .nav-stacked a.active {
-	font-weight: unset;
-}
-
-header #site-text-logo {
-	line-height: inherit;
-}
-
-#topic-title h1 {
-	font-weight: normal;
-}
-
-.cooked p,
-.cooked .lightbox-wrapper,
-#topic-title h1 {
-	line-height: 1.4;
-}
-
-.cooked p {
-	font-size: 1.15em;
-}
-
 // Margins ----------------------------------------------------------------------------------------------
 
-// 0 auto -----------------------------------------------
+// 0 auto ------------------------------------------
 
 .main-content,
 img.avatar,
@@ -491,11 +499,13 @@ td.main-link .topic-title,
 #topic-footer-buttons,
 .main-content .regular,
 #topic-title,
-.alert {
+.alert,
+#topic-title .title-wrapper,
+#topic-footer-buttons {
 	margin: 0 auto;
 }
 
-// margin zero -------------------------------------------------
+// margin zero --------------------------------------
 
 .topic-list-item,
 #list-area,
@@ -505,26 +515,29 @@ td.main-link .topic-title,
 	margin: 0 !important;
 }
 
-// small all sides ------------------------------------
+// margin small all sides ---------------------------
 
 .topic-avatar {
 	margin: 0.5em;
 }
 
-// large all sides ------------------------------------
+// margin large all sides ---------------------------
 
-.badges .content-list ul li {
+.badges .content-list ul li,
+.user-main .about .details img.avatar,
+.user-main .about .details .primary h1,
+.user-stream-item.item {
 	margin: 1em;
 }
 
-// Large on side only ----------------------------------
+// margin Large on side only ------------------------
 
 .user-main .about .secondary dd,
 .main-content {
 	margin: 0 1em;
 }
 
-// up-down medium only ---------------------------------
+// up-down medium only ------------------------------
 
 .top-title-buttons,
 .user-stream .excerpt,
@@ -537,7 +550,15 @@ td.main-link .topic-excerpt,
 	margin: 0.75em 0;
 }
 
-// Top zero -------------------------------------------
+// up-down large only ------------------------------
+
+.list-controls,
+.top-lists,
+.topic-list-bottom {
+	margin: 1em 0;
+}
+
+// Top zero -----------------------------------------
 
 .user-main .about.collapsed-info .details,
 #user-card .user-card-avatar,
@@ -551,7 +572,7 @@ section.post-menu-area,
 	margin-top: 0;
 }
 
-// custom margin ---------------------------------------------
+// margin custom margin -----------------------------
 
 .list-controls .btn,
 .list-controls .nav,
@@ -559,18 +580,8 @@ section.post-menu-area {
 	margin-bottom: 0;
 }
 
-.main-content.nav-menu-enabled ol.category-breadcrumb {
-	margin-top: 1px;
-}
-
 .boxed.white {
 	margin-bottom: 10em;
-}
-
-.sidebar-container .sidebar-content > div,
-.topic-details .topic-excerpt,
-.topic-details .topic-excerpt {
-	margin-bottom: 1.5em;
 }
 
 .desc {
@@ -590,18 +601,8 @@ ul.subcat-list,
 	margin-left: 1em;
 }
 
-.lightbox-wrapper {
-	display: block;
-}
-
 #reply-control #reply-title {
 	margin-bottom: 10px;
-}
-
-.user-main .about .details img.avatar,
-.user-main .about .details .primary h1,
-.user-stream-item.item {
-	margin: 1em;
 }
 
 .topic-map .avatar {
@@ -613,10 +614,11 @@ section.navigation-container {
 }
 
 .user-nav {
-	margin: 10px 0px;
+	margin: 10px 0;
 }
 
-.signup-cta .buttons {
+.signup-cta .buttons,
+.presence-users {
 	margin-bottom: 1em;
 }
 
@@ -634,9 +636,13 @@ section.navigation-container {
 	margin-left: 52px;
 }
 
-// padding ----------------------------------------------------------------------------------
+.categories-list .category-list {
+	margin-left: 0;
+}
 
-// padding zero -------------------------------------------------
+// padding ----------------------------------------------------------------------------------------------
+
+// padding zero -------------------------------------
 
 .topic-users > .inline,
 a.mention,
@@ -651,16 +657,33 @@ a.mention-group,
 	padding: 0 !important;
 }
 
-// small all sides ------------------------------------
+// Top zero -----------------------------------------
+
+.topic-list-item,
+.sidebar-container .sidebar-content > div,
+.extra-info-wrapper .topic-header-extra {
+	padding-top: 0;
+}
+
+// padding small all sides -------------------------
+
+.presence-users {
+	padding: 0.5em;
+}
+
+// padding medium all sides -------------------------
 
 .user-badge,
 #user-card.show-badges .more-user-badges,
 .topic-list-item,
-.badge-info {
+.badge-info,
+.list-controls,
+.top-lists,
+.topic-list-bottom {
 	padding: 0.75em;
 }
 
-// medium all sides ------------------------------------
+// padding large all sides ---------------------------
 
 .topic-list-item,
 .user-stream .item,
@@ -673,11 +696,13 @@ a.mention-group,
 .main-content.nav-menu-enabled .list-controls,
 .body-page,
 .search-container,
-.search-advanced-options {
+.search-advanced-options,
+#topic-title .title-wrapper,
+#topic-footer-buttons {
 	padding: 1em;
 }
 
-// Large on side only ----------------------------------
+// padding x-Large on sides only ----------------------
 
 .topic-list .topic-list-item-separator td span,
 .main-content .nav-drop .selected-nav-item,
@@ -687,15 +712,7 @@ a.mention-group,
 	padding: 0 1.25em;
 }
 
-// Top zero ------------------------------------------
-
-.topic-list-item,
-.sidebar-container .sidebar-content > div,
-.extra-info-wrapper .topic-header-extra {
-	padding-top: 0;
-}
-
-// custom padding ------------------------------------
+// custom padding -------------------------------------
 
 .post-links-container,
 .reply .topic-body {
@@ -743,7 +760,7 @@ nav.post-controls {
 
 .admin-content .admin-contents,
 .admin-detail {
-	padding: 2em;
+	padding: 1.5em;
 }
 
 .boxed.white,
@@ -784,30 +801,54 @@ section.embedded-posts.top {
 	padding: 0.75em 1.75em;
 }
 
-// text-align  ----------------------------------------------------------------------------------
-
-// center ------------------------------------
-
-.topic-meta {
-	text-align: center;
+.topic-meta-data {
+	padding: 0.75em 1.25em;
 }
 
-// height and width ----------------------------------------------------------------------------------------------
+#main-outlet {
+	padding-top: 80px;
+}
 
-// width 100% -----------------------------------------------
+#post_1 .post-actions {
+	padding-bottom: 0.5em;
+}
+
+// Display ---------------------------------------------------------------------------------------------
+
+// display inline block -------------------------------
+
+#topic-title .title-wrapper,
+#topic-footer-buttons,
+.top-title-buttons,
+.user-badge,
+#user-card.show-badges .more-user-badges,
+.category-list tbody .category,
+.nav-pills > li,
+.layouts-nav-button > li {
+	display: inline-block;
+}
+
+// display block --------------------------------------
+
+.presence-users {
+	display: block;
+}
+
+// display inline -------------------------------------
+
+.user-main .about .secondary dd {
+	display: inline;
+}
+
+// height and width ------------------------------------------------------------------------------------
+
+// width 100% -----------------------------------------
 
 .main-content .regular {
 	width: 100%;
 }
 
-// height auto -----------------------------------------------
-
-#reply-control .d-editor-preview img:not(.thumbnail),
-.cooked img:not(.thumbnail) {
-	height: auto;
-}
-
-// max-width 95vw -----------------------------------------------
+// max-width 95vw -------------------------------------
 
 .main-content,
 .alert,
@@ -816,59 +857,25 @@ section.embedded-posts.top {
 	max-width: 95vw;
 }
 
-// custom -----------------------------------------------
+// custom ---------------------------------------------
 
-.wrap {
-	width: 1100px;
-}
-
-.topic-map-post img.avatar {
-	height: 25px;
-	width: 25px;
-}
-
-.badge-card .badge-contents .badge-icon {
-	height: 99px;
-}
-
-#reply-control .d-editor-preview img:not(.thumbnail),
-.cooked img:not(.thumbnail),
 #topic-title .title-wrapper,
-#topic-footer-buttons {
+#topic-footer-buttons,
+.presence-users {
 	max-width: 100%;
-}
-
-.badge-card .badge-contents {
-	min-height: 100px;
-}
-
-.admin-nav {
-	width: 19%;
-}
-
-.admin-detail {
-	width: 75%;
 }
 
 .embedded-posts.top {
 	width: 690px;
 }
 
-// float  ------------------------------------------------------------------------------------
-
-// float left -----------------------------------------------
-
-#user-card .user-card-avatar {
-	float: left;
+#topic-title .title-wrapper,
+#topic-footer-buttons,
+.presence-users {
+	width: 743px;
 }
 
-// float right -----------------------------------------------
-
-.create-new-topic {
-	float: right;
-}
-
-// Animation  ----------------------------------------------------------------------------------
+// Animation  ------------------------------------------------------------------------------------------
 
 a,
 .discourse-tag,
@@ -880,7 +887,7 @@ a,
 input,
 .desc,
 button i {
-	transition: all ease 0.3s;
+	transition: all ease $animation-speed;
 }
 
 .topic-body.highlighted,
@@ -892,7 +899,7 @@ button i {
 .topic-list-item,
 .list-controls > .container > section,
 #main-outlet {
-	animation: Vincent 0.5s ease-out;
+	animation: Vincent $animation-speed ease;
 }
 
 @keyframes Vincent {
@@ -904,7 +911,7 @@ button i {
 	}
 }
 
-// body background ---------------------------------------------------------------------------
+// body background -----------------------------------------------------------------------------------
 
 body {
 	position: relative;
@@ -912,28 +919,8 @@ body {
 	background: none;
 }
 
-#background {
-	height: 100vh;
-	width: 100vw;
-	-ms-transform: translateZ(0);
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: -2;
-	opacity: $body-background-pattern-opacity;
-	// backface-visibility: hidden;
-	// -webkit-backface-visibility: hidden;
-	// transform: translate3d(0, 0, 0);
-	// will-change: transform;
-}
-
 body:before {
 	content: "";
-	width: 100vw;
-	height: 100vh;
-	position: fixed;
-	top: 0;
-	left: 0;
 	z-index: -1;
 	opacity: $body-background-gradient-opacity;
 	background: linear-gradient(
@@ -943,7 +930,21 @@ body:before {
 	);
 }
 
-// Inputs --------------------------------------------
+#background {
+	z-index: -2;
+	opacity: $body-background-pattern-opacity;
+}
+
+#background,
+body:before {
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+// Inputs --------------------------------------------------------------------------------------------
 
 input:focus + * + .desc {
 	color: $trim-color !important;
@@ -976,10 +977,6 @@ textarea.md-textarea:focus:not([readonly]) {
 	box-shadow: $main-color 0px 0px 2px 0px;
 }
 
-.select2-drop-active {
-	border: 1px solid $main-color;
-}
-
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="datetime"]:focus,
@@ -999,15 +996,6 @@ input[type="color"]:focus {
 	outline: 0;
 }
 
-.select2-container-active {
-	box-shadow: $main-color 0px 0px 6px 0px;
-}
-
-#reply-control .tag-chooser.select2-dropdown-open,
-#reply-control .tag-chooser.select2-container-active {
-	border-color: $main-color;
-}
-
 .select-box-kit.combo-box.is-expanded .select-kit-wrapper,
 .select-kit.combo-box.is-expanded .select-kit-wrapper {
 	border: 1px solid $main-color;
@@ -1024,6 +1012,19 @@ input[type="color"]:focus {
 .select-kit .select-box-kit-row.is-selected.is-highlighted,
 .select-kit .select-kit-row.is-selected.is-highlighted {
 	background: darken($main-color, 30%);
+}
+
+.select2-container-active {
+	box-shadow: $main-color 0px 0px 6px 0px;
+}
+
+.select2-drop-active {
+	border: 1px solid $main-color;
+}
+
+#reply-control .tag-chooser.select2-dropdown-open,
+#reply-control .tag-chooser.select2-container-active {
+	border-color: $main-color;
 }
 
 .select2-drop-active {
@@ -1076,7 +1077,7 @@ div.ac-wrap {
 	}
 }
 
-// Extras ------------------------------------------------------------------------------------
+// Extras ------------------------------------------------------------------------------------------
 
 .pace .pace-progress {
 	background: $main-color;
@@ -1085,7 +1086,7 @@ div.ac-wrap {
 .spinner {
 	height: 35px;
 	width: 35px;
-	border: none;
+	border: $n;
 	box-shadow: inset 0 1px 1px $main-color;
 	margin: 60px auto 0px auto;
 }
@@ -1100,45 +1101,22 @@ div.ac-wrap {
 	opacity: 1;
 }
 
-// TESTS --------------------------------------------
-
-.topic-meta-data {
-	padding: 0.75em 1.25em;
-	border-bottom: 1px solid $border-color;
+.topic-list .posters a:first-child .avatar.latest:not(.single) {
+	box-shadow: $n;
+	border: 2px solid darken($main-color, 5%) !important;
 }
 
-#topic-title .title-wrapper,
-#topic-footer-buttons {
-	padding: 1em;
-	display: inline-block;
-	margin: 0 auto;
-	width: 743px;
-	box-sizing: border-box;
+// edit history modal
+.modal.history-modal .diff-ins {
+	background: darken($main-color, 15%);
 }
 
-.list-controls,
-.top-lists,
-.topic-list-bottom {
-	margin: 1em 0;
-	padding: 0.75em;
+.modal.history-modal ins {
+	color: lighten($main-color, 15%);
+	background: darken($main-color, 25%);
 }
 
-nav.post-controls .highlight-action,
-.topic-list .topic-list-item-separator td span,
-.period-chooser .top-date-string,
-.nav-stacked a {
-	color: inherit;
-}
-
-.user-main .about .secondary dd {
-	display: inline;
-}
-
-.top-title-buttons,
-.user-badge,
-#user-card.show-badges .more-user-badges {
-	display: inline-block;
-}
+// TESTS --------------------------------------------------------------------------------------------
 
 .main-content .nav-drop .selected-nav-item {
 	line-height: 30px;
@@ -1153,68 +1131,13 @@ nav.post-controls .highlight-action,
 .nav-pills > li,
 .layouts-nav-button > li {
 	float: none;
-	display: inline-block;
 }
 
 section.post-menu-area {
 	position: relative;
 }
 
-.topic-list .posters a:first-child .avatar.latest:not(.single) {
-	box-shadow: none;
-	border: 2px solid darken($main-color, 5%) !important;
-}
-
-.modal.history-modal .diff-ins {
-	background: darken($main-color, 15%);
-}
-
-.modal.history-modal ins {
-	color: lighten($main-color, 15%);
-	background: darken($main-color, 25%);
-}
-
-.embedded-posts.top,
-#main-outlet {
-	box-sizing: border-box;
-}
-
-.category-list tbody .category {
-	display: inline-block;
-}
-
-.presence-users {
-	background-color: rgba(19, 20, 24, 0.9);
-	color: #ffffff;
-	padding: 0.5em;
-	display: block;
-	width: 743px;
-	margin-bottom: 1em;
-	max-width: 100%;
-}
-
-.categories-list .category-list {
-	margin-left: 0;
-}
-
-.user-table {
-	box-sizing: border-box;
-}
-
-#main-outlet {
-	padding-top: 80px;
-}
-
-#post_1 .post-actions {
-	background: rgba(19, 20, 24, 0.9);
-	padding-bottom: 0.5em;
-}
-
-.admin-content .admin-contents, .admin-detail {
-    padding: 1.5em;
-}
-
-// apendex --------------------------
+// apendex ------------------------------------------------------------------------------------------
 
 .vincent {
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
@@ -1237,7 +1160,7 @@ span.bbcode-u {
 
 // plugin support ------------------------------------------------------------------------------------
 
-// Retort  --------------------------
+// Retort  ---------------------------------------------
 
 button.post-retort {
 	z-index: 1;
@@ -1247,7 +1170,7 @@ button.post-retort:first-of-type {
 	margin-left: 1.25em;
 }
 
-// Whos online  --------------------------
+// Whos online  ---------------------------------------
 
 #whos-online {
 	padding: 1em 1.5em;
