@@ -854,7 +854,7 @@ section.embedded-posts.top {
 .alert,
 #share-link.visible,
 .wrap {
-	max-width: 95vw !important;
+	max-width: 95vw;
 }
 
 // custom ---------------------------------------------
@@ -876,7 +876,7 @@ section.embedded-posts.top {
 }
 
 .wrap {
-    max-width: 1110px;
+   width: 1110px;
 }
 
 // Animation  ------------------------------------------------------------------------------------------
