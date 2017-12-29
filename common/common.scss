@@ -957,6 +957,10 @@ body:before {
 	background: rgba(64, 64, 64, 0.83);
 }
 
+.bootbox.modal {
+    box-shadow: 0 0 0 100vw rgba(0,0,0,0.8);
+}
+
 .modal-backdrop {
 	display: none;
 }
