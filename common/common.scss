@@ -39,6 +39,10 @@ h6 {
 	line-height: 1.5;
 }
 
+.user-navigation .nav-stacked a.active {
+    font-weight: normal;
+}
+
 // Reset   ----------------------------------------------------------------------------------------------
 
 $n: none;
