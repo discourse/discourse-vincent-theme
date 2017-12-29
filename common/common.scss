@@ -40,7 +40,7 @@ h6 {
 }
 
 .user-navigation .nav-stacked a.active {
-    font-weight: normal;
+	font-weight: normal;
 }
 
 // Reset   ----------------------------------------------------------------------------------------------
@@ -285,10 +285,6 @@ button.cancel:hover,
 
 button.ok:hover {
 	background: $ok-color;
-}
-
-.modal-backdrop {
-	background-color: darken($trim-color, 75%);
 }
 
 // background none ------------------------------
@@ -880,7 +876,7 @@ section.embedded-posts.top {
 }
 
 .wrap {
-   width: 1110px;
+	width: 1110px;
 }
 
 // Animation  ------------------------------------------------------------------------------------------
@@ -928,8 +924,9 @@ body {
 }
 
 body:before {
+	display: block;
 	content: "";
-	z-index: -1;
+	z-index: 2;
 	opacity: $body-background-gradient-opacity;
 	background: linear-gradient(
 		to $body-background-gradient-direction,
@@ -939,7 +936,7 @@ body:before {
 }
 
 #background {
-	z-index: -2;
+	z-index: 1;
 	opacity: $body-background-pattern-opacity;
 }
 
@@ -950,6 +947,18 @@ body:before {
 	position: fixed;
 	top: 0;
 	left: 0;
+}
+
+#main {
+	z-index: 4;
+}
+
+.fixed-modal {
+	background: rgba(64, 64, 64, 0.83);
+}
+
+.modal-backdrop {
+	display: none;
 }
 
 // Inputs --------------------------------------------------------------------------------------------
@@ -1146,7 +1155,7 @@ section.post-menu-area {
 }
 
 #topic-title h1 {
-    font-size: 1.25em;
+	font-size: 1.25em;
 }
 
 // apendex ------------------------------------------------------------------------------------------
