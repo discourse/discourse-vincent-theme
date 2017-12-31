@@ -16,7 +16,10 @@ $danger-color: #96000e;
 $ok-color: #00bf9a;
 $box-shadow-value: none;
 
-$animation-speed: 0.4s;
+$highlight-color: rgba(255, 255, 255, 0.1);
+$highlight-speed: 1.5s;
+
+$transition-speed: 0.4s;
 
 // fonts -------------------------------------------------------------------------------------------------
 
@@ -35,12 +38,20 @@ h6 {
 }
 
 .cooked p {
-	font-size: 1.2em;
-	line-height: 1.5;
+	font-size: 1.25em;
+	line-height: 1.6;
+}
+
+#topic-title h1 {
+	font-size: 1.25em;
 }
 
 .user-navigation .nav-stacked a.active {
 	font-weight: normal;
+}
+
+#banner #banner-content span {
+	text-decoration: none;
 }
 
 // Reset   ----------------------------------------------------------------------------------------------
@@ -385,7 +396,6 @@ section.embedded-posts.bottom,
 .topic-list .topic-list-item-separator td,
 .nav-stacked li,
 .admin-contents table td,
-header.d-header,
 .category-list tbody tr,
 .latest-topic-list-item,
 .table-heading,
@@ -416,7 +426,6 @@ nav.post-controls .post-admin-menu,
 .badges .content-list ul li,
 .admin-contents table td,
 .reply,
-header.d-header.clearfix,
 .timeline-container .topic-timeline .timeline-scrollarea,
 .admin-list-item,
 section.about table td,
@@ -484,6 +493,10 @@ img.avatar,
 .category-boxes .category-box-inner,
 .category-boxes-with-topics .category-box-inner {
 	border-width: 1px;
+}
+
+header.d-header.clearfix {
+	border-bottom: 1px solid darken($trim-color, 68%);
 }
 
 // Margins ----------------------------------------------------------------------------------------------
@@ -638,6 +651,10 @@ section.navigation-container {
 
 .categories-list .category-list {
 	margin-left: 0;
+}
+
+.cooked li {
+	margin: 0.5em 0;
 }
 
 // padding ----------------------------------------------------------------------------------------------
@@ -810,7 +827,11 @@ section.embedded-posts.top {
 }
 
 #post_1 .post-actions {
-	padding-bottom: 0.5em;
+	padding: 0 1.25em;
+}
+
+#post_1 .post-actions .post-action {
+	padding: 1em 0;
 }
 
 // Display ---------------------------------------------------------------------------------------------
@@ -891,27 +912,17 @@ a,
 input,
 .desc,
 button i {
-	transition: all ease $animation-speed;
+	transition: all ease $transition-speed;
 }
 
-.topic-body.highlighted,
-.topic-list > tbody > tr.highlighted {
-	animation: none;
+.topic-list > tbody > tr.highlighted,
+.topic-body.highlighted {
+	animation: Vincent-highlight $highlight-speed ease-in-out;
 }
 
-.post-stream,
-.topic-list-item,
-.list-controls > .container > section,
-#main-outlet {
-	animation: Vincent $animation-speed ease;
-}
-
-@keyframes Vincent {
+@keyframes Vincent-highlight {
 	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
+		background-color: $highlight-color;
 	}
 }
 
@@ -958,7 +969,7 @@ body:before {
 }
 
 .bootbox.modal {
-    box-shadow: 0 0 0 100vw rgba(0,0,0,0.8);
+	box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
 }
 
 .modal-backdrop {
@@ -986,6 +997,7 @@ textarea.md-textarea:focus:not([readonly]) {
 	border-color: rgba(255, 255, 255, 0.2);
 	border-bottom: 1px solid $main-color;
 	box-shadow: 0 1px 0 0 $main-color;
+	box-shadow: $n;
 }
 
 .select-box-kit.combo-box .select-box-kit-header.is-focused,
@@ -994,8 +1006,8 @@ textarea.md-textarea:focus:not([readonly]) {
 .select-kit.combo-box .select-kit-header.is-focused {
 	border: 1px solid $main-color;
 	border-bottom-color: darken($main-color, 30%);
-	-webkit-box-shadow: $main-color 0px 0px 2px 0px;
-	box-shadow: $main-color 0px 0px 2px 0px;
+	-webkit-box-shadow: $main-color  0 0 1px 0;
+	box-shadow: $main-color 0 0 1px 0;
 }
 
 input[type="text"]:focus,
@@ -1013,15 +1025,15 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus {
 	border-color: $main-color;
-	box-shadow: $main-color 0px 0px 2px 0px;
+	box-shadow: $main-color 0 0 1px 0;
 	outline: 0;
 }
 
 .select-box-kit.combo-box.is-expanded .select-kit-wrapper,
 .select-kit.combo-box.is-expanded .select-kit-wrapper {
 	border: 1px solid $main-color;
-	-webkit-box-shadow: $main-color 0px 0px 2px 0px;
-	box-shadow: $main-color 0px 0px 2px 0px;
+	-webkit-box-shadow: $main-color 0 0 1px 0;
+	box-shadow: $main-color 0 0 1px 0;
 }
 
 .select-box-kit .select-box-kit-row.is-highlighted,
@@ -1036,7 +1048,8 @@ input[type="color"]:focus {
 }
 
 .select2-container-active {
-	box-shadow: $main-color 0px 0px 6px 0px;
+	box-shadow: $main-color 0 0 6px 0;
+	box-shadow: $n;
 }
 
 .select2-drop-active {
@@ -1059,8 +1072,8 @@ div.ac-wrap {
 .select2-container * input:focus,
 .ac-wrap > input:focus,
 .user-selector.ember-text-field {
-	box-shadow: none !important;
-	border: none !important;
+	box-shadow: $n !important;
+	border: $n !important;
 }
 
 .select-box-kit.dropdown-select-box .dropdown-select-box-header.is-focused,
@@ -1109,7 +1122,7 @@ div.ac-wrap {
 	width: 35px;
 	border: $n;
 	box-shadow: inset 0 1px 1px $main-color;
-	margin: 60px auto 0px auto;
+	margin: 60px auto 0 auto;
 }
 
 .category-boxes .category-box-inner:hover,
@@ -1158,8 +1171,42 @@ section.post-menu-area {
 	position: relative;
 }
 
-#topic-title h1 {
-	font-size: 1.25em;
+a.expand-hidden {
+	background: rgba(19, 20, 24, 0.9);
+	display: block;
+	padding: 1.25em;
+}
+
+.topic-avatar .avatar-flair {
+	bottom: unset;
+	top: 30px;
+	right: -2px;
+}
+
+.cooked p {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-shadow: -0.07em 0 #222, 0 -0.07em #111, -0.07em 0 #111, 0 0.07em #222;
+	-webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
+}
+
+.cooked p,
+.cooked span,
+.cooked ol,
+.cooked ul,
+.cooked div {
+	color: darken($trim-color, 20%);
+}
+
+#reply-control .d-editor-preview img:not(.thumbnail),
+.cooked img:not(.thumbnail) {
+	max-width: 100%;
+}
+
+.show-more.has-topics .alert {
+	background: lighten($main-background, 10%);
+	color: darken($trim-color, 10%);
+	margin: 0;
 }
 
 // apendex ------------------------------------------------------------------------------------------
@@ -1169,18 +1216,13 @@ section.post-menu-area {
 		0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
-header.d-header.clearfix {
-	border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
-}
-
-.topic-avatar .avatar-flair {
-	bottom: unset;
-	top: 30px;
-	right: -2px;
-}
-
-span.bbcode-u {
-	text-decoration: none;
+@keyframes Vincent-opacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 // plugin support ------------------------------------------------------------------------------------
