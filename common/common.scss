@@ -1127,6 +1127,11 @@ header.d-header.clearfix {
     background: rgba(255, 255, 255, .1);
 }
 
+#background, body:before {
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+}
+
 // plugin support -----------------------------------------------------------------------------
 
 // Retort  ---------------------------------------------
