@@ -1123,6 +1123,10 @@ header.d-header.clearfix {
     height: auto;
 }
 
+.admin-interface .btn:not(:hover):not(.btn-danger) {
+    background: rgba(255, 255, 255, .1);
+}
+
 // plugin support -----------------------------------------------------------------------------
 
 // Retort  ---------------------------------------------
