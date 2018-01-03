@@ -1,25 +1,22 @@
-// Variables  --------------------------------------------------------------------------------------------
+// Variables  ---------------------------------------------------------------------------------
 
 $main-color: #00bcd4;
 $trim-color: white;
 $main-background: rgba(19, 20, 24, 0.9);
-$secondary-background: rgba(255, 255, 255, 0.1);
+$secondary-background: rgba(0, 0, 0, 0.4);
 $border-color: rgba(255, 255, 255, 0.1);
 
 $body-background-gradient-direction: bottom right;
-$body-background-gradient-color-first: #9c27b0;
-$body-background-gradient-color-second: #673ab7;
+$body-background-gradient-color-first: #4a68c3;
+$body-background-gradient-color-second: #00bcd4;
 $body-background-pattern-opacity: 1;
-$body-background-gradient-opacity: 0.1;
+$body-background-gradient-opacity: 0.2;
 
 $danger-color: #96000e;
 $ok-color: #00bf9a;
-$box-shadow-value: none;
 
 $highlight-color: rgba(255, 255, 255, 0.1);
 $highlight-speed: 1.5s;
-
-$transition-speed: 0.4s;
 
 // fonts -------------------------------------------------------------------------------------------------
 
@@ -54,7 +51,7 @@ h6 {
 	text-decoration: none;
 }
 
-// Reset   ----------------------------------------------------------------------------------------------
+// Reset   ------------------------------------------------------------------------------------
 
 $n: none;
 
@@ -77,123 +74,64 @@ html {
 	padding: 0;
 }
 
-// text-align  ------------------------------------------------------------------------------------------
-
-// center ---------------------------------------
-
-.topic-meta {
-	text-align: center;
-}
-
-//  Box-shadow ------------------------------------------------------------------------------------------
-
-// box shadow value -----------------------------
-
-.menu-panel,
-#share-link.visible,
-.user-stream .item,
-.user-stream .user-stream-item,
-.topic-body,
-.alert,
-.list-controls,
-.top-lists,
-.topic-list-bottom,
-#topic-footer-buttons,
-.topic-list,
-#topic-title .title-wrapper,
-.admin-content,
-.full-width > ul.nav.nav-pills {
-	box-shadow: $box-shadow-value;
-}
-
-// box shadow none ------------------------------
-
-#user-card.show-badges,
-.user-right .topic-list-item,
-#reply-control,
-.reply *.topic-body {
-	box-shadow: $n;
-}
-
-// colors ---------------------------------------------------------------------------------------
-
-// color main color -----------------------------
-
 * {
 	outline-color: $main-color;
 }
 
-.posts-wrapper .small-action .small-action-desc,
-.settings .setting.overridden h3,
-.d-header-icons .icon:hover,
-.d-header-icons .icon:active,
-a,
-a:visited,
-.d-icon.d-icon-d-tracking,
-.d-icon.d-icon-d-watching,
-#topic-footer-buttons .bookmark.bookmarked .d-icon-bookmark,
-nav.post-controls button.bookmark.bookmarked,
-.bookmark.bookmarked {
-	color: $main-color;
-}
+// colors -------------------------------------------------------------------------------------
 
 // color trim color -----------------------------
 
+.badge-notification,
 .nav-pills > li > a:hover,
 .layouts-nav-button > li > a:hover,
-button#create-topic,
+.btn-primary,
+.btn,
+.category-list .topics .badge-notification,
+.category-list .category .badge-notification,
+nav.post-controls .highlight-action,
+.btn:hover,
+.btn.btn-hover,
+.timeline-container .topic-timeline .timeline-handle,
 .btn:active,
 .btn:focus,
-.btn:hover,
 .media .media-left img,
 .modal-dialog .modal-content,
 .modal-dialog.cascading-modal .modal-header,
 .z-depth-1-half,
 ul.instagram-photos li img,
-button#create-topic,
-.badge-notification,
-a:hover,
-.btn,
-nav.post-controls button.delete.d-hover,
+.btn-primary:hover,
+.btn-primary.btn-hover,
 .nav-pills > li.active > a,
 .layouts-nav-button > li.active > a,
 .nav-pills > li > a.active,
 .layouts-nav-button > li > a.active,
-.nav-stacked a.active,
-.discourse-tag:hover,
-button.cancel:hover,
-button.ok:hover,
-.moderator .names span.user-title,
-.topic-post.deleted .topic-meta-data * {
-	color: $trim-color !important;
+.open .grippie,
+.badge-notification.new-posts,
+.badge-notification.unread-posts,
+.admin-controls .nav.nav-pills li.active a,
+#user-card .card-content,
+.user-nav,
+.btn-danger[href],
+.btn-danger,
+.badge-notification.clicks,
+.topic-map .link-summary .btn,
+.bootbox.modal .modal-footer a.btn-primary{
+	color: $trim-color;
 }
 
 .list-cell,
 .table-heading,
 .category-list td,
 .category-list th,
-.topic-list td,
-.topic-list th,
 .latest-topic-list .table-heading,
-.table-heading,
-.moderator .names span.user-title,
-.education,
-.top-sub-section .topic-info,
-.links-section .domain {
+.settings .setting .desc,
+#topic-footer-buttons p,
+.small-action .small-action-desc.timegap {
 	color: darken($trim-color, 35%);
 }
 
-.modal.history-modal del,
-.modal .modal-body p,
-nav.post-controls .highlight-action,
-.topic-list .topic-list-item-separator td span,
-.period-chooser .top-date-string,
-.nav-stacked a,
-.presence-users {
-	color: darken($trim-color, 15%);
-}
-
-// backgrounds ----------------------------------------------------------------------------------
+// backgrounds --------------------------------------------------------------------------------
 
 // background main color ------------------------
 
@@ -214,7 +152,9 @@ ul.instagram-photos li img,
 .open .grippie,
 .badge-notification.new-posts,
 .badge-notification.unread-posts,
-.admin-controls .nav.nav-pills li.active a {
+.admin-controls .nav.nav-pills li.active a,
+#user-card .card-content,
+.user-nav {
 	background: darken($main-color, 10%);
 }
 
@@ -228,9 +168,9 @@ ul.general,
 .alert.alert-info,
 .body-page,
 .topic-list,
-.topic-list tbody tr:nth-of-type(odd),
+.topic-list tbody tr:nth-of-type(even),
 .category-list,
-.category-list tbody tr:nth-of-type(odd),
+.category-list tbody tr:nth-of-type(even),
 .search-container,
 .search-advanced-options,
 .user-stream-item.item,
@@ -238,7 +178,6 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .category-boxes .category-box-inner,
 .category-boxes-with-topics .category-box-inner,
 #topic-title .title-wrapper,
-#topic-footer-buttons,
 .list-controls,
 .top-lists,
 .topic-list-bottom,
@@ -250,12 +189,11 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 section.post-menu-area,
 .post-links-container,
 .post-links-container ul li:nth-of-type(even),
-.small-action,
 .offset2 .reply .topic-body .cooked,
 .moderator .names span.user-title,
 .topic-post.deleted section.post-actions,
 .presence-users,
-#post_1 .post-actions {
+.post-actions {
 	background: $main-background;
 }
 
@@ -267,12 +205,7 @@ table.category-list > thead,
 .table-heading,
 .reply .topic-meta-data,
 .deleted section.embedded-posts .topic-meta-data {
-	background: lighten($main-background, 10%);
-}
-
-#user-card .card-content,
-.user-nav {
-	background: darken($main-background, 10%);
+	background: rgba(0, 0, 0, 0.7);
 }
 
 // background secondary background --------------
@@ -356,7 +289,9 @@ img.avatar,
 .topic-body,
 .topic-map,
 .topic-map section,
-.topic-map .buttons .btn {
+.topic-map .buttons .btn,
+.embedded-posts .topic-body,
+.embedded-posts .row {
 	border: $n !important;
 }
 
@@ -373,7 +308,7 @@ img.avatar,
 .badge-card .badge-contents,
 nav.post-controls .post-admin-menu,
 .badges .content-list ul li {
-	border: 1px solid !important;
+	border: 1px solid;
 }
 
 // border border-top ------------------------------
@@ -381,14 +316,13 @@ nav.post-controls .post-admin-menu,
 hr,
 .post-links-container .post-links,
 .admin-contents table td,
-.category-list tbody tr,
 .reply > .row,
 section.embedded-posts.bottom,
 .category-list tbody tr:first-of-type,
 .reply .topic-body,
 .small-action,
 .topic-post.deleted section.post-actions {
-	border-top: 1px solid !important;
+	border-top: 1px solid;
 }
 
 // border border-bottom ---------------------------
@@ -396,12 +330,10 @@ section.embedded-posts.bottom,
 .topic-list .topic-list-item-separator td,
 .nav-stacked li,
 .admin-contents table td,
-.category-list tbody tr,
-.latest-topic-list-item,
 .table-heading,
 .reply .topic-body,
 .topic-meta-data {
-	border-bottom: 1px solid !important;
+	border-bottom: 1px solid;
 }
 
 // border border-color ----------------------------
@@ -446,28 +378,10 @@ section.embedded-posts.bottom,
 .latest-topic-list-item,
 .table-heading,
 .reply .topic-body,
-.topic-meta-data {
+.topic-meta-data,
+.latest-topic-list-item,
+.category-list tbody tr {
 	border-color: $border-color !important;
-}
-
-// border border-radius 0 -------------------------
-
-.main-content.nav-menu-enabled .list-controls,
-.user-stream .item,
-.user-stream .user-stream-item,
-a.mention,
-a.mention-group,
-.topic-post article.boxed,
-.main-content .list-controls,
-.main-content.nav-menu-enabled .list-controls {
-	border-radius: 0;
-}
-
-// border border-radius 100vw ---------------------
-
-.badge-wrapper.bullet .badge-category-parent-bg,
-.badge-wrapper.bullet .badge-category-bg {
-	border-radius: 100vw;
 }
 
 // border custom borders ---------------------------
@@ -495,11 +409,7 @@ img.avatar,
 	border-width: 1px;
 }
 
-header.d-header.clearfix {
-	border-bottom: 1px solid darken($trim-color, 68%);
-}
-
-// Margins ----------------------------------------------------------------------------------------------
+// Margins ------------------------------------------------------------------------------------
 
 // 0 auto ------------------------------------------
 
@@ -525,7 +435,7 @@ td.main-link .topic-title,
 .topic-meta-data,
 .extra-info-wrapper .topic-header-extra,
 .topic-post.deleted section.post-actions .post-action {
-	margin: 0 !important;
+	margin: 0;
 }
 
 // margin small all sides ---------------------------
@@ -657,7 +567,7 @@ section.navigation-container {
 	margin: 0.5em 0;
 }
 
-// padding ----------------------------------------------------------------------------------------------
+// padding ------------------------------------------------------------------------------------
 
 // padding zero -------------------------------------
 
@@ -671,7 +581,7 @@ a.mention-group,
 .embedded-posts.bottom .row,
 .boxed .contents,
 .topic-post.deleted section.post-actions .post-action {
-	padding: 0 !important;
+	padding: 0;
 }
 
 // Top zero -----------------------------------------
@@ -786,7 +696,7 @@ nav.post-controls {
 }
 
 .list-controls {
-	padding-top: 3px !important;
+	padding-top: 3px;
 }
 
 .user-nav,
@@ -811,7 +721,7 @@ section.post-menu-area {
 
 section.embedded-posts.bottom,
 section.embedded-posts.top {
-	padding: 1em 0.5em 2em 0.5em !important;
+	padding: 1em 0.5em 2em 0.5em;
 }
 
 .topic-post.deleted section.post-actions {
@@ -826,15 +736,15 @@ section.embedded-posts.top {
 	padding-top: 80px;
 }
 
-#post_1 .post-actions {
+.post-actions {
 	padding: 0 1.25em;
 }
 
-#post_1 .post-actions .post-action {
+.post-actions .post-action {
 	padding: 1em 0;
 }
 
-// Display ---------------------------------------------------------------------------------------------
+// Display ------------------------------------------------------------------------------------
 
 // display inline block -------------------------------
 
@@ -861,7 +771,7 @@ section.embedded-posts.top {
 	display: inline;
 }
 
-// height and width ------------------------------------------------------------------------------------
+// height and width ---------------------------------------------------------------------------
 
 // width 100% -----------------------------------------
 
@@ -892,7 +802,8 @@ section.embedded-posts.top {
 
 #topic-title .title-wrapper,
 #topic-footer-buttons,
-.presence-users {
+.presence-users,
+.small-action {
 	width: 743px;
 }
 
@@ -900,20 +811,7 @@ section.embedded-posts.top {
 	width: 1110px;
 }
 
-// Animation  ------------------------------------------------------------------------------------------
-
-a,
-.discourse-tag,
-.menu-links-header a,
-.discourse-no-touch .topic-body .actions .fade-out,
-.nav-pills > li > a,
-.layouts-nav-button > li > a,
-.btn-icon,
-input,
-.desc,
-button i {
-	transition: all ease $transition-speed;
-}
+// Animation  ---------------------------------------------------------------------------------
 
 .topic-list > tbody > tr.highlighted,
 .topic-body.highlighted {
@@ -926,7 +824,7 @@ button i {
 	}
 }
 
-// body background -----------------------------------------------------------------------------------
+// body background ----------------------------------------------------------------------------
 
 body {
 	position: relative;
@@ -976,11 +874,7 @@ body:before {
 	display: none;
 }
 
-// Inputs --------------------------------------------------------------------------------------------
-
-input:focus + * + .desc {
-	color: $trim-color !important;
-}
+// Inputs -------------------------------------------------------------------------------------
 
 input[type="date"]:focus:not([readonly]),
 input[type="datetime-local"]:focus:not([readonly]),
@@ -996,7 +890,6 @@ input[type="url"]:focus:not([readonly]),
 textarea.md-textarea:focus:not([readonly]) {
 	border-color: rgba(255, 255, 255, 0.2);
 	border-bottom: 1px solid $main-color;
-	box-shadow: 0 1px 0 0 $main-color;
 	box-shadow: $n;
 }
 
@@ -1006,8 +899,8 @@ textarea.md-textarea:focus:not([readonly]) {
 .select-kit.combo-box .select-kit-header.is-focused {
 	border: 1px solid $main-color;
 	border-bottom-color: darken($main-color, 30%);
-	-webkit-box-shadow: $main-color  0 0 1px 0;
-	box-shadow: $main-color 0 0 1px 0;
+	-webkit-box-shadow: $n;
+	box-shadow: $n;
 }
 
 input[type="text"]:focus,
@@ -1025,15 +918,15 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus {
 	border-color: $main-color;
-	box-shadow: $main-color 0 0 1px 0;
+	box-shadow: $n;
 	outline: 0;
 }
 
 .select-box-kit.combo-box.is-expanded .select-kit-wrapper,
 .select-kit.combo-box.is-expanded .select-kit-wrapper {
 	border: 1px solid $main-color;
-	-webkit-box-shadow: $main-color 0 0 1px 0;
-	box-shadow: $main-color 0 0 1px 0;
+	-webkit-box-shadow: $n;
+	box-shadow: $n;
 }
 
 .select-box-kit .select-box-kit-row.is-highlighted,
@@ -1048,7 +941,6 @@ input[type="color"]:focus {
 }
 
 .select2-container-active {
-	box-shadow: $main-color 0 0 6px 0;
 	box-shadow: $n;
 }
 
@@ -1072,8 +964,8 @@ div.ac-wrap {
 .select2-container * input:focus,
 .ac-wrap > input:focus,
 .user-selector.ember-text-field {
-	box-shadow: $n !important;
-	border: $n !important;
+	box-shadow: $n;
+	border: $n;
 }
 
 .select-box-kit.dropdown-select-box .dropdown-select-box-header.is-focused,
@@ -1089,7 +981,7 @@ div.ac-wrap {
 
 @media (max-width: 650px) {
 	.topic-meta-data {
-		padding-bottom: 50px !important;
+		padding-bottom: 50px;
 	}
 	.topic-avatar {
 		margin-top: 1px;
@@ -1111,7 +1003,7 @@ div.ac-wrap {
 	}
 }
 
-// Extras ------------------------------------------------------------------------------------------
+// Extras -------------------------------------------------------------------------------------
 
 .pace .pace-progress {
 	background: $main-color;
@@ -1137,7 +1029,7 @@ div.ac-wrap {
 
 .topic-list .posters a:first-child .avatar.latest:not(.single) {
 	box-shadow: $n;
-	border: 2px solid darken($main-color, 5%) !important;
+	border: 2px solid darken($main-color, 5%);
 }
 
 // edit history modal
@@ -1150,7 +1042,7 @@ div.ac-wrap {
 	background: darken($main-color, 25%);
 }
 
-// TESTS --------------------------------------------------------------------------------------------
+// TESTS --------------------------------------------------------------------------------------
 
 .main-content .nav-drop .selected-nav-item {
 	line-height: 30px;
@@ -1190,42 +1082,48 @@ a.expand-hidden {
 	-webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
 }
 
-.cooked p,
-.cooked span,
-.cooked ol,
-.cooked ul,
-.cooked div {
-	color: darken($trim-color, 20%);
-}
-
-#reply-control .d-editor-preview img:not(.thumbnail),
-.cooked img:not(.thumbnail) {
-	max-width: 100%;
+.cooked blockquote p,
+.cooked p a {
+	text-shadow: none;
 }
 
 .show-more.has-topics .alert {
 	background: lighten($main-background, 10%);
-	color: darken($trim-color, 10%);
 	margin: 0;
 }
 
-// apendex ------------------------------------------------------------------------------------------
-
-.vincent {
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
-		0 3px 1px -2px rgba(0, 0, 0, 0.2);
+.read-state {
+	right: 6px;
 }
 
-@keyframes Vincent-opacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+.badge-category-bg {
+	border-radius: 100vw;
 }
 
-// plugin support ------------------------------------------------------------------------------------
+header.d-header.clearfix {
+	border-bottom: 1px solid #555555;
+}
+
+.topic-meta-data {
+	border-radius: 3px 3px 0 0;
+}
+
+#user-card .card-content {
+    background:#131418
+    
+}
+
+.embedded-posts.top {
+    padding-bottom: 1em !important;
+}
+
+#reply-control .d-editor-preview img:not(.thumbnail),
+.cooked img:not(.thumbnail) {
+    max-width: 100%;
+    height: auto;
+}
+
+// plugin support -----------------------------------------------------------------------------
 
 // Retort  ---------------------------------------------
 
