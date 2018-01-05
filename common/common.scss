@@ -7,7 +7,7 @@ $secondary-background: rgba(0, 0, 0, 0.4);
 $border-color: rgba(255, 255, 255, 0.1);
 
 $body-background-gradient-direction: bottom right;
-$body-background-gradient-color-first: #2196F3;
+$body-background-gradient-color-first: #2196f3;
 $body-background-gradient-color-second: #00bcd4;
 $body-background-pattern-opacity: 1;
 $body-background-gradient-opacity: 0.2;
@@ -18,7 +18,7 @@ $ok-color: #00bf9a;
 $highlight-color: rgba(255, 255, 255, 0.1);
 $highlight-speed: 1.5s;
 
-// fonts -------------------------------------------------------------------------------------------------
+// fonts --------------------------------------------------------------------------------------
 
 html {
 	font-family: "Roboto", sans-serif;
@@ -89,7 +89,6 @@ html {
 .btn,
 .category-list .topics .badge-notification,
 .category-list .category .badge-notification,
-nav.post-controls .highlight-action,
 .btn:hover,
 .btn.btn-hover,
 .timeline-container .topic-timeline .timeline-handle,
@@ -116,7 +115,12 @@ ul.instagram-photos li img,
 .btn-danger,
 .badge-notification.clicks,
 .topic-map .link-summary .btn,
-.bootbox.modal .modal-footer a.btn-primary{
+.bootbox.modal .modal-footer a.btn-primary,
+span.helpful-flags,
+span.flagged-posts,
+span.deleted-posts,
+.modal.history-modal del 
+ {
 	color: $trim-color;
 }
 
@@ -127,8 +131,20 @@ ul.instagram-photos li img,
 .latest-topic-list .table-heading,
 .settings .setting .desc,
 #topic-footer-buttons p,
-.small-action .small-action-desc.timegap {
+.small-action .small-action-desc.timegap,
+.links-section .domain,
+.top-sub-section .topic-info,
+.user-main .staff-counters,
+.topic-list .topic-list-item-separator td span,
+nav.post-controls .highlight-action,
+.gap,
+{
 	color: darken($trim-color, 35%);
+}
+
+.user-main .staff-counters a,
+a.mention {
+	color: $main-color;
 }
 
 // backgrounds --------------------------------------------------------------------------------
@@ -152,9 +168,7 @@ ul.instagram-photos li img,
 .open .grippie,
 .badge-notification.new-posts,
 .badge-notification.unread-posts,
-.admin-controls .nav.nav-pills li.active a,
-#user-card .card-content,
-.user-nav {
+.admin-controls .nav.nav-pills li.active a {
 	background: darken($main-color, 10%);
 }
 
@@ -192,7 +206,10 @@ section.post-menu-area,
 .moderator .names span.user-title,
 .topic-post.deleted section.post-actions,
 .presence-users,
-.post-actions {
+.post-actions,
+#user-card .card-content,
+.user-nav,
+.user-main .staff-counters {
 	background: $main-background;
 }
 
@@ -743,6 +760,11 @@ section.embedded-posts.top {
 	padding: 1em 0;
 }
 
+.user-nav,
+.full-width > ul.nav.nav-pills {
+	padding: 10px;
+}
+
 // Display ------------------------------------------------------------------------------------
 
 // display inline block -------------------------------
@@ -1082,7 +1104,8 @@ a.expand-hidden {
 }
 
 .cooked blockquote p,
-.cooked p a {
+.cooked p a,
+span.hashtag {
 	text-shadow: none;
 }
 
@@ -1107,28 +1130,47 @@ header.d-header.clearfix {
 	border-radius: 3px 3px 0 0;
 }
 
-#user-card .card-content {
-    background:#131418
-    
+#user-card .card-content,
+.modal-inner-container {
+	background: #131418;
 }
 
 .embedded-posts.top {
-    padding-bottom: 1em !important;
+	padding-bottom: 1em !important;
 }
 
 #reply-control .d-editor-preview img:not(.thumbnail),
 .cooked img:not(.thumbnail) {
-    max-width: 100%;
-    height: auto;
+	max-width: 100%;
+	height: auto;
 }
 
 .admin-interface .btn:not(:hover):not(.btn-danger) {
-    background: rgba(255, 255, 255, .1);
+	background: rgba(255, 255, 255, 0.1);
 }
 
-#background, body:before {
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
+#background,
+body:before {
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
+a {
+	transition: color 0.25s, background 0.25s, outline 0.25s,
+	background-color 0.25s !important;
+}
+
+a:hover {
+	color: $trim-color !important;
+}
+
+span.hashtag {
+	color: #f44336;
+}
+
+a.mention,
+a.mention-group {
+	font-weight: normal;
 }
 
 // plugin support -----------------------------------------------------------------------------
