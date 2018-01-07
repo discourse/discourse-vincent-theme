@@ -1208,12 +1208,12 @@ button.post-retort:first-of-type {
 
 a {
 	color: $link-color;
+        font-weight: bold;
 	&:visited,
 	&:hover,
 	&:active,
 	&.hashtag {
 		color: $link-color;
-		font-weight: bold;
 	}
 	&.mention {
 		color: adjust-hue($link-color, 150deg);
