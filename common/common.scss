@@ -19,7 +19,7 @@ $link-color: lighten($theme-base, 25%);
 // theme settings -------------------------------
 
 $body-background-pattern-opacity: 0.8;
-$body-background-gradient-opacity: 0.35;
+$body-background-gradient-opacity: 0.3;
 $body-background-gradient-direction: top left;
 $body-background-gradient-color-first: adjust-hue($theme-base, 20deg);
 $body-background-gradient-color-second: adjust-hue($theme-base, -10deg);
@@ -131,7 +131,8 @@ a:hover > i.d-icon {
 .user-main .staff-counters,
 .topic-list .topic-list-item-separator td span,
 nav.post-controls .highlight-action,
-.gap {
+.gap,
+.period-chooser .top-date-string {
 	color: darken($text-base, 35%);
 }
 
@@ -193,7 +194,7 @@ section.post-menu-area,
 .offset2 .reply .topic-body .cooked,
 .moderator .names span.user-title,
 .topic-post.deleted section.post-actions,
-.presence-users,
+.topic-area .presence-users,
 .post-actions,
 #user-card .card-content,
 .user-nav,
@@ -240,7 +241,6 @@ button.ok:hover {
 .d-header-icons a.icon,
 .avatar-wrapper,
 .user-navigation .nav-stacked a,
-#user-card,
 .user-content,
 .main-content .nav-drop .nav-dropdown-menu a:hover,
 .list-controls .category-dropdown-menu a:hover,
@@ -543,7 +543,7 @@ section.navigation-container {
 }
 
 .signup-cta .buttons,
-.presence-users {
+.topic-area .presence-users {
 	margin-bottom: 1em;
 }
 
@@ -596,7 +596,7 @@ a.mention-group,
 
 // padding small all sides -------------------------
 
-.presence-users {
+.topic-area .presence-users {
 	padding: 0.5em;
 }
 
@@ -768,7 +768,7 @@ section.embedded-posts.top {
 
 // display block --------------------------------------
 
-.presence-users {
+.topic-area .presence-users {
 	display: block;
 }
 
@@ -799,7 +799,7 @@ section.embedded-posts.top {
 
 #topic-title .title-wrapper,
 #topic-footer-buttons,
-.presence-users {
+.topic-area .presence-users {
 	max-width: 100%;
 }
 
@@ -809,7 +809,7 @@ section.embedded-posts.top {
 
 #topic-title .title-wrapper,
 #topic-footer-buttons,
-.presence-users,
+.topic-area .presence-users,
 .small-action {
 	width: 743px;
 }
@@ -1117,7 +1117,6 @@ header.d-header.clearfix {
 	border-radius: 3px 3px 0 0;
 }
 
-#user-card .card-content,
 .modal-inner-container {
 	background: #131418;
 }
@@ -1162,6 +1161,27 @@ span.hashtag {
 	min-height: 70vh;
 }
 
+.moderator .topic-body .contents .cooked {
+	background-color: rgb(37, 37, 37);
+	padding: 0 1.25em;
+	padding-top: 15px;
+	border-top: 1px solid rgba($link-color, 0.3);
+	border-bottom: 1px solid rgba($link-color, 0.3);
+}
+
+.modal.history-modal span.edit-reason {
+	background-color: $border-color;
+}
+
+.directory {
+	background: $main-background;
+	padding: 2em;
+}
+
+.directory table tr.me td {
+	background: $border-color;
+}
+
 // plugin support -----------------------------------------------------------------------------
 
 // Retort  ---------------------------------------------
@@ -1177,7 +1197,7 @@ button.post-retort:first-of-type {
 // Whos online  ---------------------------------------
 
 #whos-online {
-	padding: 1em .75em;
+	padding: 1em 0.75em;
 	background: $main-background;
 	margin-bottom: 1em;
 }
@@ -1190,8 +1210,10 @@ a {
 	color: $link-color;
 	&:visited,
 	&:hover,
-	&:active {
+	&:active,
+	&.hashtag {
 		color: $link-color;
+		font-weight: bold;
 	}
 	&.mention {
 		color: adjust-hue($link-color, 150deg);
@@ -1275,7 +1297,7 @@ a {
 
 .btn-primary {
 	color: $text-base;
-	background: $theme-trim;
+	background: $border-color;
 
 	&[href] {
 		color: $text-base;
