@@ -113,8 +113,7 @@ html {
 span.helpful-flags,
 span.flagged-posts,
 span.deleted-posts,
-.modal.history-modal del,
-a:hover > i.d-icon {
+.modal.history-modal del {
 	color: $text-base;
 }
 
