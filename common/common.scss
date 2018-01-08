@@ -24,6 +24,7 @@ $body-background-gradient-direction: top left;
 $body-background-gradient-color-first: adjust-hue($theme-base, 20deg);
 $body-background-gradient-color-second: adjust-hue($theme-base, -10deg);
 $highlight-speed: 1.5s;
+$button-text-case: uppercase;
 
 // fonts --------------------------------------------------------------------------------------
 
@@ -131,7 +132,9 @@ span.deleted-posts,
 .topic-list .topic-list-item-separator td span,
 nav.post-controls .highlight-action,
 .gap,
-.period-chooser .top-date-string {
+.period-chooser .top-date-string,
+.small-action .small-action-desc,
+.small-action .topic-avatar i {
 	color: darken($text-base, 35%);
 }
 
@@ -1035,8 +1038,7 @@ div.ac-wrap {
 }
 
 .topic-list .posters a:first-child .avatar.latest:not(.single) {
-	box-shadow: $n;
-	border: 2px solid darken($theme-base, 5%);
+	box-shadow: 0 0 2px 3px $link-color;
 }
 
 // edit history modal
@@ -1145,11 +1147,6 @@ a:hover {
 	color: $text-base !important;
 }
 
-span.hashtag {
-	color: adjust-hue($theme-base, -45deg);
-	font-weight: bold;
-}
-
 .main-content.loading .list-controls {
 	display: none;
 }
@@ -1201,6 +1198,31 @@ button.post-retort:first-of-type {
 	margin-bottom: 1em;
 }
 
+// Discourse Spoiler Alert  ---------------------------
+
+.spoiled p {
+	text-shadow: inherit;
+	-webkit-text-stroke: inherit;
+}
+
+// Discourse signature plugin  ------------------------
+
+.cooked + hr {
+	margin: 0;
+	padding: 0;
+	background: rgba(19, 20, 24, 0.9);
+}
+
+.user-signature {
+	background: rgba(19, 20, 24, 0.9);
+	padding: 1em 1.25em;
+	padding-bottom: 0;
+}
+
+.user-signature p:last-of-type {
+	margin-bottom: 0;
+}
+
 // Nothing here... keep walking... ------------------------------------------------------------
 
 // link colors ----------------------------------
@@ -1232,7 +1254,7 @@ a {
 }
 .btn {
 	border-radius: 2px;
-	text-transform: uppercase;
+	text-transform: $button-text-case;
 	-webkit-transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
 	transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
 	-webkit-transform: translate3d(0, 0, 0);
