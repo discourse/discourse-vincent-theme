@@ -190,14 +190,12 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 #banner,
 .latest-topic-list-item:nth-of-type(odd),
 .latest-topic-list,
-.topic-body .contents .cooked,
-section.post-menu-area,
+.topic-body .contents,
+.offset2 .cooked,
 .post-links-container,
-.offset2 .reply .topic-body .cooked,
 .moderator .names span.user-title,
-.topic-post.deleted section.post-actions,
 .topic-area .presence-users,
-.post-actions,
+#post_1 .post-actions,
 #user-card .card-content,
 .user-nav,
 .user-main .staff-counters {
@@ -258,7 +256,6 @@ a.mention-group,
 .d-header-icons .icon:hover,
 .d-header-icons .icon:active,
 .widget-container,
-.reply *.topic-body,
 tr.topic-list-item-separator + .topic-list-item,
 .deleted .topic-body,
 .topic-map .buttons .btn {
@@ -729,7 +726,8 @@ section.embedded-posts.top {
 }
 
 .topic-post.deleted section.post-actions {
-	padding: 0.75em 1.75em;
+	padding: 0.75em 3px;
+	padding-bottom: 0;
 }
 
 .topic-meta-data {
@@ -740,12 +738,13 @@ section.embedded-posts.top {
 	padding-top: 80px;
 }
 
-.post-actions {
+#post_1 .post-actions {
 	padding: 0 1.25em;
 }
 
-.post-actions .post-action {
-	padding: 1em 0;
+#post_1 .post-actions .post-action {
+	padding: 0.25em 0;
+	margin-top: 0;
 }
 
 .user-nav,
@@ -1178,6 +1177,15 @@ a:hover {
 	background: $border-color;
 }
 
+.topic-post.deleted .topic-meta-data span,
+.topic-post.deleted .topic-meta-data a {
+	color: $text-base;
+}
+
+#login-buttons button {
+	font-size: 1em;
+}
+
 // plugin support -----------------------------------------------------------------------------
 
 // Retort  ---------------------------------------------
@@ -1207,20 +1215,8 @@ button.post-retort:first-of-type {
 
 // Discourse signature plugin  ------------------------
 
-.cooked + hr {
-	margin: 0;
-	padding: 0;
-	background: rgba(19, 20, 24, 0.9);
-}
-
 .user-signature {
-	background: rgba(19, 20, 24, 0.9);
-	padding: 1em 1.25em;
-	padding-bottom: 0;
-}
-
-.user-signature p:last-of-type {
-	margin-bottom: 0;
+	padding: 0 1.25em;
 }
 
 // Nothing here... keep walking... ------------------------------------------------------------
@@ -1236,10 +1232,10 @@ a {
 		color: $link-color;
 	}
 	&.mention {
-		color: adjust-hue($link-color, 150deg);
+		color: adjust-hue($link-color, -10deg);
 	}
 	&.mention-group {
-		color: adjust-hue($link-color, -150deg);
+		color: adjust-hue($link-color, 10deg);
 	}
 }
 
