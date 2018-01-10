@@ -1,3 +1,3 @@
-## Discourse Vincent theme v0.56 beta
+## Discourse Vincent theme v0.57 beta
  
 More information https://meta.discourse.org/t/beta-testers-needed-for-theme/76662/
