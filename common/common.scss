@@ -1,5 +1,7 @@
 // Variables  ---------------------------------------------------------------------------------
 
+@import "//stylesheets/app/assets/stylesheets/common/foundation/colors";
+
 // palette colors -------------------------------
 
 $theme-base: #009dd8;
@@ -114,7 +116,8 @@ html {
 span.helpful-flags,
 span.flagged-posts,
 span.deleted-posts,
-.modal.history-modal del {
+.modal.history-modal del,
+.nav-stacked li a {
 	color: $text-base;
 }
 
@@ -1072,8 +1075,6 @@ section.post-menu-area {
 }
 
 a.expand-hidden {
-	background: rgba(19, 20, 24, 0.9);
-	display: block;
 	padding: 1.25em;
 }
 
@@ -1157,11 +1158,18 @@ a:hover {
 }
 
 .moderator .topic-body .contents .cooked {
-	background-color: rgb(37, 37, 37);
+	background: $n;
 	padding: 0 1.25em;
 	padding-top: 15px;
-	border-top: 1px solid rgba($link-color, 0.3);
-	border-bottom: 1px solid rgba($link-color, 0.3);
+}
+
+.moderator .topic-meta-data {
+	background: linear-gradient(
+		to right,
+		rgba($danger, 0.5),
+		rgba(darken($danger, 10%), 0.5)
+	);
+	border-bottom: none;
 }
 
 .modal.history-modal span.edit-reason {
@@ -1184,6 +1192,15 @@ a:hover {
 
 #login-buttons button {
 	font-size: 1em;
+}
+
+.badge-wrapper.box span.badge-category-bg {
+	border-radius: 0;
+}
+
+.list-controls .category-breadcrumb .dropdown-header {
+	background: none !important;
+	color: inherit !important;
 }
 
 // plugin support -----------------------------------------------------------------------------
