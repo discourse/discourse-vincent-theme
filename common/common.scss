@@ -1,38 +1,95 @@
+// functions  ---------------------------------------------------------------------------------
+
+// Calculate brightness value
+@function brightness($color) {
+  @return (red($color) + green($color) + blue($color)) / (255 * 3);
+}
+
+// to base color
+@function brightness_ratio($base, $color) {
+  @return abs(brightness($base) - brightness($color));
+}
+
+// Compare colors to higher contrast
+@function contrast($base, $color1: white, $color2: black) {
+  @return if(brightness_ratio($base, $color1) > brightness_ratio($base, $color2), $color1, $color2);
+}
+
+
+// Compare colors to lower contrast (inverting the former contrast function)
+@function invert-contrast($base, $color1: white, $color2: black) {
+  @return if(brightness_ratio($base, $color1) > brightness_ratio($base, $color2), $color2, $color1);
+}
+
+// reverse lightness
+@function reverse-lightness($color) {
+  $result: 0;
+  $value: lightness($color);
+  @if $value >= 50 {
+    $result: scale-color($color, $lightness: -$value);
+  } @else {
+    $result: scale-color($color, $lightness: 100% - $value);
+  } 
+  @return $result;
+}
+
 // Variables  ---------------------------------------------------------------------------------
 
 @import "//stylesheets/app/assets/stylesheets/common/foundation/colors";
 
+/*
+$primary
+$secondary
+$tertiary
+$quaternary
+$header_background
+$header_primary
+$highlight
+$danger
+$success
+$love
+*/
+
+$n: none;
+$i: !important;
+
 // palette colors -------------------------------
 
-$theme-base: #009dd8;
-$text-base: rgba(255, 255, 255, 1);
-$main-background: rgba(19, 20, 24, 0.9);
-$secondary-background: rgba(0, 0, 0, 0.4);
-$danger-color: #96000e;
+$theme-base: $tertiary;
+$text-base: reverse-lightness($secondary);
+$main-background: rgba($header_background, .9);
+$secondary-background: rgba(contrast($primary), .4);
+$tertiary-background: rgba(contrast($primary), .7);
+$trim-background: rgba($text-base, .1);
 
 // derived colors -------------------------------
 
-$border-color: rgba($text-base, 0.1);
-$highlight-color: $border-color;
-$theme-trim: adjust-hue($theme-base, 150deg);
-$ok-color: adjust-hue($danger-color, 150deg);
+$border-color: $trim-background;
+$highlight-color: $trim-background;
+$theme-trim: $quaternary;
 $link-color: lighten($theme-base, 25%);
+$ok-color: $success;
+$danger-color: $danger;
 
 // theme settings -------------------------------
 
-$body-background-pattern-opacity: 0.8;
-$body-background-gradient-opacity: 0.3;
+$body-background-pattern-opacity: .8;
+$body-background-gradient-opacity: .3;
 $body-background-gradient-direction: top left;
 $body-background-gradient-color-first: adjust-hue($theme-base, 20deg);
 $body-background-gradient-color-second: adjust-hue($theme-base, -10deg);
 $highlight-speed: 1.5s;
 $button-text-case: uppercase;
+$text-shadow-value: 0 -.07em 0 rgba(contrast($text-base), .2),
+		0 .07em 0 rgba(contrast($text-base), .2),
+		.07em 0 0 rgba(contrast($text-base), .2),
+		-.07em 0 0 rgba(contrast($text-base), .2);
 
 // fonts --------------------------------------------------------------------------------------
 
 html {
 	font-family: "Roboto", sans-serif;
-	background: #111;
+	background: invert-contrast($theme-base);
 }
 
 body,
@@ -62,9 +119,11 @@ h6 {
 	text-decoration: none;
 }
 
-// Reset   ------------------------------------------------------------------------------------
+strong {
+	font-size: 90%;
+}
 
-$n: none;
+// Reset   ------------------------------------------------------------------------------------
 
 .topic-list .posters,
 input {
@@ -94,8 +153,6 @@ html {
 // color text base -----------------------------
 
 .badge-notification,
-.nav-pills > li > a:hover,
-.layouts-nav-button > li > a:hover,
 .category-list .topics .badge-notification,
 .category-list .category .badge-notification,
 .timeline-container .topic-timeline .timeline-handle,
@@ -117,7 +174,21 @@ span.helpful-flags,
 span.flagged-posts,
 span.deleted-posts,
 .modal.history-modal del,
-.nav-stacked li a {
+.nav-stacked li a,
+.timeline-container .topic-timeline .timeline-handle,
+.media .media-left img,
+.modal-dialog .modal-content,
+.modal-dialog.cascading-modal .modal-header,
+.nav-pills > li.active > a,
+.layouts-nav-button > li.active > a,
+.nav-pills > li > a.active,
+.layouts-nav-button > li > a.active,
+.open .grippie,
+.badge-notification.new-posts,
+.badge-notification.unread-posts,
+.admin-controls .nav.nav-pills li.active a,
+#reply-control.draft,
+#reply-control.saving {
 	color: $text-base;
 }
 
@@ -138,11 +209,11 @@ nav.post-controls .highlight-action,
 .period-chooser .top-date-string,
 .small-action .small-action-desc,
 .small-action .topic-avatar i {
-	color: darken($text-base, 35%);
+	color: darken($text-base, 30%);
 }
 
 .user-main .staff-counters a {
-	color: $theme-base;
+	color: $link-color;
 }
 
 // backgrounds --------------------------------------------------------------------------------
@@ -197,12 +268,12 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .offset2 .cooked,
 .post-links-container,
 .moderator .names span.user-title,
-.topic-area .presence-users,
 #post_1 .post-actions,
 #user-card .card-content,
 .user-nav,
 .user-main .staff-counters {
 	background: $main-background;
+	color: reverse-lightness($main-background);
 }
 
 table.topic-list > thead,
@@ -213,32 +284,34 @@ table.category-list > thead,
 .table-heading,
 .reply .topic-meta-data,
 .deleted section.embedded-posts .topic-meta-data {
-	background: rgba(0, 0, 0, 0.7);
+	background: $tertiary-background;
+	color: reverse-lightness($tertiary-background);
 }
 
 // background secondary background --------------
 
-.nav-pills > li > a:hover,
-.layouts-nav-button > li > a:hover,
 .admin-controls,
 section.embedded-posts.bottom,
 section.embedded-posts.top {
 	background: $secondary-background;
+	color: reverse-lightness($secondary-background);
 }
 
 // background custom background -----------------
 
 button.cancel:hover,
 .topic-post.deleted .topic-meta-data {
-	background: $danger-color;
+	background: $danger;
 }
 
 button.ok:hover {
-	background: $ok-color;
+	background: $success;
 }
 
 // background none ------------------------------
 
+.nav-pills > li > a:hover,
+.layouts-nav-button > li > a:hover,
 .topic-body .reply-to-tab,
 .list-controls a,
 .d-header-icons a.icon,
@@ -296,7 +369,7 @@ img.avatar,
 .embedded-posts .topic-body,
 .embedded-posts .row,
 .topic-map .buttons .btn {
-	border: $n !important;
+	border: $n $i;
 }
 
 // border border 1px  ----------------------------
@@ -385,7 +458,7 @@ section.embedded-posts.bottom,
 .topic-meta-data,
 .latest-topic-list-item,
 .category-list tbody tr {
-	border-color: $border-color !important;
+	border-color: $border-color $i;
 }
 
 // border custom borders ---------------------------
@@ -445,7 +518,7 @@ td.main-link .topic-title,
 // margin small all sides ---------------------------
 
 .topic-avatar {
-	margin: 0.5em;
+	margin: .5em;
 }
 
 // margin large all sides ---------------------------
@@ -474,7 +547,7 @@ td.main-link .topic-excerpt,
 .categories-widget ul li,
 .time-gap.small-action.clearfix,
 .admin-controls {
-	margin: 0.75em 0;
+	margin: .75em 0;
 }
 
 // up-down large only ------------------------------
@@ -516,7 +589,7 @@ section.post-menu-area {
 }
 
 #user-card .user-card-avatar {
-	margin-right: 0.5em;
+	margin-right: .5em;
 }
 
 .extra-info-wrapper .badge-wrapper.bullet {
@@ -537,7 +610,7 @@ ul.subcat-list,
 }
 
 section.navigation-container {
-	margin: 0.5em 0;
+	margin: .5em 0;
 }
 
 .user-nav {
@@ -556,7 +629,7 @@ section.navigation-container {
 }
 
 .post-links-container ul li {
-	margin-bottom: 0.5em;
+	margin-bottom: .5em;
 }
 
 .embedded-posts.top {
@@ -568,7 +641,7 @@ section.navigation-container {
 }
 
 .cooked li {
-	margin: 0.5em 0;
+	margin: .5em 0;
 }
 
 // padding ------------------------------------------------------------------------------------
@@ -599,7 +672,7 @@ a.mention-group,
 // padding small all sides -------------------------
 
 .topic-area .presence-users {
-	padding: 0.5em;
+	padding: .5em;
 }
 
 // padding medium all sides -------------------------
@@ -611,7 +684,7 @@ a.mention-group,
 .list-controls,
 .top-lists,
 .topic-list-bottom {
-	padding: 0.75em;
+	padding: .75em;
 }
 
 // padding large all sides ---------------------------
@@ -651,7 +724,7 @@ a.mention-group,
 }
 
 .post-links-container ul li {
-	padding: 0.25em;
+	padding: .25em;
 }
 
 .post-links-container .post-links {
@@ -725,16 +798,12 @@ section.post-menu-area {
 
 section.embedded-posts.bottom,
 section.embedded-posts.top {
-	padding: 1em 0.5em 2em 0.5em;
+	padding: 1em .5em 2em .5em;
 }
 
 .topic-post.deleted section.post-actions {
-	padding: 0.75em 3px;
+	padding: .75em 3px;
 	padding-bottom: 0;
-}
-
-.topic-meta-data {
-	padding: 0.75em 1.25em;
 }
 
 #main-outlet {
@@ -746,7 +815,7 @@ section.embedded-posts.top {
 }
 
 #post_1 .post-actions .post-action {
-	padding: 0.25em 0;
+	padding: .25em 0;
 	margin-top: 0;
 }
 
@@ -768,12 +837,6 @@ section.embedded-posts.top {
 .nav-pills > li,
 .layouts-nav-button > li {
 	display: inline-block;
-}
-
-// display block --------------------------------------
-
-.topic-area .presence-users {
-	display: block;
 }
 
 // display inline -------------------------------------
@@ -813,9 +876,9 @@ section.embedded-posts.top {
 
 #topic-title .title-wrapper,
 #topic-footer-buttons,
-.topic-area .presence-users,
 .small-action {
 	width: 743px;
+	max-width: 100%;
 }
 
 .wrap {
@@ -846,7 +909,7 @@ body {
 body:before {
 	display: block;
 	content: "";
-	z-index: 2;
+	z-index: -1;
 	opacity: $body-background-gradient-opacity;
 	background: linear-gradient(
 		to $body-background-gradient-direction,
@@ -856,7 +919,7 @@ body:before {
 }
 
 #background {
-	z-index: 1;
+	z-index: -2;
 	opacity: $body-background-pattern-opacity;
 }
 
@@ -869,27 +932,91 @@ body:before {
 	left: 0;
 }
 
-#main {
-	z-index: 4;
+// fix IE EDGE backgrounds
+
+@supports (-ms-ime-align: auto) {
+	body:before {
+		z-index: 2;
+	}
+
+	#background {
+		z-index: 1;
+	}
+
+	#main {
+		z-index: 4;
+	}
+
+	.fixed-modal {
+		background: rgba(64, 64, 64, .83);
+	}
+
+	.bootbox.modal {
+		box-shadow: 0 0 0 100vw rgba(0, 0, 0, .8);
+	}
+
+	.modal-backdrop {
+		display: none;
+	}
 }
 
-.fixed-modal {
-	background: rgba(64, 64, 64, 0.83);
+@supports (-ms-accelerator: true) {
+	body:before {
+		z-index: 2;
+	}
+
+	#background {
+		z-index: 1;
+	}
+
+	#main {
+		z-index: 4;
+	}
+
+	.fixed-modal {
+		background: rgba(64, 64, 64, .83);
+	}
+
+	.bootbox.modal {
+		box-shadow: 0 0 0 100vw rgba(0, 0, 0, .8);
+	}
+
+	.modal-backdrop {
+		display: none;
+	}
 }
 
-.bootbox.modal {
-	box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
-}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	body:before {
+		z-index: 2;
+	}
 
-.modal-backdrop {
-	display: none;
+	#background {
+		z-index: 1;
+	}
+
+	#main {
+		z-index: 4;
+	}
+
+	.fixed-modal {
+		background: rgba(64, 64, 64, .83);
+	}
+
+	.bootbox.modal {
+		box-shadow: 0 0 0 100vw rgba(0, 0, 0, .8);
+	}
+
+	.modal-backdrop {
+		display: none;
+	}
 }
 
 // Inputs -------------------------------------------------------------------------------------
 
 input {
 	transition: border, box-shadow, color, outline, background;
-	transition-duration: 0.5s;
+	transition-duration: .5s;
 }
 
 input[type="date"]:focus:not([readonly]),
@@ -904,7 +1031,7 @@ input[type="text"]:focus:not([readonly]),
 input[type="time"]:focus:not([readonly]),
 input[type="url"]:focus:not([readonly]),
 textarea.md-textarea:focus:not([readonly]) {
-	border-color: rgba(255, 255, 255, 0.2);
+	border-color: rgba(255, 255, 255, .2);
 	border-bottom: 1px solid darken($theme-base, 15%);
 	box-shadow: $n;
 }
@@ -997,8 +1124,9 @@ div.ac-wrap {
 
 @media (max-width: 650px) {
 	.topic-meta-data {
-		padding-bottom: 50px;
+		padding-bottom: 50px $i;
 	}
+
 	.topic-avatar {
 		margin-top: 1px;
 	}
@@ -1011,7 +1139,7 @@ div.ac-wrap {
 
 	.topic-list th,
 	.topic-list td {
-		padding: 0.75em;
+		padding: .75em;
 	}
 
 	.topic-map {
@@ -1087,14 +1215,14 @@ a.expand-hidden {
 .cooked p {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	text-shadow: -0.07em 0 #222, 0 -0.07em #111, -0.07em 0 #111, 0 0.07em #222;
-	-webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
+	text-shadow: $text-shadow-value;
+	-webkit-text-stroke: 1px rgba($secondary, .1);
 }
 
 .cooked blockquote p,
 .cooked p a,
 span.hashtag {
-	text-shadow: none;
+	text-shadow: $n;
 }
 
 .show-more.has-topics .alert {
@@ -1119,7 +1247,7 @@ header.d-header.clearfix {
 }
 
 .modal-inner-container {
-	background: #131418;
+	background: $header_background;
 }
 
 .embedded-posts.top {
@@ -1139,12 +1267,8 @@ body:before {
 }
 
 a {
-	transition: color 0.25s, background 0.25s, outline 0.25s,
-		background-color 0.25s !important;
-}
-
-a:hover {
-	color: $text-base !important;
+	transition: color .25s, background .25s, outline .25s,
+		background-color .25s !important;
 }
 
 .main-content.loading .list-controls {
@@ -1152,7 +1276,7 @@ a:hover {
 }
 
 .container.show-badge {
-	background: rgba(19, 20, 24, 0.9);
+	background: $main-background;
 	padding: 2em;
 	min-height: 70vh;
 }
@@ -1166,8 +1290,8 @@ a:hover {
 .moderator .topic-meta-data {
 	background: linear-gradient(
 		to right,
-		rgba($danger, 0.5),
-		rgba(darken($danger, 10%), 0.5)
+		rgba($danger, .5),
+		rgba(darken($danger, 10%), .5)
 	);
 	border-bottom: none;
 }
@@ -1203,6 +1327,60 @@ a:hover {
 	color: inherit !important;
 }
 
+.topic-area .presence-users {
+	background: transparent;
+	border-bottom: 1px solid $border-color;
+	width: auto;
+	display: inline-block;
+}
+
+i,
+cite,
+em,
+var,
+address,
+dfn,
+strong {
+	font-size: 90%;
+}
+
+aside.onebox header a[href] {
+	color: darken($text-base, 30%);
+}
+
+aside.onebox {
+	border: none;
+	border-left: 4px solid darken($text-base, 35%);
+	background: $trim-background;
+	border-radius: 0 3px 3px 0;
+}
+
+aside.quote .title,
+aside.quote blockquote,
+blockquote {
+	border-left: 3px solid $theme-base;
+	background-color: $trim-background;
+	border-radius: 0 3px 3px 0;
+}
+
+.modal-backdrop {
+	background-color: #222;
+}
+
+.topic-meta-data {
+	padding: .75em 1.25em;
+}
+
+#banner {
+	max-width: 95vw;
+	box-sizing: border-box;
+	margin: 0 auto;
+}
+
+.topic-post {
+	border: none;
+}
+
 // plugin support -----------------------------------------------------------------------------
 
 // Retort  ---------------------------------------------
@@ -1218,7 +1396,7 @@ button.post-retort:first-of-type {
 // Whos online  ---------------------------------------
 
 #whos-online {
-	padding: 1em 0.75em;
+	padding: 1em .75em;
 	background: $main-background;
 	margin-bottom: 1em;
 }
@@ -1236,23 +1414,26 @@ button.post-retort:first-of-type {
 	padding: 0 1.25em;
 }
 
-// Nothing here... keep walking... ------------------------------------------------------------
+// the pit ------------------------------------------------------------
 
 // link colors ----------------------------------
 
 a {
 	color: $link-color;
 	&:visited,
-	&:hover,
 	&:active,
-	&.hashtag {
+	&.hashtag,
+	&.hashtag:visited {
 		color: $link-color;
 	}
+	&:hover {
+		color: invert-contrast($text-base) $i;
+	}
 	&.mention {
-		color: adjust-hue($link-color, -10deg);
+		color: adjust-hue($link-color, 10deg);
 	}
 	&.mention-group {
-		color: adjust-hue($link-color, 10deg);
+		color: adjust-hue($link-color, -10deg);
 	}
 }
 
@@ -1268,16 +1449,16 @@ a {
 .btn {
 	border-radius: 2px;
 	text-transform: $button-text-case;
-	-webkit-transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
-	transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+	-webkit-transition: all .25s cubic-bezier(.02, .01, .47, 1);
+	transition: all .25s cubic-bezier(.02, .01, .47, 1);
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 }
 .btn:hover,
 .btn:focus {
-	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-	-webkit-transition: box-shadow 0.4s ease-out;
-	transition: box-shadow 0.4s ease-out;
+	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+	-webkit-transition: box-shadow .4s ease-out;
+	transition: box-shadow .4s ease-out;
 }
 
 .btn .d-icon {
@@ -1296,7 +1477,7 @@ a {
 .btn {
 	&[disabled],
 	&.disabled {
-		opacity: 0.6;
+		opacity: .6;
 	}
 }
 
@@ -1307,7 +1488,7 @@ a {
 // Default button
 
 .btn {
-	color: $text-base;
+	color: invert-contrast($text-base);
 	background: transparent;
 
 	&[href] {
@@ -1319,7 +1500,7 @@ a {
 		color: $text-base;
 	}
 	.d-icon {
-		opacity: 0.8;
+		opacity: .8;
 	}
 	.d-icon:hover {
 		opacity: 1;
@@ -1359,8 +1540,6 @@ a {
 		color: $text-base;
 	}
 }
-
-// Modal buttons
 
 .bootbox.modal {
 	.modal-footer {
