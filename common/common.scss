@@ -2,40 +2,37 @@
 
 // Calculate brightness value
 @function brightness($color) {
-  @return (red($color) + green($color) + blue($color)) / (255 * 3);
+	@return (red($color) + green($color) + blue($color)) / (255 * 3);
 }
 
 // to base color
 @function brightness_ratio($base, $color) {
-  @return abs(brightness($base) - brightness($color));
+	@return abs(brightness($base) - brightness($color));
 }
 
 // Compare colors to higher contrast
 @function contrast($base, $color1: white, $color2: black) {
-  @return if(brightness_ratio($base, $color1) > brightness_ratio($base, $color2), $color1, $color2);
+	@return if(brightness_ratio($base, $color1) > brightness_ratio($base, $color2), $color1, $color2);
 }
-
 
 // Compare colors to lower contrast (inverting the former contrast function)
 @function invert-contrast($base, $color1: white, $color2: black) {
-  @return if(brightness_ratio($base, $color1) > brightness_ratio($base, $color2), $color2, $color1);
+	@return if(brightness_ratio($base, $color1) > brightness_ratio($base, $color2), $color2, $color1);
 }
 
 // reverse lightness
 @function reverse-lightness($color) {
-  $result: 0;
-  $value: lightness($color);
-  @if $value >= 50 {
-    $result: scale-color($color, $lightness: -$value);
-  } @else {
-    $result: scale-color($color, $lightness: 100% - $value);
-  } 
-  @return $result;
+	$result: 0;
+	$value: lightness($color);
+	@if $value >= 50 {
+		$result: scale-color($color, $lightness: -$value);
+	} @else {
+		$result: scale-color($color, $lightness: 100% - $value);
+	}
+	@return $result;
 }
 
 // Variables  ---------------------------------------------------------------------------------
-
-@import "//stylesheets/app/assets/stylesheets/common/foundation/colors";
 
 /*
 $primary
@@ -57,10 +54,10 @@ $i: !important;
 
 $theme-base: $tertiary;
 $text-base: reverse-lightness($secondary);
-$main-background: rgba($header_background, .9);
-$secondary-background: rgba(contrast($primary), .4);
-$tertiary-background: rgba(contrast($primary), .7);
-$trim-background: rgba($text-base, .1);
+$main-background: rgba($header_background, 0.9);
+$secondary-background: rgba(contrast($primary), 0.4);
+$tertiary-background: rgba(contrast($primary), 0.7);
+$trim-background: rgba($text-base, 0.1);
 
 // derived colors -------------------------------
 
@@ -68,22 +65,20 @@ $border-color: $trim-background;
 $highlight-color: $trim-background;
 $theme-trim: $quaternary;
 $link-color: lighten($theme-base, 25%);
-$ok-color: $success;
-$danger-color: $danger;
 
 // theme settings -------------------------------
 
-$body-background-pattern-opacity: .8;
-$body-background-gradient-opacity: .3;
+$body-background-pattern-opacity: 0.8;
+$body-background-gradient-opacity: 0.3;
 $body-background-gradient-direction: top left;
 $body-background-gradient-color-first: adjust-hue($theme-base, 20deg);
 $body-background-gradient-color-second: adjust-hue($theme-base, -10deg);
 $highlight-speed: 1.5s;
 $button-text-case: uppercase;
-$text-shadow-value: 0 -.07em 0 rgba(contrast($text-base), .2),
-		0 .07em 0 rgba(contrast($text-base), .2),
-		.07em 0 0 rgba(contrast($text-base), .2),
-		-.07em 0 0 rgba(contrast($text-base), .2);
+$text-shadow-value: 0 -0.07em 0 rgba(contrast($text-base), 0.2),
+	0 0.07em 0 rgba(contrast($text-base), 0.2),
+	0.07em 0 0 rgba(contrast($text-base), 0.2),
+	-0.07em 0 0 rgba(contrast($text-base), 0.2);
 
 // fonts --------------------------------------------------------------------------------------
 
@@ -119,8 +114,41 @@ h6 {
 	text-decoration: none;
 }
 
+.main-content .nav-drop .selected-nav-item {
+	line-height: 30px;
+	height: 30px;
+}
+
+.user-badge,
+#user-card.show-badges .more-user-badges {
+	line-height: 19px;
+}
+
+.cooked p {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-shadow: $text-shadow-value;
+	-webkit-text-stroke: 1px rgba($secondary, 0.1);
+}
+
+.cooked blockquote p,
+.cooked p a,
+span.hashtag {
+	text-shadow: $n;
+}
+
+i,
+cite,
+em,
+var,
+address,
+dfn,
 strong {
 	font-size: 90%;
+}
+
+#login-buttons button {
+	font-size: 1em;
 }
 
 // Reset   ------------------------------------------------------------------------------------
@@ -188,7 +216,9 @@ span.deleted-posts,
 .badge-notification.unread-posts,
 .admin-controls .nav.nav-pills li.active a,
 #reply-control.draft,
-#reply-control.saving {
+#reply-control.saving,
+.topic-post.deleted .topic-meta-data span,
+.topic-post.deleted .topic-meta-data a {
 	color: $text-base;
 }
 
@@ -368,7 +398,8 @@ img.avatar,
 .topic-map section,
 .embedded-posts .topic-body,
 .embedded-posts .row,
-.topic-map .buttons .btn {
+.topic-map .buttons .btn,
+.topic-post {
 	border: $n $i;
 }
 
@@ -511,14 +542,15 @@ td.main-link .topic-title,
 #list-area,
 .topic-meta-data,
 .extra-info-wrapper .topic-header-extra,
-.topic-post.deleted section.post-actions .post-action {
+.topic-post.deleted section.post-actions .post-action,
+.show-more.has-topics .alert {
 	margin: 0;
 }
 
 // margin small all sides ---------------------------
 
 .topic-avatar {
-	margin: .5em;
+	margin: 0.5em;
 }
 
 // margin large all sides ---------------------------
@@ -547,7 +579,7 @@ td.main-link .topic-excerpt,
 .categories-widget ul li,
 .time-gap.small-action.clearfix,
 .admin-controls {
-	margin: .75em 0;
+	margin: 0.75em 0;
 }
 
 // up-down large only ------------------------------
@@ -589,7 +621,7 @@ section.post-menu-area {
 }
 
 #user-card .user-card-avatar {
-	margin-right: .5em;
+	margin-right: 0.5em;
 }
 
 .extra-info-wrapper .badge-wrapper.bullet {
@@ -610,7 +642,7 @@ ul.subcat-list,
 }
 
 section.navigation-container {
-	margin: .5em 0;
+	margin: 0.5em 0;
 }
 
 .user-nav {
@@ -629,7 +661,7 @@ section.navigation-container {
 }
 
 .post-links-container ul li {
-	margin-bottom: .5em;
+	margin-bottom: 0.5em;
 }
 
 .embedded-posts.top {
@@ -641,7 +673,7 @@ section.navigation-container {
 }
 
 .cooked li {
-	margin: .5em 0;
+	margin: 0.5em 0;
 }
 
 // padding ------------------------------------------------------------------------------------
@@ -672,7 +704,7 @@ a.mention-group,
 // padding small all sides -------------------------
 
 .topic-area .presence-users {
-	padding: .5em;
+	padding: 0.5em;
 }
 
 // padding medium all sides -------------------------
@@ -684,7 +716,7 @@ a.mention-group,
 .list-controls,
 .top-lists,
 .topic-list-bottom {
-	padding: .75em;
+	padding: 0.75em;
 }
 
 // padding large all sides ---------------------------
@@ -724,7 +756,7 @@ a.mention-group,
 }
 
 .post-links-container ul li {
-	padding: .25em;
+	padding: 0.25em;
 }
 
 .post-links-container .post-links {
@@ -798,11 +830,11 @@ section.post-menu-area {
 
 section.embedded-posts.bottom,
 section.embedded-posts.top {
-	padding: 1em .5em 2em .5em;
+	padding: 1em 0.5em 2em 0.5em;
 }
 
 .topic-post.deleted section.post-actions {
-	padding: .75em 3px;
+	padding: 0.75em 3px;
 	padding-bottom: 0;
 }
 
@@ -815,7 +847,7 @@ section.embedded-posts.top {
 }
 
 #post_1 .post-actions .post-action {
-	padding: .25em 0;
+	padding: 0.25em 0;
 	margin-top: 0;
 }
 
@@ -824,9 +856,19 @@ section.embedded-posts.top {
 	padding: 10px;
 }
 
-// Display ------------------------------------------------------------------------------------
+.embedded-posts.top {
+	padding-bottom: 1em $i;
+}
 
-// display inline block -------------------------------
+a.expand-hidden {
+	padding: 1.25em;
+}
+
+.topic-meta-data {
+	padding: 0.75em 1.25em;
+}
+
+// Display and positioning --------------------------------------------------------------------
 
 #topic-title .title-wrapper,
 #topic-footer-buttons,
@@ -839,10 +881,27 @@ section.embedded-posts.top {
 	display: inline-block;
 }
 
-// display inline -------------------------------------
-
 .user-main .about .secondary dd {
 	display: inline;
+}
+
+.nav-pills > li,
+.layouts-nav-button > li {
+	float: none;
+}
+
+section.post-menu-area {
+	position: relative;
+}
+
+.topic-avatar .avatar-flair {
+	bottom: unset;
+	top: 30px;
+	right: -2px;
+}
+
+.main-content.loading .list-controls {
+	display: none;
 }
 
 // height and width ---------------------------------------------------------------------------
@@ -883,6 +942,12 @@ section.embedded-posts.top {
 
 .wrap {
 	width: 1110px;
+}
+
+#reply-control .d-editor-preview img:not(.thumbnail),
+.cooked img:not(.thumbnail) {
+	max-width: 100%;
+	height: auto;
 }
 
 // Animation  ---------------------------------------------------------------------------------
@@ -930,6 +995,8 @@ body:before {
 	position: fixed;
 	top: 0;
 	left: 0;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 }
 
 // fix IE EDGE backgrounds
@@ -948,11 +1015,11 @@ body:before {
 	}
 
 	.fixed-modal {
-		background: rgba(64, 64, 64, .83);
+		background: rgba(64, 64, 64, 0.83);
 	}
 
 	.bootbox.modal {
-		box-shadow: 0 0 0 100vw rgba(0, 0, 0, .8);
+		box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
 	}
 
 	.modal-backdrop {
@@ -974,11 +1041,11 @@ body:before {
 	}
 
 	.fixed-modal {
-		background: rgba(64, 64, 64, .83);
+		background: rgba(64, 64, 64, 0.83);
 	}
 
 	.bootbox.modal {
-		box-shadow: 0 0 0 100vw rgba(0, 0, 0, .8);
+		box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
 	}
 
 	.modal-backdrop {
@@ -1000,11 +1067,11 @@ body:before {
 	}
 
 	.fixed-modal {
-		background: rgba(64, 64, 64, .83);
+		background: rgba(64, 64, 64, 0.83);
 	}
 
 	.bootbox.modal {
-		box-shadow: 0 0 0 100vw rgba(0, 0, 0, .8);
+		box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
 	}
 
 	.modal-backdrop {
@@ -1016,7 +1083,7 @@ body:before {
 
 input {
 	transition: border, box-shadow, color, outline, background;
-	transition-duration: .5s;
+	transition-duration: 0.5s;
 }
 
 input[type="date"]:focus:not([readonly]),
@@ -1031,7 +1098,7 @@ input[type="text"]:focus:not([readonly]),
 input[type="time"]:focus:not([readonly]),
 input[type="url"]:focus:not([readonly]),
 textarea.md-textarea:focus:not([readonly]) {
-	border-color: rgba(255, 255, 255, .2);
+	border-color: rgba(255, 255, 255, 0.2);
 	border-bottom: 1px solid darken($theme-base, 15%);
 	box-shadow: $n;
 }
@@ -1120,6 +1187,109 @@ div.ac-wrap {
 	border: 1px solid darken($theme-base, 15%);
 }
 
+// Links  -------------------------------------------------------------------------------------
+
+a {
+	color: $link-color;
+	transition: all 0.25s ease $i;
+
+	&:visited,
+	&:active,
+	&.hashtag,
+	&.hashtag:visited {
+		color: $link-color;
+	}
+	&:hover {
+		color: invert-contrast($text-base) $i;
+	}
+	&.mention {
+		color: adjust-hue($link-color, 10deg);
+	}
+	&.mention-group {
+		color: adjust-hue($link-color, -10deg);
+	}
+}
+
+// Buttons ------------------------------------------------------------------------------------
+
+.btn {
+	border-radius: 2px;
+	position: relative;
+	text-transform: $button-text-case;
+	transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+	transform: translate3d(0, 0, 0);
+	color: invert-contrast($text-base);
+	background-color: transparent;
+
+	&:hover,
+	&:focus {
+		box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+		transition: box-shadow 0.4s ease-out;
+	}
+
+	&:hover,
+	&.btn-hover {
+		background-color: darken($theme-base, 15%);
+		color: $text-base;
+	}
+
+	&.btn-social:hover,
+	&.btn-social.btn-hover {
+		background-color: $border-color;
+		color: $text-base;
+	}
+
+	&[href] {
+		color: invert-contrast($text-base);
+	}
+
+	&[disabled],
+	&.disabled {
+		opacity: 0.6;
+	}
+
+	&.hidden {
+		display: none;
+	}
+
+	.d-icon {
+		opacity: 0.9;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&.btn-primary {
+		color: $text-base;
+		background-color: $border-color;
+
+		&:hover,
+		&.btn-hover {
+			background-color: darken($theme-base, 15%);
+			color: $text-base;
+		}
+	}
+
+	.btn-danger {
+		color: $text-base;
+		background-color: $danger;
+
+		&:hover,
+		&.btn-hover {
+			background-color: lighten($danger, 15%);
+			color: $text-base;
+		}
+	}
+}
+
+.d-editor-button-bar button {
+	background-color: transparent;
+	border: $n;
+	box-shadow: $n;
+	background: $n;
+}
+
 // Media queries ------------------------------------------------------------------------------------
 
 @media (max-width: 650px) {
@@ -1134,12 +1304,12 @@ div.ac-wrap {
 
 @media (max-width: 850px) {
 	body {
-		background: none;
+		background: $n;
 	}
 
 	.topic-list th,
 	.topic-list td {
-		padding: .75em;
+		padding: 0.75em;
 	}
 
 	.topic-map {
@@ -1171,7 +1341,6 @@ div.ac-wrap {
 	box-shadow: 0 0 2px 3px $link-color;
 }
 
-// edit history modal
 .modal.history-modal .diff-ins {
 	background: darken($theme-base, 15%);
 }
@@ -1181,61 +1350,16 @@ div.ac-wrap {
 	background: darken($theme-base, 25%);
 }
 
-// TESTS --------------------------------------------------------------------------------------
-
-.main-content .nav-drop .selected-nav-item {
-	line-height: 30px;
-	height: 30px;
-}
-
-.user-badge,
-#user-card.show-badges .more-user-badges {
-	line-height: 19px;
-}
-
-.nav-pills > li,
-.layouts-nav-button > li {
-	float: none;
-}
-
-section.post-menu-area {
-	position: relative;
-}
-
-a.expand-hidden {
-	padding: 1.25em;
-}
-
-.topic-avatar .avatar-flair {
-	bottom: unset;
-	top: 30px;
-	right: -2px;
-}
-
-.cooked p {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-shadow: $text-shadow-value;
-	-webkit-text-stroke: 1px rgba($secondary, .1);
-}
-
-.cooked blockquote p,
-.cooked p a,
-span.hashtag {
-	text-shadow: $n;
-}
-
-.show-more.has-topics .alert {
-	background: lighten($main-background, 10%);
-	margin: 0;
-}
-
 .read-state {
 	right: 6px;
 }
 
 .badge-category-bg {
 	border-radius: 100vw;
+}
+
+.badge-wrapper.box span.badge-category-bg {
+	border-radius: 0;
 }
 
 header.d-header.clearfix {
@@ -1248,100 +1372,6 @@ header.d-header.clearfix {
 
 .modal-inner-container {
 	background: $header_background;
-}
-
-.embedded-posts.top {
-	padding-bottom: 1em !important;
-}
-
-#reply-control .d-editor-preview img:not(.thumbnail),
-.cooked img:not(.thumbnail) {
-	max-width: 100%;
-	height: auto;
-}
-
-#background,
-body:before {
-	backface-visibility: hidden;
-	-webkit-backface-visibility: hidden;
-}
-
-a {
-	transition: color .25s, background .25s, outline .25s,
-		background-color .25s !important;
-}
-
-.main-content.loading .list-controls {
-	display: none;
-}
-
-.container.show-badge {
-	background: $main-background;
-	padding: 2em;
-	min-height: 70vh;
-}
-
-.moderator .topic-body .contents .cooked {
-	background: $n;
-	padding: 0 1.25em;
-	padding-top: 15px;
-}
-
-.moderator .topic-meta-data {
-	background: linear-gradient(
-		to right,
-		rgba($danger, .5),
-		rgba(darken($danger, 10%), .5)
-	);
-	border-bottom: none;
-}
-
-.modal.history-modal span.edit-reason {
-	background-color: $border-color;
-}
-
-.directory {
-	background: $main-background;
-	padding: 2em;
-}
-
-.directory table tr.me td {
-	background: $border-color;
-}
-
-.topic-post.deleted .topic-meta-data span,
-.topic-post.deleted .topic-meta-data a {
-	color: $text-base;
-}
-
-#login-buttons button {
-	font-size: 1em;
-}
-
-.badge-wrapper.box span.badge-category-bg {
-	border-radius: 0;
-}
-
-.list-controls .category-breadcrumb .dropdown-header {
-	background: none !important;
-	color: inherit !important;
-}
-
-.topic-area .presence-users {
-	background: transparent;
-	border-bottom: 1px solid $border-color;
-	width: auto;
-	display: inline-block;
-}
-
-i,
-cite,
-em,
-var,
-address,
-dfn,
-strong {
-	font-size: 90%;
 }
 
 aside.onebox header a[href] {
@@ -1367,18 +1397,70 @@ blockquote {
 	background-color: #222;
 }
 
-.topic-meta-data {
-	padding: .75em 1.25em;
-}
-
 #banner {
 	max-width: 95vw;
 	box-sizing: border-box;
 	margin: 0 auto;
 }
 
-.topic-post {
-	border: none;
+.moderator .topic-body .contents .cooked {
+	background: $n;
+	padding: 0 1.25em;
+	padding-top: 15px;
+}
+
+.moderator .topic-meta-data {
+	background: linear-gradient(
+		to right,
+		rgba($danger, 0.5),
+		rgba(darken($danger, 10%), 0.5)
+	);
+	border-bottom: none;
+}
+
+.modal.history-modal span.edit-reason {
+	background-color: $border-color;
+}
+
+.directory {
+	background: $main-background;
+	padding: 2em;
+}
+
+.directory table tr.me td {
+	background: $border-color;
+}
+
+.bootbox.modal {
+	.modal-footer {
+		a.btn-primary {
+			color: $text-base;
+		}
+	}
+}
+
+.show-more.has-topics .alert {
+	background: lighten($main-background, 10%);
+}
+
+.topic-area .presence-users {
+	background: transparent;
+	border-bottom: 1px solid $border-color;
+	width: auto;
+	display: inline-block;
+}
+
+// TESTS --------------------------------------------------------------------------------------
+
+.container.show-badge {
+	background: $main-background;
+	padding: 2em;
+	min-height: 70vh;
+}
+
+.list-controls .category-breadcrumb .dropdown-header {
+	background: none !important;
+	color: inherit !important;
 }
 
 // plugin support -----------------------------------------------------------------------------
@@ -1396,7 +1478,7 @@ button.post-retort:first-of-type {
 // Whos online  ---------------------------------------
 
 #whos-online {
-	padding: 1em .75em;
+	padding: 1em 0.75em;
 	background: $main-background;
 	margin-bottom: 1em;
 }
@@ -1414,137 +1496,10 @@ button.post-retort:first-of-type {
 	padding: 0 1.25em;
 }
 
+// Discourse assign plugin  ------------------------
+
+p.assigned-to {
+	padding: 0 1.25em;
+}
+
 // the pit ------------------------------------------------------------
-
-// link colors ----------------------------------
-
-a {
-	color: $link-color;
-	&:visited,
-	&:active,
-	&.hashtag,
-	&.hashtag:visited {
-		color: $link-color;
-	}
-	&:hover {
-		color: invert-contrast($text-base) $i;
-	}
-	&.mention {
-		color: adjust-hue($link-color, 10deg);
-	}
-	&.mention-group {
-		color: adjust-hue($link-color, -10deg);
-	}
-}
-
-// Buttons ---------------------------------------
-
-.btn {
-	border-width: 0;
-	border-color: transparent;
-	font-weight: 400;
-	cursor: pointer;
-	position: relative;
-}
-.btn {
-	border-radius: 2px;
-	text-transform: $button-text-case;
-	-webkit-transition: all .25s cubic-bezier(.02, .01, .47, 1);
-	transition: all .25s cubic-bezier(.02, .01, .47, 1);
-	-webkit-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0);
-}
-.btn:hover,
-.btn:focus {
-	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
-	-webkit-transition: box-shadow .4s ease-out;
-	transition: box-shadow .4s ease-out;
-}
-
-.btn .d-icon {
-	opacity: 1;
-}
-
-.d-editor-button-bar button {
-	background-color: transparent;
-	border: $n;
-	box-shadow: $n;
-	background: $n;
-}
-
-// Base
-
-.btn {
-	&[disabled],
-	&.disabled {
-		opacity: .6;
-	}
-}
-
-.btn.hidden {
-	display: none;
-}
-
-// Default button
-
-.btn {
-	color: invert-contrast($text-base);
-	background: transparent;
-
-	&[href] {
-		color: $text-base;
-	}
-	&:hover,
-	&.btn-hover {
-		background: darken($theme-base, 15%);
-		color: $text-base;
-	}
-	.d-icon {
-		opacity: .8;
-	}
-	.d-icon:hover {
-		opacity: 1;
-	}
-}
-
-// Primary button
-
-.btn-primary {
-	color: $text-base;
-	background: $border-color;
-
-	&[href] {
-		color: $text-base;
-	}
-	&:hover,
-	&.btn-hover {
-		background: darken($theme-base, 15%);
-	}
-}
-
-// Danger button
-
-.btn-danger {
-	color: $text-base;
-	background: $danger-color;
-	&[href] {
-		color: $text-base;
-	}
-	&[disabled],
-	&.disabled {
-		background: $danger-color;
-	}
-	&:hover,
-	&.btn-hover {
-		background: lighten($danger-color, 15%);
-		color: $text-base;
-	}
-}
-
-.bootbox.modal {
-	.modal-footer {
-		a.btn-primary {
-			color: $text-base;
-		}
-	}
-}
