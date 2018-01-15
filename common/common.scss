@@ -250,7 +250,6 @@ nav.post-controls .highlight-action,
 
 // background theme base -------------------------
 
-.timeline-container .topic-timeline .timeline-handle,
 .media .media-left img,
 .modal-dialog .modal-content,
 .modal-dialog.cascading-modal .modal-header,
@@ -306,12 +305,8 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 	color: reverse-lightness($main-background);
 }
 
-table.topic-list > thead,
-table.category-list > thead,
 .topic-meta-data,
 .topic-map,
-.latest-topic-list .table-heading,
-.table-heading,
 .reply .topic-meta-data,
 .deleted section.embedded-posts .topic-meta-data {
 	background: $tertiary-background;
@@ -488,7 +483,8 @@ section.embedded-posts.bottom,
 .reply .topic-body,
 .topic-meta-data,
 .latest-topic-list-item,
-.category-list tbody tr {
+.category-list tbody tr,
+.popup-menu {
 	border-color: $border-color $i;
 }
 
@@ -946,7 +942,7 @@ section.post-menu-area {
 
 #reply-control .d-editor-preview img:not(.thumbnail),
 .cooked img:not(.thumbnail) {
-	max-width: 100%;
+	max-width: 100% $i;
 	height: auto;
 }
 
@@ -971,9 +967,20 @@ body {
 	background: none;
 }
 
+#background,
+body:before {
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+}
+
 body:before {
 	display: block;
 	content: "";
+	width: 100vw;
 	z-index: -1;
 	opacity: $body-background-gradient-opacity;
 	background: linear-gradient(
@@ -986,17 +993,9 @@ body:before {
 #background {
 	z-index: -2;
 	opacity: $body-background-pattern-opacity;
-}
-
-#background,
-body:before {
-	height: 100vh;
-	width: 100vw;
-	position: fixed;
-	top: 0;
-	left: 0;
-	backface-visibility: hidden;
-	-webkit-backface-visibility: hidden;
+	min-width: 100vw;
+	width: auto;
+	overflow: hidden;
 }
 
 // fix IE EDGE backgrounds
@@ -1108,7 +1107,6 @@ textarea.md-textarea:focus:not([readonly]) {
 .select-kit.combo-box .select-box-kit-header.is-focused,
 .select-kit.combo-box .select-kit-header.is-focused {
 	border: 1px solid darken($theme-base, 15%);
-	border-bottom-color: darken($theme-base, 30%);
 	-webkit-box-shadow: $n;
 	box-shadow: $n;
 }
@@ -1271,7 +1269,7 @@ a {
 		}
 	}
 
-	.btn-danger {
+	&.btn-danger {
 		color: $text-base;
 		background-color: $danger;
 
@@ -1378,6 +1376,11 @@ aside.onebox header a[href] {
 	color: darken($text-base, 30%);
 }
 
+aside.onebox .onebox-body a[href],
+aside.onebox .onebox-body a[href]:visited {
+	color: $link-color;
+}
+
 aside.onebox {
 	border: none;
 	border-left: 4px solid darken($text-base, 35%);
@@ -1412,8 +1415,8 @@ blockquote {
 .moderator .topic-meta-data {
 	background: linear-gradient(
 		to right,
-		rgba($danger, 0.5),
-		rgba(darken($danger, 10%), 0.5)
+		rgba(invert($theme-base), 0.5),
+		rgba(darken(invert($theme-base), 10%), 0.5)
 	);
 	border-bottom: none;
 }
@@ -1463,6 +1466,35 @@ blockquote {
 	color: inherit !important;
 }
 
+.timeline-container .topic-timeline .timeline-handle {
+	background: desaturate($theme-base, 20%);
+}
+
+.select-box-kit .select-box-kit-row.is-selected,
+.select-box-kit .select-kit-row.is-selected,
+.select-kit .select-box-kit-row.is-selected,
+.select-kit .select-kit-row.is-selected {
+	background: darken($theme-base, 25%);
+}
+
+.d-icon.d-icon-d-tracking,
+.d-icon.d-icon-d-watching,
+.badge-notification.new-topic {
+	color: desaturate($theme-base, 20%);
+}
+
+.moderator .topic-meta-data div * {
+	color: invert-contrast(invert($theme-base));
+}
+
+table.topic-list > thead,
+table.category-list > thead,
+.latest-topic-list .table-heading,
+.table-heading {
+	background: $main-background;
+	border-bottom: 1px solid $border-color;
+}
+
 // plugin support -----------------------------------------------------------------------------
 
 // Retort  ---------------------------------------------
@@ -1501,5 +1533,3 @@ button.post-retort:first-of-type {
 p.assigned-to {
 	padding: 0 1.25em;
 }
-
-// the pit ------------------------------------------------------------
