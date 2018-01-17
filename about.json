@@ -18,7 +18,7 @@
        "Vincent Dark Red": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "009dd8",
+          "tertiary": "D91E18",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -30,7 +30,7 @@
        "Vincent Dark Green": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "009dd8",
+          "tertiary": "4DAF7C",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -42,7 +42,7 @@
        "Vincent Dark Magenta": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "009dd8",
+          "tertiary": "913D88",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
