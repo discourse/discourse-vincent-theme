@@ -64,7 +64,7 @@ $trim-background: rgba($text-base, 0.1);
 $border-color: $trim-background;
 $highlight-color: $trim-background;
 $theme-trim: $quaternary;
-$link-color: lighten($theme-base, 25%);
+$link-color: lighten($theme-base, 15%);
 
 // theme settings -------------------------------
 
@@ -1415,8 +1415,8 @@ blockquote {
 .moderator .topic-meta-data {
 	background: linear-gradient(
 		to right,
-		rgba(invert($theme-base), 0.5),
-		rgba(darken(invert($theme-base), 10%), 0.5)
+		rgba(darken(invert($theme-base), 25%), 0.45),
+		rgba(darken(invert($theme-base), 20%), 0.45)
 	);
 	border-bottom: none;
 }
@@ -1532,4 +1532,16 @@ button.post-retort:first-of-type {
 
 p.assigned-to {
 	padding: 0 1.25em;
+}
+
+
+// The pit  --------------------------------------------------------------------
+
+.cooked {
+    color: #cbcbcb;
+}
+
+.post-info .wiki,
+.post-info .last-wiki-edit {
+    color: $success $i;
 }
