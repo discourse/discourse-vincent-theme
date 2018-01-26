@@ -52,33 +52,33 @@ $i: !important;
 
 // palette colors -------------------------------
 
-$theme-base: $tertiary;
-$text-base: reverse-lightness($secondary);
-$main-background: rgba($header_background, 0.9);
-$secondary-background: rgba(contrast($primary), 0.4);
-$tertiary-background: rgba(contrast($primary), 0.7);
-$trim-background: rgba($text-base, 0.1);
+$theme-base: $tertiary !default;
+$text-base: reverse-lightness($secondary) !default;
+$main-background: rgba($header_background, 0.9) !default;
+$secondary-background: rgba(contrast($primary), 0.4) !default;
+$tertiary-background: rgba(contrast($primary), 0.7) !default;
+$trim-background: rgba($text-base, 0.1) !default;
 
 // derived colors -------------------------------
 
-$border-color: $trim-background;
-$highlight-color: $trim-background;
-$theme-trim: $quaternary;
-$link-color: lighten($theme-base, 15%);
+$border-color: $trim-background !default;
+$highlight-color: $trim-background !default;
+$theme-trim: $quaternary !default;
+$link-color: lighten($theme-base, 15%) !default;
 
 // theme settings -------------------------------
 
-$body-background-pattern-opacity: 0.8;
-$body-background-gradient-opacity: 0.3;
-$body-background-gradient-direction: top left;
-$body-background-gradient-color-first: adjust-hue($theme-base, 20deg);
-$body-background-gradient-color-second: adjust-hue($theme-base, -10deg);
-$highlight-speed: 1.5s;
-$button-text-case: uppercase;
+$body-background-pattern-opacity: 0.8 !default;
+$body-background-gradient-opacity: 0.3 !default;
+$body-background-gradient-direction: top left !default;
+$body-background-gradient-color-first: adjust-hue($theme-base, 20deg) !default;
+$body-background-gradient-color-second: adjust-hue($theme-base, -10deg) !default;
+$highlight-speed: 1.5s !default;
+$button-text-case: uppercase !default;
 $text-shadow-value: 0 -0.07em 0 rgba(contrast($text-base), 0.2),
 	0 0.07em 0 rgba(contrast($text-base), 0.2),
 	0.07em 0 0 rgba(contrast($text-base), 0.2),
-	-0.07em 0 0 rgba(contrast($text-base), 0.2);
+	-0.07em 0 0 rgba(contrast($text-base), 0.2) !default;
 
 // fonts --------------------------------------------------------------------------------------
 
@@ -242,10 +242,6 @@ nav.post-controls .highlight-action,
 	color: darken($text-base, 30%);
 }
 
-.user-main .staff-counters a {
-	color: $link-color;
-}
-
 // backgrounds --------------------------------------------------------------------------------
 
 // background theme base -------------------------
@@ -324,9 +320,8 @@ section.embedded-posts.top {
 
 // background custom background -----------------
 
-button.cancel:hover,
 .topic-post.deleted .topic-meta-data {
-	background: $danger;
+	background: rgba($danger, 0.75);
 }
 
 button.ok:hover {
@@ -539,7 +534,8 @@ td.main-link .topic-title,
 .topic-meta-data,
 .extra-info-wrapper .topic-header-extra,
 .topic-post.deleted section.post-actions .post-action,
-.show-more.has-topics .alert {
+.show-more.has-topics .alert,
+#post_1 .post-actions {
 	margin: 0;
 }
 
@@ -1208,6 +1204,10 @@ a {
 	}
 }
 
+.user-main .staff-counters a {
+	color: $link-color;
+}
+
 // Buttons ------------------------------------------------------------------------------------
 
 .btn {
@@ -1288,7 +1288,7 @@ a {
 	background: $n;
 }
 
-// Media queries ------------------------------------------------------------------------------------
+// Media queries ------------------------------------------------------------------------------
 
 @media (max-width: 650px) {
 	.topic-meta-data {
@@ -1501,6 +1501,7 @@ table.category-list > thead,
 
 button.post-retort {
 	z-index: 1;
+	float: none;
 }
 
 button.post-retort:first-of-type {
@@ -1534,14 +1535,23 @@ p.assigned-to {
 	padding: 0 1.25em;
 }
 
-
 // The pit  --------------------------------------------------------------------
 
 .cooked {
-    color: #cbcbcb;
+	color: #cbcbcb;
 }
 
 .post-info .wiki,
 .post-info .last-wiki-edit {
-    color: $success $i;
+	color: $success $i;
+}
+
+.lazyYT.lazyYT-container {
+	width: calc(100% + 2.5em) !important;
+	padding-bottom: calc(56.25% + 1.4em) !important;
+	left: -1.25em !important;
+}
+
+.flagged-post .flagged-post-controls button {
+	z-index: 1;
 }
