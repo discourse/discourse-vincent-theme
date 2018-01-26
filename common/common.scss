@@ -1337,6 +1337,7 @@ a {
 
 .topic-list .posters a:first-child .avatar.latest:not(.single) {
 	box-shadow: 0 0 2px 3px $link-color;
+	top: 0;
 }
 
 .modal.history-modal .diff-ins {
