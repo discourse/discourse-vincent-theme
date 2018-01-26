@@ -1555,3 +1555,11 @@ p.assigned-to {
 .flagged-post .flagged-post-controls button {
 	z-index: 1;
 }
+
+span.badge-category-parent-bg {
+	border-radius: 100vw 0 0 100vw;
+
+	+ .badge-category-bg {
+		border-radius: 0 100vw 100vw 0;
+	}
+}
