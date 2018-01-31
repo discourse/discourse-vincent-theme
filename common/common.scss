@@ -719,7 +719,6 @@ a.mention-group,
 .user-table,
 .user-main .about.collapsed-info .details,
 #user-card .card-content,
-.admin-contents table td,
 .main-content .list-controls,
 .main-content.nav-menu-enabled .list-controls,
 .body-page,
@@ -1074,113 +1073,6 @@ body:before {
 	}
 }
 
-// Inputs -------------------------------------------------------------------------------------
-
-input {
-	transition: border, box-shadow, color, outline, background;
-	transition-duration: 0.5s;
-}
-
-input[type="date"]:focus:not([readonly]),
-input[type="datetime-local"]:focus:not([readonly]),
-input[type="email"]:focus:not([readonly]),
-input[type="number"]:focus:not([readonly]),
-input[type="password"]:focus:not([readonly]),
-input[type="search-md"]:focus:not([readonly]),
-input[type="search"]:focus:not([readonly]),
-input[type="tel"]:focus:not([readonly]),
-input[type="text"]:focus:not([readonly]),
-input[type="time"]:focus:not([readonly]),
-input[type="url"]:focus:not([readonly]),
-textarea.md-textarea:focus:not([readonly]) {
-	border-color: rgba(255, 255, 255, 0.2);
-	border-bottom: 1px solid darken($theme-base, 15%);
-	box-shadow: $n;
-}
-
-.select-box-kit.combo-box .select-box-kit-header.is-focused,
-.select-box-kit.combo-box .select-kit-header.is-focused,
-.select-kit.combo-box .select-box-kit-header.is-focused,
-.select-kit.combo-box .select-kit-header.is-focused {
-	border: 1px solid darken($theme-base, 15%);
-	-webkit-box-shadow: $n;
-	box-shadow: $n;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus {
-	border-color: darken($theme-base, 15%);
-	box-shadow: $n;
-	outline: 0;
-}
-
-.select-box-kit.combo-box.is-expanded .select-kit-wrapper,
-.select-kit.combo-box.is-expanded .select-kit-wrapper {
-	border: 1px solid darken($theme-base, 15%);
-	-webkit-box-shadow: $n;
-	box-shadow: $n;
-}
-
-.select-box-kit .select-box-kit-row.is-highlighted,
-.select-box-kit .select-kit-row.is-highlighted,
-.select-kit .select-box-kit-row.is-highlighted,
-.select-kit .select-kit-row.is-highlighted,
-.select-box-kit .select-box-kit-row.is-selected.is-highlighted,
-.select-box-kit .select-kit-row.is-selected.is-highlighted,
-.select-kit .select-box-kit-row.is-selected.is-highlighted,
-.select-kit .select-kit-row.is-selected.is-highlighted {
-	background: darken($theme-base, 30%);
-}
-
-.select2-container-active {
-	box-shadow: $n;
-}
-
-.select2-drop-active {
-	border: 1px solid darken($theme-base, 15%);
-}
-
-#reply-control .tag-chooser.select2-dropdown-open,
-#reply-control .tag-chooser.select2-container-active {
-	border-color: darken($theme-base, 15%);
-}
-
-.select2-drop-active {
-	border-top-color: darken($text-base, 40%);
-}
-
-div.ac-wrap {
-	padding-top: 0;
-}
-
-.select2-container * input:focus,
-.ac-wrap > input:focus,
-.user-selector.ember-text-field {
-	box-shadow: $n;
-	border: $n;
-}
-
-.select-box-kit.dropdown-select-box .dropdown-select-box-header.is-focused,
-.select-kit.dropdown-select-box .dropdown-select-box-header.is-focused {
-	outline-color: darken($theme-base, 15%);
-}
-
-.select2-container-multi.select2-container-active .select2-choices {
-	border: 1px solid darken($theme-base, 15%);
-}
-
 // Links  -------------------------------------------------------------------------------------
 
 a {
@@ -1496,6 +1388,53 @@ table.category-list > thead,
 	border-bottom: 1px solid $border-color;
 }
 
+.post-info .wiki,
+.post-info .last-wiki-edit {
+	color: $success $i;
+}
+
+.lazyYT.lazyYT-container {
+	width: calc(100% + 2.5em) !important;
+	padding-bottom: calc(56.25% + 1.4em) !important;
+	left: -1.25em !important;
+}
+
+.flagged-post .flagged-post-controls button {
+	z-index: 1;
+}
+
+span.badge-category-parent-bg {
+	border-radius: 100vw 0 0 100vw;
+
+	+ .badge-category-bg {
+		border-radius: 0 100vw 100vw 0;
+		border-left: 1px solid black;
+	}
+}
+
+.groups-table,
+.groups-table thead,
+.groups-table tbody tr:nth-of-type(even) {
+	background: $main-background;
+}
+
+.groups-table tr td,
+.groups-table thead th {
+	padding: 12px 5px $i;
+}
+
+.groups-table tr {
+	border-bottom: none;
+}
+
+.groups-table tr td.groups-info {
+	padding-left: 10px $i;
+}
+
+.groups-table .groups-info span.group-avatar-flair {
+	padding-right: 5px;
+}
+
 // plugin support -----------------------------------------------------------------------------
 
 // Retort  ---------------------------------------------
@@ -1536,31 +1475,149 @@ p.assigned-to {
 	padding: 0 1.25em;
 }
 
+// Inputs -----------------------------------------------------------------------------
+
+$input-b0: #555 !default;
+$input-b: darken($theme-base, 10%) !default;
+
+input,
+select,
+textarea {
+	transition: border-color ease 0.75s;
+
+	&:focus:required:invalid:focus {
+		box-shadow: 0 0 2px $danger;
+	}
+}
+
+input {
+	&[type="text"],
+	&[type="password"],
+	&[type="datetime"],
+	&[type="datetime-local"],
+	&[type="date"],
+	&[type="month"],
+	&[type="time"],
+	&[type="week"],
+	&[type="number"],
+	&[type="email"],
+	&[type="url"],
+	&[type="search"],
+	&[type="tel"],
+	&[type="color"] {
+		&:focus {
+			border-color: $input-b0;
+			border-bottom-color: $input-b;
+			box-shadow: $n;
+		}
+	}
+}
+
+textarea {
+	&:focus {
+		border-color: $input-b0;
+		border-bottom-color: $input-b;
+		box-shadow: $n;
+	}
+}
+
+// Select2 Combo-box  ----------------------
+
+.select2-container-active {
+	box-shadow: none;
+}
+
+.select2-drop-active {
+	border-color: $input-b0;
+	border-top-color: $input-b;
+}
+
+.select-box-kit,
+.select-kit {
+	&.combo-box {
+		.select-box-kit-header,
+		.select-kit-header {
+			&.is-focused {
+				border: 1px solid $input-b;
+				-webkit-box-shadow: $n;
+				box-shadow: $n;
+			}
+		}
+
+		&.is-highlighted {
+			.select-kit-header {
+				border: 1px solid $input-b;
+				-webkit-box-shadow: $n;
+				box-shadow: $n;
+			}
+		}
+
+		&.is-expanded {
+			.select-kit-wrapper {
+				border: 1px solid $input-b;
+				-webkit-box-shadow: $n;
+				box-shadow: $n;
+			}
+		}
+	}
+}
+
+// Select2 legacy  ------------------------
+
+.select2-container {
+	&.select2-container-active {
+		border-color: $input-b0;
+		border-bottom-color: $input-b;
+	}
+}
+
+.select2-dropdown-open a.select2-choice {
+	border-color: $input-b0;
+	border-bottom-color: $input-b;
+}
+
+.select2-drop-active {
+	border: 1px solid $input-b;
+	border-top: 0;
+}
+
+.select2-container-active {
+	box-shadow: none;
+}
+
+// other inputs  --------------------------
+
+.tag-chooser {
+	&.select2-dropdown-open,
+	&.select2-container-active {
+		border-color: $input-b;
+	}
+}
+
+.select2-container-multi
+	.select2-choices
+	.select2-search-field
+	input.select2-active {
+	background: none $i;
+}
+
+.select2-container-multi.select2-container-active .select2-choices {
+	border-color: $input-b;
+}
+
+#reply-control .tag-chooser.select2-dropdown-open,
+#reply-control .tag-chooser.select2-container-active {
+	border-color: $input-b;
+}
+
+// date chooser navigation arrows
+.pika-prev,
+.pika-next {
+	background-color: $input-b;
+}
+
 // The pit  --------------------------------------------------------------------
 
 .cooked {
 	color: #cbcbcb;
-}
-
-.post-info .wiki,
-.post-info .last-wiki-edit {
-	color: $success $i;
-}
-
-.lazyYT.lazyYT-container {
-	width: calc(100% + 2.5em) !important;
-	padding-bottom: calc(56.25% + 1.4em) !important;
-	left: -1.25em !important;
-}
-
-.flagged-post .flagged-post-controls button {
-	z-index: 1;
-}
-
-span.badge-category-parent-bg {
-	border-radius: 100vw 0 0 100vw;
-
-	+ .badge-category-bg {
-		border-radius: 0 100vw 100vw 0;
-	}
 }
