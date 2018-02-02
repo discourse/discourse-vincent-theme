@@ -1616,6 +1616,113 @@ textarea {
 	background-color: $input-b;
 }
 
+div.ac-wrap input[type="text"] {
+	margin: 1px;
+}
+
+// groups  -------------------------------------------------------------------
+
+.group {
+	.group-details-container,
+	.group-members,
+	.group-members thead,
+	.group-members tbody tr:nth-of-type(even),
+	.group-logs thead,
+	.group-logs tbody tr:nth-of-type(even),
+	.group-activity.container,
+	.group-post:nth-child(even),
+	.group-logs,
+	.group-edit,
+	.group-logs-controls button {
+		background: $main-background;
+	}
+
+	.group-nav li .active a,
+	.group-nav li .active i {
+		color: $header_primary;
+	}
+
+	.list-controls {
+		padding: 0.75em;
+	}
+
+	.group-members thead th,
+	.group-members tbody tr td,
+	.group-logs thead th,
+	.group-logs tbody tr td {
+		padding: 12px 5px;
+	}
+
+	.group-members tr,
+	.group-logs tr {
+		border-bottom: none;
+	}
+
+	table.group-members th {
+		border-bottom: 1px solid #474747;
+	}
+
+	.group-members tr td:first-child,
+	.group-members th:first-child,
+	.group-logs tr td:first-child,
+	.group-logs th:first-child {
+		padding-left: 10px;
+	}
+
+	.group-info span.group-avatar-flair {
+		padding-right: 5px;
+	}
+
+	.group-nav li a {
+		color: inherit;
+	}
+
+	.group-activity.container {
+		padding: 1em;
+	}
+
+	.group-activity-nav li a.active {
+		background-color: #4b4b4b;
+		font-weight: inherit;
+	}
+
+	.group-post {
+		padding: 1em;
+		border-bottom: 1px solid $border-color;
+	}
+
+	.group-edit {
+		padding: 1em;
+		border: none;
+	}
+
+	.group-logs-controls button {
+		margin: 1em 0;
+		padding: 0.75em;
+	}
+
+	.group-members-input .ac-wrap {
+		margin-top: 0.75em;
+	}
+}
+
+// 404 page  -------------------------------------------------------------------
+
+.page-not-found-topics {
+	background: $main-background;
+	padding: 1em;
+
+	& + .row {
+		background: $main-background;
+		padding: 0 1em;
+		margin-top: 1em;
+	}
+}
+
+h1.page-not-found {
+	margin: 0 0 20px 0;
+}
+
 // The pit  --------------------------------------------------------------------
 
 .cooked {
