@@ -70,21 +70,17 @@ $link-color: lighten($theme-base, 15%) !default;
 
 $body-background-pattern-opacity: 0.8 !default;
 $body-background-gradient-opacity: 0.3 !default;
-$body-background-gradient-direction: top left !default;
-$body-background-gradient-color-first: adjust-hue($theme-base, 20deg) !default;
-$body-background-gradient-color-second: adjust-hue($theme-base, -10deg) !default;
+$body-background-gradient-direction: bottom right !default;
+$body-background-gradient-color-first: adjust-hue($theme-base, 25deg) !default;
+$body-background-gradient-color-second: adjust-hue($theme-base, -25deg) !default;
 $highlight-speed: 1.5s !default;
 $button-text-case: uppercase !default;
-$text-shadow-value: 0 -0.07em 0 rgba(contrast($text-base), 0.2),
-	0 0.07em 0 rgba(contrast($text-base), 0.2),
-	0.07em 0 0 rgba(contrast($text-base), 0.2),
-	-0.07em 0 0 rgba(contrast($text-base), 0.2) !default;
+$border-radius-switch: "body" !default;
 
 // fonts --------------------------------------------------------------------------------------
 
 html {
 	font-family: "Roboto", sans-serif;
-	background: invert-contrast($theme-base);
 }
 
 body,
@@ -103,7 +99,7 @@ h6 {
 }
 
 #topic-title h1 {
-	font-size: 1.25em;
+	font-size: 1.5em;
 }
 
 .user-navigation .nav-stacked a.active {
@@ -124,19 +120,6 @@ h6 {
 	line-height: 19px;
 }
 
-.cooked p {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-shadow: $text-shadow-value;
-	-webkit-text-stroke: 1px rgba($secondary, 0.1);
-}
-
-.cooked blockquote p,
-.cooked p a,
-span.hashtag {
-	text-shadow: $n;
-}
-
 i,
 cite,
 em,
@@ -152,6 +135,10 @@ strong {
 }
 
 // Reset   ------------------------------------------------------------------------------------
+
+html {
+	background: invert-contrast($header_background);
+}
 
 .topic-list .posters,
 input {
@@ -249,17 +236,13 @@ nav.post-controls .highlight-action,
 .media .media-left img,
 .modal-dialog .modal-content,
 .modal-dialog.cascading-modal .modal-header,
-.nav-pills > li.active > a,
-.layouts-nav-button > li.active > a,
-.nav-pills > li > a.active,
-.layouts-nav-button > li > a.active,
 .open .grippie,
 .badge-notification.new-posts,
 .badge-notification.unread-posts,
-.admin-controls .nav.nav-pills li.active a,
 #reply-control.draft,
 #reply-control.saving {
 	background: darken($theme-base, 15%);
+	color: contrast(darken($theme-base, 15%));
 }
 
 // background main background  ------------------
@@ -281,7 +264,6 @@ ul.general,
 tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .category-boxes .category-box-inner,
 .category-boxes-with-topics .category-box-inner,
-#topic-title .title-wrapper,
 .list-controls,
 .top-lists,
 .topic-list-bottom,
@@ -292,7 +274,6 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .topic-body .contents,
 .offset2 .cooked,
 .post-links-container,
-.moderator .names span.user-title,
 #post_1 .post-actions,
 #user-card .card-content,
 .user-nav,
@@ -321,7 +302,7 @@ section.embedded-posts.top {
 // background custom background -----------------
 
 .topic-post.deleted .topic-meta-data {
-	background: rgba($danger, 0.75);
+	background: rgba($danger, 0.5);
 }
 
 button.ok:hover {
@@ -330,7 +311,7 @@ button.ok:hover {
 
 // background none ------------------------------
 
-.nav-pills > li > a:hover,
+.nav-pills > li:not(.active) > a:hover,
 .layouts-nav-button > li > a:hover,
 .topic-body .reply-to-tab,
 .list-controls a,
@@ -341,6 +322,8 @@ button.ok:hover {
 .main-content .nav-drop .nav-dropdown-menu a:hover,
 .list-controls .category-dropdown-menu a:hover,
 .list-controls .category-dropdown-menu a:hover,
+.select-kit.combo-box.tag-drop .tag-drop-header,
+.select-kit.combo-box.category-drop .category-drop-header,
 li.toggle-maximize a,
 a.mention,
 a.mention-group,
@@ -389,7 +372,9 @@ img.avatar,
 .embedded-posts .topic-body,
 .embedded-posts .row,
 .topic-map .buttons .btn,
-.topic-post {
+.topic-post,
+.select-kit.combo-box.tag-drop .tag-drop-header,
+.select-kit.combo-box.category-drop .category-drop-header {
 	border: $n $i;
 }
 
@@ -456,7 +441,6 @@ nav.post-controls .post-admin-menu,
 .badges .content-list ul li,
 .admin-contents table td,
 .reply,
-.timeline-container .topic-timeline .timeline-scrollarea,
 .admin-list-item,
 section.about table td,
 section.about table th,
@@ -515,7 +499,6 @@ img.avatar,
 .main-content,
 img.avatar,
 ol.category-breadcrumb,
-section.navigation-container,
 td.main-link .topic-thumbnail,
 td.main-link .topic-title,
 #topic-footer-buttons,
@@ -633,10 +616,6 @@ ul.subcat-list,
 	margin-right: 4px;
 }
 
-section.navigation-container {
-	margin: 0.5em 0;
-}
-
 .user-nav {
 	margin: 10px 0;
 }
@@ -705,7 +684,6 @@ a.mention-group,
 #user-card.show-badges .more-user-badges,
 .topic-list-item,
 .badge-info,
-.list-controls,
 .top-lists,
 .topic-list-bottom {
 	padding: 0.75em;
@@ -719,8 +697,6 @@ a.mention-group,
 .user-table,
 .user-main .about.collapsed-info .details,
 #user-card .card-content,
-.main-content .list-controls,
-.main-content.nav-menu-enabled .list-controls,
 .body-page,
 .search-container,
 .search-advanced-options,
@@ -795,10 +771,6 @@ nav.post-controls {
 	padding-bottom: 3em;
 }
 
-.list-controls {
-	padding-top: 3px;
-}
-
 .user-nav,
 .full-width > ul.nav.nav-pills {
 	padding-top: 10px;
@@ -855,10 +827,6 @@ a.expand-hidden {
 	padding: 1.25em;
 }
 
-.topic-meta-data {
-	padding: 0.75em 1.25em;
-}
-
 // Display and positioning --------------------------------------------------------------------
 
 #topic-title .title-wrapper,
@@ -889,10 +857,6 @@ section.post-menu-area {
 	bottom: unset;
 	top: 30px;
 	right: -2px;
-}
-
-.main-content.loading .list-controls {
-	display: none;
 }
 
 // height and width ---------------------------------------------------------------------------
@@ -1182,11 +1146,16 @@ a {
 
 // Media queries ------------------------------------------------------------------------------
 
-@media (max-width: 650px) {
-	.topic-meta-data {
-		padding-bottom: 50px $i;
+.topic-meta-data {
+	padding: 0.75em;
+	&:after {
+		display: block;
+		content: "";
+		clear: both;
 	}
+}
 
+@media (max-width: 650px) {
 	.topic-avatar {
 		margin-top: 1px;
 	}
@@ -1257,6 +1226,10 @@ header.d-header.clearfix {
 	border-bottom: 1px solid #555555;
 }
 
+.menu-panel.drop-down {
+	border-bottom: 1px solid #555555;
+}
+
 .topic-meta-data {
 	border-radius: 3px 3px 0 0;
 }
@@ -1278,7 +1251,6 @@ aside.onebox {
 	border: none;
 	border-left: 4px solid darken($text-base, 35%);
 	background: $trim-background;
-	border-radius: 0 3px 3px 0;
 }
 
 aside.quote .title,
@@ -1286,7 +1258,6 @@ aside.quote blockquote,
 blockquote {
 	border-left: 3px solid $theme-base;
 	background-color: $trim-background;
-	border-radius: 0 3px 3px 0;
 }
 
 .modal-backdrop {
@@ -1297,21 +1268,6 @@ blockquote {
 	max-width: 95vw;
 	box-sizing: border-box;
 	margin: 0 auto;
-}
-
-.moderator .topic-body .contents .cooked {
-	background: $n;
-	padding: 0 1.25em;
-	padding-top: 15px;
-}
-
-.moderator .topic-meta-data {
-	background: linear-gradient(
-		to right,
-		rgba(darken(invert($theme-base), 25%), 0.45),
-		rgba(darken(invert($theme-base), 20%), 0.45)
-	);
-	border-bottom: none;
 }
 
 .modal.history-modal span.edit-reason {
@@ -1346,6 +1302,13 @@ blockquote {
 	display: inline-block;
 }
 
+.timeline-container .topic-timeline .timeline-scrollarea {
+	border-color: desaturate(
+		rgba($body-background-gradient-color-first, 0.25),
+		100%
+	);
+}
+
 // TESTS --------------------------------------------------------------------------------------
 
 .container.show-badge {
@@ -1355,8 +1318,8 @@ blockquote {
 }
 
 .list-controls .category-breadcrumb .dropdown-header {
-	background: none !important;
-	color: inherit !important;
+	background: none $i;
+	color: inherit $i;
 }
 
 .timeline-container .topic-timeline .timeline-handle {
@@ -1373,11 +1336,7 @@ blockquote {
 .d-icon.d-icon-d-tracking,
 .d-icon.d-icon-d-watching,
 .badge-notification.new-topic {
-	color: desaturate($theme-base, 20%);
-}
-
-.moderator .topic-meta-data div * {
-	color: invert-contrast(invert($theme-base));
+	color: lighten(desaturate($theme-base, 20%), 10%);
 }
 
 table.topic-list > thead,
@@ -1394,13 +1353,9 @@ table.category-list > thead,
 }
 
 .lazyYT.lazyYT-container {
-	width: calc(100% + 2.5em) !important;
-	padding-bottom: calc(56.25% + 1.4em) !important;
-	left: -1.25em !important;
-}
-
-.flagged-post .flagged-post-controls button {
-	z-index: 1;
+	width: calc(100% + 2.5em) $i;
+	padding-bottom: calc(56.25% + 1.4em) $i;
+	left: -1.25em $i;
 }
 
 span.badge-category-parent-bg {
@@ -1408,7 +1363,7 @@ span.badge-category-parent-bg {
 
 	+ .badge-category-bg {
 		border-radius: 0 100vw 100vw 0;
-		border-left: 1px solid black;
+		border-left: 1px solid $header_background;
 	}
 }
 
@@ -1424,7 +1379,7 @@ span.badge-category-parent-bg {
 }
 
 .groups-table tr {
-	border-bottom: none;
+	border-bottom: $n;
 }
 
 .groups-table tr td.groups-info {
@@ -1620,6 +1575,12 @@ div.ac-wrap input[type="text"] {
 	margin: 1px;
 }
 
+.select-kit.combo-box.category-drop .select-kit-body,
+.select-kit.combo-box.tag-drop .select-kit-body {
+	border: 1px solid $input-b0;
+	box-shadow: none;
+}
+
 // groups  -------------------------------------------------------------------
 
 .group {
@@ -1642,10 +1603,6 @@ div.ac-wrap input[type="text"] {
 		color: $header_primary;
 	}
 
-	.list-controls {
-		padding: 0.75em;
-	}
-
 	.group-members thead th,
 	.group-members tbody tr td,
 	.group-logs thead th,
@@ -1655,7 +1612,7 @@ div.ac-wrap input[type="text"] {
 
 	.group-members tr,
 	.group-logs tr {
-		border-bottom: none;
+		border-bottom: $n;
 	}
 
 	table.group-members th {
@@ -1693,7 +1650,7 @@ div.ac-wrap input[type="text"] {
 
 	.group-edit {
 		padding: 1em;
-		border: none;
+		border: $n;
 	}
 
 	.group-logs-controls button {
@@ -1723,8 +1680,315 @@ h1.page-not-found {
 	margin: 0 0 20px 0;
 }
 
+// rounded borders --------------------------------------------------------------
+
+#{$border-radius-switch} {
+	#post_1 .contents,
+	.nav-pills > li.active > a,
+	.topic-map .buttons .btn,
+	.header-dropdown-toggle a,
+	#reply-control .d-editor-button-bar .btn {
+		border-radius: 0;
+	}
+
+	.contents,
+	.menu-panel.drop-down,
+	.topic-map,
+	.embedded-posts.bottom {
+		border-radius: 0 0 10px 10px;
+	}
+
+	.topic-meta-data,
+	#reply-control,
+	.embedded-posts.top {
+		border-radius: 10px 10px 0 0;
+	}
+
+	.popup-menu,
+	.list-controls,
+	.select-kit.dropdown-select-box.is-expanded .select-kit-body,
+	table,
+	.column,
+	.group-activity.container,
+	#topic-title .title-wrapper,
+	.row .alert.alert-info,
+	.boxed.white,
+	.cooked > blockquote,
+	.topic-list-bottom,
+	.group-details-container,
+	.group-outlet,
+	.admin-controls,
+	#banner,
+	.user-nav,
+	.full-width > ul.nav.nav-pills,
+	.list-controls button.btn {
+		border-radius: 10px;
+	}
+
+	aside.quote {
+		.title {
+			border-radius: 10px 10px 0 0;
+		}
+
+		blockquote {
+			border-radius: 0 0 10px 10px;
+		}
+	}
+
+	input[type],
+	.btn,
+	button:hover,
+	button.d-hover {
+		border-radius: 4px;
+	}
+
+	.topic-map .map-collapsed .buttons .btn {
+		border-radius: 0 0 10px 0;
+	}
+
+	#reply-control,
+	table,
+	.column,
+	.group-outlet {
+		overflow: hidden;
+	}
+
+	a {
+		border-radius: 3px;
+	}
+
+	.cooked > .onebox {
+		border-radius: 10px;
+	}
+
+	// plugin support
+	#whos-online {
+		border-radius: 10px;
+	}
+}
+
 // The pit  --------------------------------------------------------------------
 
 .cooked {
-	color: #cbcbcb;
+	color: darken(reverse-lightness($main-background), 13%);
+}
+
+/*
+.cooked p {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-shadow: $text-shadow-value;
+	-webkit-text-stroke: 1px rgba($secondary, 0.1);
+}
+
+.cooked blockquote p,
+.cooked p a,
+span.hashtag {
+	text-shadow: $n;
+}
+*/
+
+.slick-initialized,
+[dir] .slick-initialized {
+	width: calc(100% + 2.5em) $i;
+	left: -1.25em $i;
+
+	> p:empty {
+		display: none;
+	}
+}
+
+.list-controls #create-topic {
+	opacity: 0.9;
+
+	.d-icon {
+		color: $theme-base;
+	}
+
+	&:hover,
+	&.d-hover {
+		opacity: 1;
+		background: darken($theme-base, 15%);
+
+		.d-icon {
+			color: inherit;
+		}
+	}
+}
+
+.nav-pills > li > a {
+	padding: 0px 12px;
+}
+
+.list-controls > .container {
+	display: flex;
+	align-items: center;
+}
+
+#topic-title .title-wrapper {
+	background: $tertiary-background;
+}
+
+section.post-actions:empty {
+	display: $n;
+}
+
+.cooked {
+	>  {
+		.slick-initialized:first-child,
+		.lazyYT-container:first-child {
+			margin-top: -15px;
+		}
+	}
+}
+
+.popup-menu {
+	background-color: $header_background;
+	border-color: $border-color;
+}
+
+.d-header .menu-panel {
+	box-shadow: $n;
+	background-color: $header_background;
+	border-top: 1px solid #555;
+}
+
+.admin-contents.dashboard tbody {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+ul.nav.nav-pills {
+	margin: 0.5em 0;
+}
+
+.admin-controls {
+	padding-top: 0;
+}
+
+.nav-pills > li.active > a,
+.admin-controls .nav.nav-pills li.active a:hover,
+.layouts-nav-button > li.active > a,
+.nav-pills > li > a.active,
+.nav-pills > li > a.active:hover,
+.layouts-nav-button > li > a.active,
+.admin-controls .nav.nav-pills li.active a {
+	background: none;
+	color: $link-color $i;
+}
+
+.moderator .topic-map,
+.moderator .contents,
+.moderator .topic-meta-data {
+	border-left: 3px solid lighten(rgba(complement($theme-base), 0.65), 5%) $i;
+}
+
+.moderator .topic-meta-data {
+	border-bottom: $n;
+}
+
+.moderator .topic-body .contents .cooked {
+	background: $n;
+	padding: 0 1.25em;
+	padding-top: 15px;
+}
+
+section.navigation-container {
+	width: 100%;
+}
+
+button {
+	z-index: 1;
+}
+
+.admin-contents thead th {
+	background: rgba($theme-base, 0.5);
+}
+
+// desktop only
+
+html.desktop-view.not-mobile-device {
+	.topic-post .row,
+	.reply .topic-body {
+		display: flex;
+	}
+
+	.reply .topic-body {
+		flex-flow: column;
+	}
+}
+
+// mobile only 
+
+html.mobile-view.mobile-device {
+	.topic-avatar img.avatar {
+		margin-top: 0.5em;
+		margin-left: 0.5em;
+	}
+
+	.alert {
+		margin-bottom: 1em $i;
+	}
+
+	section.post-actions {
+		padding-top: 0.25em;
+	}
+
+	.post-action {
+		margin-right: 0;
+		margin-left: 0.25em;
+	}
+
+	@media (max-width: 400px) {
+		#main-outlet {
+			padding-right: 0;
+			padding-left: 0;
+		}
+
+		.topic-meta-data {
+			position: relative;
+		}
+
+		.topic-meta-data .post-info:not(.edits) {
+			margin-right: 0;
+		}
+
+		.names .new_user a,
+		.names .user-title,
+		.names .user-title a {
+			font-size: 90%;
+		}
+
+		.post-info.edits + a.reply-to-tab {
+			bottom: 5px;
+			right: 0.5em $i;
+		}
+	}
+
+	.heatmap-high {
+		color: #fe7a15 $i;
+	}
+	.heatmap-med {
+		color: #cf7721 $i;
+	}
+	.heatmap-low {
+		color: #9b764f $i;
+	}
+	.heatmap-high a {
+		color: #fe7a15 $i;
+	}
+	.heatmap-med a {
+		color: #cf7721 $i;
+	}
+	.heatmap-low a {
+		color: #9b764f $i;
+	}
+
+	// full width YT
+	.mobile-device .lazyYT.lazyYT-container {
+		max-width: unset;
+	}
+
+	.list-controls .nav-pills > li {
+		background: none;
+	}
 }
