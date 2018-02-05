@@ -1,7 +1,7 @@
 {
   "name": "Vincent",
-  "about_url": "",
-  "license_url": "",
+  "about_url": "https://meta.discourse.org/t/76662/",
+  "license_url": "https://github.com/hnb-ku/discourse-vincent-theme/blob/master/LICENSE",
    "color_schemes": {
        "Vincent Dark Blue": {
           "primary": "cccccc",
@@ -15,10 +15,22 @@
           "success": "00bf9a",
           "love": "f50057"
         },
+       "Vincent Dark Teal": {
+          "primary": "cccccc",
+          "secondary": "111111",
+          "tertiary": "00abb9",
+          "quaternary": "9E9E9E",
+          "header_background": "131418",
+          "header_primary": "cccccc",
+          "highlight": "9E9E9E",
+          "danger": "96000e",
+          "success": "00bf9a",
+          "love": "f50057"
+        },
        "Vincent Dark Red": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "c0392b",
+          "tertiary": "cc200e",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -30,7 +42,7 @@
        "Vincent Dark Green": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "4CAF50",
+          "tertiary": "4fb92b",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -54,7 +66,7 @@
        "Vincent Dark Orange": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "F4511E",
+          "tertiary": "E91E63",
           "quaternary": "E08A1E",
           "header_background": "131418",
           "header_primary": "cccccc",
