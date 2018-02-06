@@ -951,7 +951,7 @@ body:before {
 }
 
 #background {
-    background: $vincent-background;
+    background: url($vincent-background);
     background-size: cover;
 	z-index: -2;
 	opacity: $body-background-pattern-opacity;
