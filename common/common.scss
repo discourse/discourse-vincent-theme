@@ -75,7 +75,8 @@ $body-background-gradient-color-first: adjust-hue($theme-base, 25deg) !default;
 $body-background-gradient-color-second: adjust-hue($theme-base, -25deg) !default;
 $highlight-speed: 1.5s !default;
 $button-text-case: uppercase !default;
-$border-radius-switch: "body" !default;
+$font-weight: 300 !default;
+$font-size: 1.25em !default;
 
 // fonts --------------------------------------------------------------------------------------
 
@@ -90,11 +91,11 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: 300;
+	font-weight: $font-weight;
 }
 
 .cooked p {
-	font-size: 1.25em;
+	font-size: $font-size;
 	line-height: 1.6;
 }
 
@@ -950,6 +951,8 @@ body:before {
 }
 
 #background {
+    background: $vincent-background;
+    background-size: cover;
 	z-index: -2;
 	opacity: $body-background-pattern-opacity;
 	min-width: 100vw;
@@ -1067,7 +1070,6 @@ a {
 // Buttons ------------------------------------------------------------------------------------
 
 .btn {
-	border-radius: 2px;
 	position: relative;
 	text-transform: $button-text-case;
 	transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
@@ -1228,10 +1230,6 @@ header.d-header.clearfix {
 
 .menu-panel.drop-down {
 	border-bottom: 1px solid #555555;
-}
-
-.topic-meta-data {
-	border-radius: 3px 3px 0 0;
 }
 
 .modal-inner-container {
@@ -1680,93 +1678,6 @@ h1.page-not-found {
 	margin: 0 0 20px 0;
 }
 
-// rounded borders --------------------------------------------------------------
-
-#{$border-radius-switch} {
-	#post_1 .contents,
-	.nav-pills > li.active > a,
-	.topic-map .buttons .btn,
-	.header-dropdown-toggle a,
-	#reply-control .d-editor-button-bar .btn {
-		border-radius: 0;
-	}
-
-	.contents,
-	.menu-panel.drop-down,
-	.topic-map,
-	.embedded-posts.bottom {
-		border-radius: 0 0 10px 10px;
-	}
-
-	.topic-meta-data,
-	#reply-control,
-	.embedded-posts.top {
-		border-radius: 10px 10px 0 0;
-	}
-
-	.popup-menu,
-	.list-controls,
-	.select-kit.dropdown-select-box.is-expanded .select-kit-body,
-	table,
-	.column,
-	.group-activity.container,
-	#topic-title .title-wrapper,
-	.row .alert.alert-info,
-	.boxed.white,
-	.cooked > blockquote,
-	.topic-list-bottom,
-	.group-details-container,
-	.group-outlet,
-	.admin-controls,
-	#banner,
-	.user-nav,
-	.full-width > ul.nav.nav-pills,
-	.list-controls button.btn {
-		border-radius: 10px;
-	}
-
-	aside.quote {
-		.title {
-			border-radius: 10px 10px 0 0;
-		}
-
-		blockquote {
-			border-radius: 0 0 10px 10px;
-		}
-	}
-
-	input[type],
-	.btn,
-	button:hover,
-	button.d-hover {
-		border-radius: 4px;
-	}
-
-	.topic-map .map-collapsed .buttons .btn {
-		border-radius: 0 0 10px 0;
-	}
-
-	#reply-control,
-	table,
-	.column,
-	.group-outlet {
-		overflow: hidden;
-	}
-
-	a {
-		border-radius: 3px;
-	}
-
-	.cooked > .onebox {
-		border-radius: 10px;
-	}
-
-	// plugin support
-	#whos-online {
-		border-radius: 10px;
-	}
-}
-
 // The pit  --------------------------------------------------------------------
 
 .cooked {
@@ -1963,26 +1874,7 @@ html.mobile-view.mobile-device {
 			right: 0.5em $i;
 		}
 	}
-
-	.heatmap-high {
-		color: #fe7a15 $i;
-	}
-	.heatmap-med {
-		color: #cf7721 $i;
-	}
-	.heatmap-low {
-		color: #9b764f $i;
-	}
-	.heatmap-high a {
-		color: #fe7a15 $i;
-	}
-	.heatmap-med a {
-		color: #cf7721 $i;
-	}
-	.heatmap-low a {
-		color: #9b764f $i;
-	}
-
+	
 	// full width YT
 	.mobile-device .lazyYT.lazyYT-container {
 		max-width: unset;
