@@ -1884,3 +1884,16 @@ html.mobile-view.mobile-device {
 		background: none;
 	}
 }
+
+.group-info .avatar-flair, 
+.groups-table .groups-info .avatar-flair {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    i {
+        font-size: 1.75em $i;
+    }
+}
