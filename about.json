@@ -4,7 +4,7 @@
   "license_url": "https://github.com/hnb-ku/discourse-vincent-theme/blob/master/LICENSE",
    "assets": {
         "vincent-background": "assets/vincent-background.svg"
-   }
+   },
    "color_schemes": {
        "Vincent Dark Blue": {
           "primary": "cccccc",
