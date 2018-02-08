@@ -77,6 +77,7 @@ $highlight-speed: 1.5s !default;
 $button-text-case: uppercase !default;
 $font-weight: 300 !default;
 $font-size: 1.25em !default;
+$theme-background: url(#{$vincent-background}) !default;
 
 // fonts --------------------------------------------------------------------------------------
 
@@ -951,7 +952,8 @@ body:before {
 }
 
 #background {
-    background: url($vincent-background);
+    background: $theme-background;
+    background-position: center center;
     background-size: cover;
 	z-index: -2;
 	opacity: $body-background-pattern-opacity;
