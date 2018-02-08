@@ -70,9 +70,9 @@ $link-color: lighten($theme-base, 15%) !default;
 
 $body-background-pattern-opacity: 0.8 !default;
 $body-background-gradient-opacity: 0.3 !default;
-$body-background-gradient-direction: bottom right !default;
-$body-background-gradient-color-first: adjust-hue($theme-base, 25deg) !default;
-$body-background-gradient-color-second: adjust-hue($theme-base, -25deg) !default;
+$body-background-gradient-direction: top left !default;
+$body-background-gradient-color-first: adjust-hue($theme-base, -15deg) !default;
+$body-background-gradient-color-second: adjust-hue($theme-base, 15deg) !default;
 $highlight-speed: 1.5s !default;
 $button-text-case: uppercase !default;
 $font-weight: 300 !default;
