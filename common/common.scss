@@ -68,7 +68,7 @@ $link-color: lighten($theme-base, 15%) !default;
 
 // theme settings -------------------------------
 
-$body-background-pattern-opacity: 0.8 !default;
+$body-background-pattern-opacity: 0.5 !default;
 $body-background-gradient-opacity: 0.3 !default;
 $body-background-gradient-direction: top left !default;
 $body-background-gradient-color-first: adjust-hue($theme-base, -15deg) !default;
