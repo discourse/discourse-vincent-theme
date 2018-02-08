@@ -69,7 +69,7 @@ $link-color: lighten($theme-base, 15%) !default;
 // theme settings -------------------------------
 
 $body-background-pattern-opacity: 0.5 !default;
-$body-background-gradient-opacity: 0.3 !default;
+$body-background-gradient-opacity: 0.25 !default;
 $body-background-gradient-direction: top left !default;
 $body-background-gradient-color-first: adjust-hue($theme-base, -15deg) !default;
 $body-background-gradient-color-second: adjust-hue($theme-base, 15deg) !default;
@@ -137,10 +137,6 @@ strong {
 }
 
 // Reset   ------------------------------------------------------------------------------------
-
-html {
-	background: invert-contrast($header_background);
-}
 
 .topic-list .posters,
 input {
@@ -1682,6 +1678,10 @@ h1.page-not-found {
 
 // The pit  --------------------------------------------------------------------
 
+html {
+	background: #252525
+}
+
 .cooked {
 	color: darken(reverse-lightness($main-background), 13%);
 }
@@ -1814,7 +1814,7 @@ button {
 }
 
 .admin-contents thead th {
-	background: rgba($theme-base, 0.5);
+	background: rgba($theme-base, 0.2);
 }
 
 // desktop only
