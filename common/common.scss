@@ -50,9 +50,16 @@ $love
 $n: none;
 $i: !important;
 
+// Basics -------------------------------
+
+$v-font-weight: 300 !default;
+$v-font-size: 1.25em !default;
+$v-saturation: 70 !default;
+$v-theme-background: url(#{$vincent-background}) !default;
+
 // palette colors -------------------------------
 
-$theme-base: $tertiary !default;
+$theme-base: desaturate($tertiary, 100% - $v-saturation) !default;
 $text-base: reverse-lightness($secondary) !default;
 $main-background: rgba($header_background, 0.9) !default;
 $secondary-background: rgba(contrast($primary), 0.4) !default;
@@ -61,28 +68,36 @@ $trim-background: rgba($text-base, 0.1) !default;
 
 // derived colors -------------------------------
 
-$border-color: $trim-background !default;
+$border-color: desaturate($trim-background, 100%) !default;
 $highlight-color: $trim-background !default;
 $theme-trim: $quaternary !default;
 $link-color: lighten($theme-base, 15%) !default;
 
-// theme settings -------------------------------
+// settings -------------------------------
 
-$body-background-pattern-opacity: 0.5 !default;
+$body-background-pattern-opacity: 0.35 !default;
 $body-background-gradient-opacity: 0.25 !default;
-$body-background-gradient-direction: top left !default;
-$body-background-gradient-color-first: adjust-hue($theme-base, -15deg) !default;
-$body-background-gradient-color-second: adjust-hue($theme-base, 15deg) !default;
 $highlight-speed: 1.5s !default;
 $button-text-case: uppercase !default;
-$font-weight: 300 !default;
-$font-size: 1.25em !default;
-$theme-background: url(#{$vincent-background}) !default;
+
+body:before {
+	background: radial-gradient(
+		at 100% 100%,
+		adjust-hue($theme-base, -15deg),
+		adjust-hue($theme-base, -10deg),
+		adjust-hue($theme-base, -5deg),
+		$theme-base,
+		adjust-hue($theme-base, 5deg),
+		adjust-hue($theme-base, 10deg),
+		adjust-hue($theme-base, 15deg)
+	);
+}
 
 // fonts --------------------------------------------------------------------------------------
 
 html {
 	font-family: "Roboto", sans-serif;
+	background: darken($theme-base, 20%);
 }
 
 body,
@@ -92,11 +107,11 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: $font-weight;
+	font-weight: $v-font-weight;
 }
 
 .cooked p {
-	font-size: $font-size;
+	font-size: $v-font-size;
 	line-height: 1.6;
 }
 
@@ -277,7 +292,7 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .user-nav,
 .user-main .staff-counters {
 	background: $main-background;
-	color: reverse-lightness($main-background);
+	color: desaturate(reverse-lightness($main-background), 100%);
 }
 
 .topic-meta-data,
@@ -285,7 +300,7 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .reply .topic-meta-data,
 .deleted section.embedded-posts .topic-meta-data {
 	background: $tertiary-background;
-	color: reverse-lightness($tertiary-background);
+	color: desaturate(reverse-lightness($tertiary-background), 100%);
 }
 
 // background secondary background --------------
@@ -294,13 +309,13 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 section.embedded-posts.bottom,
 section.embedded-posts.top {
 	background: $secondary-background;
-	color: reverse-lightness($secondary-background);
+	color: desaturate(reverse-lightness($secondary-background), 100%);
 }
 
 // background custom background -----------------
 
 .topic-post.deleted .topic-meta-data {
-	background: rgba($danger, 0.5);
+	background: rgba($danger, 0.8);
 }
 
 button.ok:hover {
@@ -938,20 +953,15 @@ body:before {
 	display: block;
 	content: "";
 	width: 100vw;
-	z-index: -1;
+	z-index: -2;
 	opacity: $body-background-gradient-opacity;
-	background: linear-gradient(
-		to $body-background-gradient-direction,
-		$body-background-gradient-color-first,
-		$body-background-gradient-color-second
-	);
 }
 
 #background {
-    background: $theme-background;
-    background-position: center center;
-    background-size: cover;
-	z-index: -2;
+	background: $v-theme-background;
+	background-position: center center;
+	background-size: cover;
+	z-index: -1;
 	opacity: $body-background-pattern-opacity;
 	min-width: 100vw;
 	width: auto;
@@ -962,11 +972,11 @@ body:before {
 
 @supports (-ms-ime-align: auto) {
 	body:before {
-		z-index: 2;
+		z-index: 1;
 	}
 
 	#background {
-		z-index: 1;
+		z-index: 2;
 	}
 
 	#main {
@@ -988,11 +998,11 @@ body:before {
 
 @supports (-ms-accelerator: true) {
 	body:before {
-		z-index: 2;
+		z-index: 1;
 	}
 
 	#background {
-		z-index: 1;
+		z-index: 2;
 	}
 
 	#main {
@@ -1014,11 +1024,11 @@ body:before {
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
 	body:before {
-		z-index: 2;
+		z-index: 1;
 	}
 
 	#background {
-		z-index: 1;
+		z-index: 2;
 	}
 
 	#main {
@@ -1211,7 +1221,7 @@ a {
 }
 
 .read-state {
-	right: 6px;
+	right: 3px;
 }
 
 .badge-category-bg {
@@ -1299,10 +1309,7 @@ blockquote {
 }
 
 .timeline-container .topic-timeline .timeline-scrollarea {
-	border-color: desaturate(
-		rgba($body-background-gradient-color-first, 0.25),
-		100%
-	);
+	border-color: rgba(invert($header_background), 0.18);
 }
 
 // TESTS --------------------------------------------------------------------------------------
@@ -1678,28 +1685,12 @@ h1.page-not-found {
 
 // The pit  --------------------------------------------------------------------
 
-html {
-	background: #252525
-}
-
 .cooked {
-	color: darken(reverse-lightness($main-background), 13%);
+	color: desaturate(
+		darken(reverse-lightness(rgba($main-background, 1)), 20%),
+		100%
+	);
 }
-
-/*
-.cooked p {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-shadow: $text-shadow-value;
-	-webkit-text-stroke: 1px rgba($secondary, 0.1);
-}
-
-.cooked blockquote p,
-.cooked p a,
-span.hashtag {
-	text-shadow: $n;
-}
-*/
 
 .slick-initialized,
 [dir] .slick-initialized {
@@ -1814,7 +1805,7 @@ button {
 }
 
 .admin-contents thead th {
-	background: rgba($theme-base, 0.2);
+	background: $header_background;
 }
 
 // desktop only
@@ -1830,7 +1821,7 @@ html.desktop-view.not-mobile-device {
 	}
 }
 
-// mobile only 
+// mobile only
 
 html.mobile-view.mobile-device {
 	.topic-avatar img.avatar {
@@ -1876,7 +1867,7 @@ html.mobile-view.mobile-device {
 			right: 0.5em $i;
 		}
 	}
-	
+
 	// full width YT
 	.mobile-device .lazyYT.lazyYT-container {
 		max-width: unset;
@@ -1887,15 +1878,15 @@ html.mobile-view.mobile-device {
 	}
 }
 
-.group-info .avatar-flair, 
+.group-info .avatar-flair,
 .groups-table .groups-info .avatar-flair {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    i {
-        font-size: 1.75em $i;
-    }
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	i {
+		font-size: 1.75em $i;
+	}
 }
