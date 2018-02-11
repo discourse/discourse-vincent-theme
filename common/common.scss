@@ -71,11 +71,11 @@ $trim-background: rgba($text-base, 0.1) !default;
 $border-color: desaturate($trim-background, 100%) !default;
 $highlight-color: $trim-background !default;
 $theme-trim: $quaternary !default;
-$link-color: lighten($theme-base, 20%) !default;
+$link-color: hsl(hue($theme-base), 100%, 65%) !default;
 
 // settings -------------------------------
 
-$body-background-pattern-opacity: 0.55 !default;
+$body-background-pattern-opacity: 0.6 !default;
 $body-background-gradient-opacity: 0.35 !default;
 $highlight-speed: 1.5s !default;
 $button-text-case: uppercase !default;
