@@ -9,7 +9,7 @@
        "Vincent Dark 1": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "ff0000",
+          "tertiary": "8a0f0f",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -21,7 +21,7 @@
        "Vincent Dark 2": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "ff6a00",
+          "tertiary": "8a420f",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -33,7 +33,7 @@
        "Vincent Dark 3": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "ffd500",
+          "tertiary": "8a750f",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -45,7 +45,7 @@
        "Vincent Dark 4": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "bfff00",
+          "tertiary": "6b8a0f",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -57,7 +57,7 @@
        "Vincent Dark 5": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "55ff00",
+          "tertiary": "388a0f",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -69,7 +69,7 @@
        "Vincent Dark 6": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "00ff15",
+          "tertiary": "0f8a19",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -81,7 +81,7 @@
        "Vincent Dark 7": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "00ff80",
+          "tertiary": "0f8a4d",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -93,7 +93,7 @@
        "Vincent Dark 8": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "00ffea",
+          "tertiary": "0f8a80",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -105,7 +105,7 @@
        "Vincent Dark 9": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "00aaff",
+          "tertiary": "0f618a",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -117,7 +117,7 @@
        "Vincent Dark 10": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "0040ff",
+          "tertiary": "0f2e8a",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -129,7 +129,7 @@
        "Vincent Dark 11": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "2a00ff",
+          "tertiary": "240f8a",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -141,7 +141,7 @@
        "Vincent Dark 12": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "9500ff",
+          "tertiary": "570f8a",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -153,7 +153,7 @@
        "Vincent Dark 13": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "ff00ff",
+          "tertiary": "8a0f8a",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
@@ -165,7 +165,7 @@
        "Vincent Dark 14": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "ff0095",
+          "tertiary": "8a0f57",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
