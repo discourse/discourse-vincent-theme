@@ -53,17 +53,20 @@ $i: !important;
 // Basics -------------------------------
 
 $v-font-weight: 300 !default;
-$v-font-size: 1.25em !default;
-$v-saturation: 85 !default;
+$v-font-size: 1.15em !default;
+$v-saturation: 100% !default;
+$v-lightness: 35% !default;
 $v-theme-background: url(#{$vincent-background}) !default;
+$v-dark-light: 1%;
 
 // palette colors -------------------------------
 
-$theme-base: desaturate($tertiary, 100% - $v-saturation) !default;
+$theme-base: hsl(hue($tertiary), $v-saturation, $v-lightness) !default;
 $text-base: reverse-lightness($secondary) !default;
-$main-background: rgba($header_background, 0.9) !default;
-$secondary-background: rgba(contrast($primary), 0.4) !default;
-$tertiary-background: rgba(contrast($primary), 0.7) !default;
+// $main-background: hsla(hue($theme-base), 0, $v-dark-light, .7) !default;
+$main-background: rgba(contrast($primary), .65) !default;
+$secondary-background: rgba(contrast($primary), 0.25) !default;
+$tertiary-background: rgba(contrast($primary), 0.45) !default;
 $trim-background: rgba($text-base, 0.1) !default;
 
 // derived colors -------------------------------
@@ -71,12 +74,12 @@ $trim-background: rgba($text-base, 0.1) !default;
 $border-color: desaturate($trim-background, 100%) !default;
 $highlight-color: $trim-background !default;
 $theme-trim: $quaternary !default;
-$link-color: hsl(hue($theme-base), 100%, 65%) !default;
+$link-color: mix($tertiary, $text-base, 50%) !default;
 
 // settings -------------------------------
 
-$body-background-pattern-opacity: 0.6 !default;
-$body-background-gradient-opacity: 0.35 !default;
+$body-background-pattern-opacity: 0.3 !default;
+$body-background-gradient-opacity: 0.25 !default;
 $highlight-speed: 1.5s !default;
 $button-text-case: uppercase !default;
 
