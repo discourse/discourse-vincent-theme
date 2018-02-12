@@ -6,172 +6,76 @@
         "vincent-background": "assets/vincent-background.svg"
    },
    "color_schemes": {
-       "Vincent Dark 1": {
+       "Vincent Dark Blue": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "8a0f0f",
+          "tertiary": "009dd8",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
           "highlight": "9E9E9E",
           "danger": "96000e",
-          "success": "1ca551",
+          "success": "00bf9a",
           "love": "f50057"
         },
-       "Vincent Dark 2": {
+       "Vincent Dark Teal": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "8a420f",
+          "tertiary": "00abb9",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
           "highlight": "9E9E9E",
           "danger": "96000e",
-          "success": "1ca551",
+          "success": "00bf9a",
           "love": "f50057"
         },
-       "Vincent Dark 3": {
+       "Vincent Dark Red": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "8a750f",
+          "tertiary": "dd2525",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
           "highlight": "9E9E9E",
           "danger": "96000e",
-          "success": "1ca551",
+          "success": "00bf9a",
           "love": "f50057"
         },
-       "Vincent Dark 4": {
+       "Vincent Dark Green": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "6b8a0f",
+          "tertiary": "77cc35",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
           "highlight": "9E9E9E",
           "danger": "96000e",
-          "success": "1ca551",
+          "success": "00bf9a",
           "love": "f50057"
         },
-       "Vincent Dark 5": {
+       "Vincent Dark Magenta": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "388a0f",
+          "tertiary": "E91E63",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
           "highlight": "9E9E9E",
           "danger": "96000e",
-          "success": "1ca551",
+          "success": "00bf9a",
           "love": "f50057"
         },
-       "Vincent Dark 6": {
+       "Vincent Dark Orange": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "0f8a19",
+          "tertiary": "F4511E",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
           "highlight": "9E9E9E",
           "danger": "96000e",
-          "success": "1ca551",
-          "love": "f50057"
-        },
-       "Vincent Dark 7": {
-          "primary": "cccccc",
-          "secondary": "111111",
-          "tertiary": "0f8a4d",
-          "quaternary": "9E9E9E",
-          "header_background": "131418",
-          "header_primary": "cccccc",
-          "highlight": "9E9E9E",
-          "danger": "96000e",
-          "success": "1ca551",
-          "love": "f50057"
-        },
-       "Vincent Dark 8": {
-          "primary": "cccccc",
-          "secondary": "111111",
-          "tertiary": "0f8a80",
-          "quaternary": "9E9E9E",
-          "header_background": "131418",
-          "header_primary": "cccccc",
-          "highlight": "9E9E9E",
-          "danger": "96000e",
-          "success": "1ca551",
-          "love": "f50057"
-        },
-       "Vincent Dark 9": {
-          "primary": "cccccc",
-          "secondary": "111111",
-          "tertiary": "0f618a",
-          "quaternary": "9E9E9E",
-          "header_background": "131418",
-          "header_primary": "cccccc",
-          "highlight": "9E9E9E",
-          "danger": "96000e",
-          "success": "1ca551",
-          "love": "f50057"
-        },
-       "Vincent Dark 10": {
-          "primary": "cccccc",
-          "secondary": "111111",
-          "tertiary": "0f2e8a",
-          "quaternary": "9E9E9E",
-          "header_background": "131418",
-          "header_primary": "cccccc",
-          "highlight": "9E9E9E",
-          "danger": "96000e",
-          "success": "1ca551",
-          "love": "f50057"
-        },
-       "Vincent Dark 11": {
-          "primary": "cccccc",
-          "secondary": "111111",
-          "tertiary": "240f8a",
-          "quaternary": "9E9E9E",
-          "header_background": "131418",
-          "header_primary": "cccccc",
-          "highlight": "9E9E9E",
-          "danger": "96000e",
-          "success": "1ca551",
-          "love": "f50057"
-        },
-       "Vincent Dark 12": {
-          "primary": "cccccc",
-          "secondary": "111111",
-          "tertiary": "570f8a",
-          "quaternary": "9E9E9E",
-          "header_background": "131418",
-          "header_primary": "cccccc",
-          "highlight": "9E9E9E",
-          "danger": "96000e",
-          "success": "1ca551",
-          "love": "f50057"
-        },
-       "Vincent Dark 13": {
-          "primary": "cccccc",
-          "secondary": "111111",
-          "tertiary": "8a0f8a",
-          "quaternary": "9E9E9E",
-          "header_background": "131418",
-          "header_primary": "cccccc",
-          "highlight": "9E9E9E",
-          "danger": "96000e",
-          "success": "1ca551",
-          "love": "f50057"
-        },
-       "Vincent Dark 14": {
-          "primary": "cccccc",
-          "secondary": "111111",
-          "tertiary": "8a0f57",
-          "quaternary": "9E9E9E",
-          "header_background": "131418",
-          "header_primary": "cccccc",
-          "highlight": "9E9E9E",
-          "danger": "96000e",
-          "success": "1ca551",
+          "success": "00bf9a",
           "love": "f50057"
         }
     }
