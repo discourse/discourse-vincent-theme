@@ -15,55 +15,19 @@
           "header_primary": "cccccc",
           "highlight": "9E9E9E",
           "danger": "96000e",
-          "success": "00bf9a",
-          "love": "f50057"
-        },
-       "Vincent Dark Teal": {
-          "primary": "cccccc",
-          "secondary": "111111",
-          "tertiary": "00abb9",
-          "quaternary": "9E9E9E",
-          "header_background": "131418",
-          "header_primary": "cccccc",
-          "highlight": "9E9E9E",
-          "danger": "96000e",
-          "success": "00bf9a",
-          "love": "f50057"
-        },
-       "Vincent Dark Red": {
-          "primary": "cccccc",
-          "secondary": "111111",
-          "tertiary": "dd2525",
-          "quaternary": "9E9E9E",
-          "header_background": "131418",
-          "header_primary": "cccccc",
-          "highlight": "9E9E9E",
-          "danger": "96000e",
-          "success": "00bf9a",
+          "success": "1ca551",
           "love": "f50057"
         },
        "Vincent Dark Green": {
           "primary": "cccccc",
           "secondary": "111111",
-          "tertiary": "77cc35",
+          "tertiary": "00d659",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
           "highlight": "9E9E9E",
           "danger": "96000e",
-          "success": "00bf9a",
-          "love": "f50057"
-        },
-       "Vincent Dark Magenta": {
-          "primary": "cccccc",
-          "secondary": "111111",
-          "tertiary": "E91E63",
-          "quaternary": "9E9E9E",
-          "header_background": "131418",
-          "header_primary": "cccccc",
-          "highlight": "9E9E9E",
-          "danger": "96000e",
-          "success": "00bf9a",
+          "success": "1ca551",
           "love": "f50057"
         },
        "Vincent Dark Orange": {
@@ -75,7 +39,7 @@
           "header_primary": "cccccc",
           "highlight": "9E9E9E",
           "danger": "96000e",
-          "success": "00bf9a",
+          "success": "1ca551",
           "love": "f50057"
         }
     }
