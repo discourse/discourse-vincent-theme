@@ -54,7 +54,7 @@ $i: !important;
 
 $v-font-weight: 300 !default;
 $v-font-size: 1.25em !default;
-$v-saturation: 70 !default;
+$v-saturation: 85 !default;
 $v-theme-background: url(#{$vincent-background}) !default;
 
 // palette colors -------------------------------
@@ -75,8 +75,8 @@ $link-color: lighten($theme-base, 10%) !default;
 
 // settings -------------------------------
 
-$body-background-pattern-opacity: 0.35 !default;
-$body-background-gradient-opacity: 0.25 !default;
+$body-background-pattern-opacity: 0.5 !default;
+$body-background-gradient-opacity: 0.35 !default;
 $highlight-speed: 1.5s !default;
 $button-text-case: uppercase !default;
 
