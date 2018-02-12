@@ -53,20 +53,17 @@ $i: !important;
 // Basics -------------------------------
 
 $v-font-weight: 300 !default;
-$v-font-size: 1.15em !default;
-$v-saturation: 80% !default;
-$v-lightness: 35% !default;
+$v-font-size: 1.25em !default;
+$v-saturation: 70 !default;
 $v-theme-background: url(#{$vincent-background}) !default;
-$v-dark-light: 1%;
 
 // palette colors -------------------------------
 
-$theme-base: hsl(hue($tertiary), $v-saturation, $v-lightness) !default;
+$theme-base: desaturate($tertiary, 100% - $v-saturation) !default;
 $text-base: reverse-lightness($secondary) !default;
-// $main-background: hsla(hue($theme-base), 0, $v-dark-light, .7) !default;
-$main-background: rgba(contrast($primary), .65) !default;
-$secondary-background: rgba(contrast($primary), 0.25) !default;
-$tertiary-background: rgba(contrast($primary), 0.45) !default;
+$main-background: rgba($header_background, 0.9) !default;
+$secondary-background: rgba(contrast($primary), 0.4) !default;
+$tertiary-background: rgba(contrast($primary), 0.7) !default;
 $trim-background: rgba($text-base, 0.1) !default;
 
 // derived colors -------------------------------
@@ -74,38 +71,25 @@ $trim-background: rgba($text-base, 0.1) !default;
 $border-color: desaturate($trim-background, 100%) !default;
 $highlight-color: $trim-background !default;
 $theme-trim: $quaternary !default;
-$link-color: mix($tertiary, $text-base, 50%) !default;
+$link-color: lighten($theme-base, 15%) !default;
 
 // settings -------------------------------
 
-$body-background-pattern-opacity: 0.3 !default;
+$body-background-pattern-opacity: 0.35 !default;
 $body-background-gradient-opacity: 0.25 !default;
 $highlight-speed: 1.5s !default;
 $button-text-case: uppercase !default;
 
 body:before {
-	background: linear-gradient(
-		to bottom,
-		adjust-hue($theme-base, 33deg),
-		adjust-hue($theme-base, 30deg) 7.7%,
-		adjust-hue($theme-base, 27deg) 14.8%,
-		adjust-hue($theme-base, 24deg) 21%,
-		adjust-hue($theme-base, 21deg) 26.5%,
-		adjust-hue($theme-base, 18deg) 31.4%,
-		adjust-hue($theme-base, 15deg) 35.9%,
-		adjust-hue($theme-base, 12deg) 40.1%,
-		adjust-hue($theme-base, 9deg) 44.2%,
-		adjust-hue($theme-base, 6deg) 48.1%,
-		adjust-hue($theme-base, 3deg) 52%,
-		adjust-hue($theme-base, 0deg) 56%,
-		adjust-hue($theme-base, -3deg) 60.1%,
-		adjust-hue($theme-base, -6deg) 64.3%,
-		adjust-hue($theme-base, -9deg) 68.8%,
-		adjust-hue($theme-base, -12deg) 73.7%,
-		adjust-hue($theme-base, -15deg) 79.2%,
-		adjust-hue($theme-base, -18deg) 85.4%,
-		adjust-hue($theme-base, -21deg) 92.5%,
-		adjust-hue($theme-base, -24deg)
+	background: radial-gradient(
+		at 100% 100%,
+		adjust-hue($theme-base, -15deg),
+		adjust-hue($theme-base, -10deg),
+		adjust-hue($theme-base, -5deg),
+		$theme-base,
+		adjust-hue($theme-base, 5deg),
+		adjust-hue($theme-base, 10deg),
+		adjust-hue($theme-base, 15deg)
 	);
 }
 
@@ -113,7 +97,7 @@ body:before {
 
 html {
 	font-family: "Roboto", sans-serif;
-	background: darken($theme-base, 25%);
+	background: darken($theme-base, 20%);
 }
 
 body,
@@ -984,7 +968,7 @@ body:before {
 	overflow: hidden;
 	top: 50%;
 	left: 50%;
-	transform: translate3d(-50%, -50%, 0);
+    	transform: translate3d(-50%, -50%, 0);
 }
 
 // fix IE EDGE backgrounds
