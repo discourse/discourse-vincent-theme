@@ -18,6 +18,18 @@
           "success": "1ca551",
           "love": "f50057"
         },
+       "Vincent Dark Red": {
+          "primary": "cccccc",
+          "secondary": "111111",
+          "tertiary": "bb1b1b",
+          "quaternary": "9E9E9E",
+          "header_background": "131418",
+          "header_primary": "cccccc",
+          "highlight": "9E9E9E",
+          "danger": "96000e",
+          "success": "1ca551",
+          "love": "f50057"
+        },
        "Vincent Dark Green": {
           "primary": "cccccc",
           "secondary": "111111",
