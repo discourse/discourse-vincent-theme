@@ -52,9 +52,9 @@ $i: !important;
 
 // Basics -------------------------------
 
-$v-font-weight: 300 															!default;
-$v-font-size: 1.225em 														!default;
-$v-theme-background: url(#{$vincent-background}) 	!default;
+$v-font-weight: 300 !default;
+$v-font-size: 1.25em !default;
+$v-theme-background: url(#{$vincent-background}) !default;
 
 // palette colors -------------------------------
 
@@ -78,14 +78,6 @@ $body-background-pattern-opacity: 0.4 !default;
 $body-background-gradient-opacity: 0.55 !default;
 $highlight-speed: 1.5s !default;
 $button-text-case: uppercase !default;
-
-body:before {
-	background: linear-gradient(
-		to top left,
-		adjust-hue($theme-base, -23),
-		adjust-hue($theme-base, 15)
-	);
-}
 
 // fonts --------------------------------------------------------------------------------------
 
@@ -930,7 +922,7 @@ section.post-menu-area {
 body {
 	position: relative;
 	background-attachment: scroll;
-	background: none;
+	background: rgba(black, .1);
 }
 
 #background,
@@ -949,6 +941,11 @@ body:before {
 	width: 100vw;
 	z-index: -2;
 	opacity: $body-background-gradient-opacity;
+	background: linear-gradient(
+		to top left,
+		adjust-hue($theme-base, -23),
+		adjust-hue($theme-base, 15)
+	);
 }
 
 #background {
