@@ -55,27 +55,35 @@ $i: !important;
 $v-font-weight: 300 !default;
 $v-font-size: 1.25em !default;
 $v-theme-background: url(#{$vincent-background}) !default;
+$v-hue: 0 !default;
+$v-saturation: 0 !default;
+$v-lightness: 0 !default;
 
 // palette colors -------------------------------
 
-$theme-base: $tertiary !default;
-$text-base: reverse-lightness($secondary) !default;
+$theme-base: hsl(
+		hue($tertiary) + $v-hue,
+		saturation($tertiary) + $v-saturation,
+		lightness($tertiary) + $v-lightness
+	)
+	!default;
+$theme-trim: $quaternary !default;
+
 $main-background: rgba($header_background, 0.9) !default;
-$secondary-background: rgba(contrast($primary), 0.4) !default;
-$tertiary-background: rgba(contrast($primary), 0.7) !default;
+$secondary-background: rgba($main-background, 0.5) !default;
+$tertiary-background: rgba($main-background, 0.8) !default;
+$text-base: reverse-lightness($secondary) !default;
 $trim-background: rgba($text-base, 0.1) !default;
-
-// derived colors -------------------------------
-
 $border-color: desaturate($trim-background, 100%) !default;
 $highlight-color: $trim-background !default;
-$theme-trim: $quaternary !default;
-$link-color: lighten($theme-base, 10%) !default;
+$link-color: lighten($theme-base, 25%) !default;
 
 // settings -------------------------------
 
 $body-background-pattern-opacity: 0.4 !default;
 $body-background-gradient-opacity: 0.55 !default;
+$body-gradient-color-first: adjust-hue($theme-base, -23);
+$body-gradient-color-second: adjust-hue($theme-base, 15);
 $highlight-speed: 1.5s !default;
 $button-text-case: uppercase !default;
 
@@ -159,7 +167,7 @@ html {
 }
 
 * {
-	outline-color: darken($theme-base, 15%);
+	outline-color: darken($theme-base, 15%) $i;
 }
 
 // colors -------------------------------------------------------------------------------------
@@ -278,7 +286,7 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .user-nav,
 .user-main .staff-counters {
 	background: $main-background;
-	color: desaturate(reverse-lightness($main-background), 100%);
+	color: darken(desaturate(reverse-lightness($main-background), 100%), 10%);
 }
 
 .topic-meta-data,
@@ -922,7 +930,7 @@ section.post-menu-area {
 body {
 	position: relative;
 	background-attachment: scroll;
-	background: rgba(black, .1);
+	background: rgba(black, 0.1);
 }
 
 #background,
@@ -943,8 +951,8 @@ body:before {
 	opacity: $body-background-gradient-opacity;
 	background: linear-gradient(
 		to top left,
-		adjust-hue($theme-base, -23),
-		adjust-hue($theme-base, 15)
+		$body-gradient-color-first,
+		$body-gradient-color-second
 	);
 }
 
@@ -1883,4 +1891,8 @@ html.mobile-view.mobile-device {
 	i {
 		font-size: 1.75em $i;
 	}
+}
+
+.select-kit .select-kit-row.is-highlighted {
+	background: rgba($theme-base, 0.35) $i;
 }
