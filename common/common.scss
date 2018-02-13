@@ -248,7 +248,7 @@ nav.post-controls .highlight-action,
 .badge-notification.unread-posts,
 #reply-control.draft,
 #reply-control.saving {
-	background: $theme-base;
+	background: darken($theme-base, 15%);
 	color: contrast(darken($theme-base, 15%));
 }
 
