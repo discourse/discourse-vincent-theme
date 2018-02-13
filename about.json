@@ -6,22 +6,10 @@
         "vincent-background": "assets/vincent-background.svg"
    },
    "color_schemes": {
-       "Vincent Dark Blue": {
+       "Vincent Dark": {
           "primary": "cccccc",
           "secondary": "111111",
           "tertiary": "009dd8",
-          "quaternary": "9E9E9E",
-          "header_background": "131418",
-          "header_primary": "cccccc",
-          "highlight": "9E9E9E",
-          "danger": "96000e",
-          "success": "1ca551",
-          "love": "f50057"
-        },
-       "Vincent Dark Orange": {
-          "primary": "cccccc",
-          "secondary": "111111",
-          "tertiary": "F4511E",
           "quaternary": "9E9E9E",
           "header_background": "131418",
           "header_primary": "cccccc",
