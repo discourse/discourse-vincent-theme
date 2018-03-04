@@ -1922,12 +1922,6 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 	background: $header_background;
 }
 
-.topic-body .contents .cooked,
-.offset2 .cooked {
-	min-height: 65px;
-	padding-bottom: 15px;
-}
-
 .topic-avatar {
 	width: unset;
 	margin: 0;
@@ -2074,8 +2068,4 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 
 .topic-avatar {
 	position: absolute;
-}
-
-.timeline-container {
-    z-index: 1;
 }
