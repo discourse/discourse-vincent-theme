@@ -2014,8 +2014,8 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 }
 
 .topic-avatar .avatar-flair {
-	top: 41px;
-	right: 3px;
+	top: 38px;
+	right: 6px;
 }
 
 #topic-footer-buttons {
@@ -2052,12 +2052,12 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 
 .topic-meta-data {
 	display: flex;
-	min-height: 52px;
+	min-height: 46px;
 	align-items: center;
 }
 
 .topic-avatar {
-	padding: 0.45em;
+	padding: 9px 11px;
 }
 
 .topic-post {
@@ -2069,7 +2069,7 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 }
 
 .topic-meta-data {
-	padding-left: 70px;
+	padding-left: 66px;
 }
 
 .topic-avatar {
