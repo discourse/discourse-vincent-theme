@@ -2066,6 +2066,6 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 	padding-left: 66px;
 }
 
-.topic-avatar {
-	position: absolute;
+.topic-post .topic-avatar {
+    position: absolute;
 }
