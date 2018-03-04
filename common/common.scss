@@ -53,11 +53,12 @@ $i: !important;
 // Basics -------------------------------
 
 $v-font-weight: 300 !default;
-$v-font-size: 1.25em !default;
+$v-font-size: 1.1em !default;
 $v-theme-background: url(#{$vincent-background}) !default;
 $v-hue: 0 !default;
-$v-saturation: 0 !default;
+$v-saturation: -25 !default;
 $v-lightness: 0 !default;
+$V-page-max-width: 95vw !default;
 
 // palette colors -------------------------------
 
@@ -75,13 +76,13 @@ $tertiary-background: rgba($main-background, 0.8) !default;
 $text-base: reverse-lightness($secondary) !default;
 $trim-background: rgba($text-base, 0.1) !default;
 $border-color: desaturate($trim-background, 100%) !default;
-$highlight-color: $trim-background !default;
+$highlight-color: rgba($text-base, 0.1) !default;
 $link-color: lighten($theme-base, 25%) !default;
 
 // settings -------------------------------
 
-$body-background-pattern-opacity: 0.4 !default;
-$body-background-gradient-opacity: 0.55 !default;
+$body-background-pattern-opacity: 0.25 !default;
+$body-background-gradient-opacity: 0.45 !default;
 $body-gradient-color-first: adjust-hue($theme-base, -23);
 $body-gradient-color-second: adjust-hue($theme-base, 15);
 $highlight-speed: 1.5s !default;
@@ -90,8 +91,9 @@ $button-text-case: uppercase !default;
 // fonts --------------------------------------------------------------------------------------
 
 html {
-	font-family: "Roboto", sans-serif;
+	font-family: "Assistant", sans-serif;
 	background: #222;
+	font-size: 15px;
 }
 
 body,
@@ -104,9 +106,47 @@ h6 {
 	font-weight: $v-font-weight;
 }
 
-.cooked p {
+.cooked {
 	font-size: $v-font-size;
-	line-height: 1.6;
+	line-height: 1.65;
+	letter-spacing: 0.3px;
+	font-variant-ligatures: no-common-ligatures;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	font-size: 90%;
+}
+
+.cooked {
+	p,
+	ul,
+	ol {
+		-webkit-text-stroke: 0.2px hsla(0, 0%, 50%, 1);
+		color: desaturate(
+			darken(reverse-lightness(rgba($main-background, 1)), 32%),
+			100%
+		);
+		// font-family: 'Roboto', sans-serif;
+
+		a {
+			-webkit-text-stroke: 0;
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: desaturate(
+			darken(reverse-lightness(rgba($main-background, 1)), 24%),
+			100%
+		);
+	}
 }
 
 #topic-title h1 {
@@ -139,6 +179,7 @@ address,
 dfn,
 strong {
 	font-size: 90%;
+	-webkit-text-stroke: none;
 }
 
 #login-buttons button {
@@ -256,7 +297,6 @@ nav.post-controls .highlight-action,
 
 .user-table,
 .badge-card,
-ul.cat-list,
 ul.general,
 .boxed.white,
 .alert.alert-info,
@@ -278,10 +318,8 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 #banner,
 .latest-topic-list-item:nth-of-type(odd),
 .latest-topic-list,
-.topic-body .contents,
 .offset2 .cooked,
 .post-links-container,
-#post_1 .post-actions,
 #user-card .card-content,
 .user-nav,
 .user-main .staff-counters {
@@ -290,6 +328,7 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 }
 
 .topic-meta-data,
+.topic-body .contents,
 .topic-map,
 .reply .topic-meta-data,
 .deleted section.embedded-posts .topic-meta-data {
@@ -362,7 +401,6 @@ div.menu-links-header a,
 .topic-list-item,
 .topic-title,
 .topic-post article.boxed,
-.main-content.topic.has-sidebars #topic-title,
 .user-stream .item,
 .user-stream .user-stream-item,
 .d-header img.avatar,
@@ -421,8 +459,7 @@ section.embedded-posts.bottom,
 .nav-stacked li,
 .admin-contents table td,
 .table-heading,
-.reply .topic-body,
-.topic-meta-data {
+.reply .topic-body {
 	border-bottom: 1px solid;
 }
 
@@ -765,7 +802,7 @@ a.mention-group,
 }
 
 nav.post-controls {
-	padding: 0 0 1em;
+	padding: 0;
 }
 
 .admin-content .admin-contents,
@@ -794,8 +831,7 @@ nav.post-controls {
 }
 
 section.post-menu-area {
-	padding-top: 20px;
-	padding-bottom: 10px;
+	padding: 10px;
 }
 
 section.embedded-posts.bottom,
@@ -810,10 +846,6 @@ section.embedded-posts.top {
 
 #main-outlet {
 	padding-top: 80px;
-}
-
-#post_1 .post-actions {
-	padding: 0 1.25em;
 }
 
 #post_1 .post-actions .post-action {
@@ -836,7 +868,6 @@ a.expand-hidden {
 
 // Display and positioning --------------------------------------------------------------------
 
-#topic-title .title-wrapper,
 #topic-footer-buttons,
 .top-title-buttons,
 .user-badge,
@@ -880,7 +911,7 @@ section.post-menu-area {
 .alert,
 #share-link.visible,
 .wrap {
-	max-width: 95vw;
+	max-width: $V-page-max-width;
 }
 
 // custom ---------------------------------------------
@@ -895,19 +926,12 @@ section.post-menu-area {
 	width: 690px;
 }
 
-#topic-title .title-wrapper,
-#topic-footer-buttons,
-.small-action {
-	width: 743px;
-	max-width: 100%;
-}
-
 .wrap {
 	width: 1110px;
 }
 
-#reply-control .d-editor-preview img:not(.thumbnail),
-.cooked img:not(.thumbnail) {
+#reply-control .d-editor-preview img:not(.thumbnail):not(.emoji),
+.cooked img:not(.thumbnail):not(.emoji) {
 	max-width: 100% $i;
 	height: auto;
 }
@@ -1107,6 +1131,11 @@ a {
 
 	&[href] {
 		color: invert-contrast($text-base);
+	}
+
+	&:active,
+	&.btn-active {
+		background: lighten($theme-base, 15%);
 	}
 
 	&[disabled],
@@ -1687,13 +1716,6 @@ h1.page-not-found {
 
 // The pit  --------------------------------------------------------------------
 
-.cooked {
-	color: desaturate(
-		darken(reverse-lightness(rgba($main-background, 1)), 20%),
-		100%
-	);
-}
-
 .slick-initialized,
 [dir] .slick-initialized {
 	width: calc(100% + 2.5em) $i;
@@ -1729,10 +1751,6 @@ h1.page-not-found {
 .list-controls > .container {
 	display: flex;
 	align-items: center;
-}
-
-#topic-title .title-wrapper {
-	background: $tertiary-background;
 }
 
 section.post-actions:empty {
@@ -1782,9 +1800,7 @@ ul.nav.nav-pills {
 	color: $link-color $i;
 }
 
-.moderator .topic-map,
-.moderator .contents,
-.moderator .topic-meta-data {
+.moderator .cooked {
 	border-left: 3px solid lighten(rgba(complement($theme-base), 0.65), 5%) $i;
 }
 
@@ -1827,9 +1843,30 @@ html.desktop-view.not-mobile-device {
 
 html.mobile-view.mobile-device {
 	.topic-avatar img.avatar {
-		margin-top: 0.5em;
-		margin-left: 0.5em;
+		margin: 0;
 	}
+	
+	.topic-meta-data .names {
+        flex: 1 0 auto;
+    }
+
+    .topic-meta-data {
+        display: flex;
+        min-height: 58px;
+        align-items: center;
+    }
+    
+    .topic-avatar {
+        padding: 8px;
+    }
+    
+    .topic-post {
+        width: 100%;
+    }
+    
+    .topic-meta-data .post-info {
+        margin-right: 6px;
+    }
 
 	.alert {
 		margin-bottom: 1em $i;
@@ -1895,4 +1932,132 @@ html.mobile-view.mobile-device {
 
 .select-kit .select-kit-row.is-highlighted {
 	background: rgba($theme-base, 0.35) $i;
+}
+
+// centered content
+
+$q-background: rgba(contrast($text-base), 0.5) !default;
+
+.cooked,
+.post-menu-area,
+.moderator .topic-body .contents .cooked {
+	background: $header_background;
+}
+
+.topic-body .contents .cooked,
+.offset2 .cooked {
+	min-height: 65px;
+	padding-bottom: 15px;
+}
+
+.topic-avatar {
+	width: unset;
+	margin: 0;
+	padding: 1em 0.5em 0 0.5em;
+	background: $q-background;
+}
+
+.topic-meta-data {
+	padding: 0.5em;
+	background: $q-background;
+}
+
+.topic-map {
+	margin: 0;
+	background: $q-background;
+}
+
+.post-stream {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+#main-outlet > div.regular {
+	display: flex;
+	flex-direction: column;
+}
+
+#topic-title .title-wrapper,
+#topic-footer-buttons,
+.small-action {
+	max-width: 100%;
+}
+
+#topic-title .title-wrapper {
+	background: $q-background;
+}
+
+#topic-title {
+	padding: 0;
+}
+
+.time-gap {
+	padding: 0 100px;
+	margin-bottom: 0 !important;
+}
+
+.time-gap .topic-avatar {
+	display: none;
+}
+
+.loading-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+//// ---------------------------------------
+.timeline-container {
+	margin-left: 890px;
+
+	@media all and (min-width: 1140px) {
+		margin-left: 910px;
+	}
+	@media all and (min-width: 1250px) {
+		margin-left: 910px;
+	}
+}
+
+.topic-map .buttons .btn {
+	box-shadow: none;
+}
+
+#topic-title {
+	width: 760px;
+	max-width: 100%;
+}
+
+#topic-title .title-wrapper {
+	width: 100%;
+}
+
+#suggested-topics {
+	width: 100%;
+}
+
+.topic-avatar .avatar-flair {
+	top: 45px;
+	right: 4px;
+}
+
+#topic-footer-buttons {
+	text-align: center;
+}
+
+.topic-post {
+	width: 100%;
+	max-width: 760px;
+}
+
+.post-actions {
+	text-align: left;
+	background: $q-background;
+	margin: 0;
+	padding-bottom: 1em;
+}
+
+
+#topic-title h1 {
+    width: 100%;
 }
