@@ -1845,28 +1845,6 @@ html.mobile-view.mobile-device {
 	.topic-avatar img.avatar {
 		margin: 0;
 	}
-	
-	.topic-meta-data .names {
-        flex: 1 0 auto;
-    }
-
-    .topic-meta-data {
-        display: flex;
-        min-height: 58px;
-        align-items: center;
-    }
-    
-    .topic-avatar {
-        padding: 8px;
-    }
-    
-    .topic-post {
-        width: 100%;
-    }
-    
-    .topic-meta-data .post-info {
-        margin-right: 6px;
-    }
 
 	.alert {
 		margin-bottom: 1em $i;
@@ -1954,7 +1932,6 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 	width: unset;
 	margin: 0;
 	padding: 1em 0.5em 0 0.5em;
-	background: $q-background;
 }
 
 .topic-meta-data {
@@ -2009,13 +1986,13 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 
 //// ---------------------------------------
 .timeline-container {
-	margin-left: 890px;
+	margin-left: 820px;
 
 	@media all and (min-width: 1140px) {
-		margin-left: 910px;
+		margin-left: 820px;
 	}
 	@media all and (min-width: 1250px) {
-		margin-left: 910px;
+		margin-left: 820px;
 	}
 }
 
@@ -2037,8 +2014,8 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 }
 
 .topic-avatar .avatar-flair {
-	top: 45px;
-	right: 4px;
+	top: 41px;
+	right: 3px;
 }
 
 #topic-footer-buttons {
@@ -2058,9 +2035,43 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 }
 
 #topic-title h1 {
-    width: 100%;
+	width: 100%;
 }
 
 .small-action .topic-avatar {
-    background: none;
+	background: none;
+}
+
+.topic-avatar img.avatar {
+	margin: 0;
+}
+
+.topic-meta-data .names {
+	flex: 1 0 auto;
+}
+
+.topic-meta-data {
+	display: flex;
+	min-height: 52px;
+	align-items: center;
+}
+
+.topic-avatar {
+	padding: 0.45em;
+}
+
+.topic-post {
+	width: 100%;
+}
+
+.topic-meta-data .post-info {
+	margin-right: 6px;
+}
+
+.topic-meta-data {
+	padding-left: 70px;
+}
+
+.topic-avatar {
+	position: absolute;
 }
