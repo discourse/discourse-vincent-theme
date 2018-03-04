@@ -2057,7 +2057,10 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 	padding-bottom: 1em;
 }
 
-
 #topic-title h1 {
     width: 100%;
+}
+
+.small-action .topic-avatar {
+    background: none;
 }
