@@ -2207,7 +2207,8 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 	#banner,
 	.user-nav,
 	.full-width > ul.nav.nav-pills,
-	.list-controls button.btn {
+	.list-controls button.btn, 
+	.moderator .topic-body {
 		border-radius: 10px;
 	}
 
