@@ -2180,7 +2180,8 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 	.menu-panel.drop-down,
 	.topic-map,
 	.embedded-posts.bottom,
-	article:not(#post_1) section.post-menu-area {
+	article:not(#post_1) section.post-menu-area,
+	.post-links-container {
 		border-radius: 0 0 10px 10px;
 	}
 
