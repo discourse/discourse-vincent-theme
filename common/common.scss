@@ -2250,6 +2250,10 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 		border-radius: 10px;
 	}
 
+	.embedded-posts.bottom {
+	    margin-top: -10px;
+	}
+
 	// plugin support
 	#whos-online {
 		border-radius: 10px;
