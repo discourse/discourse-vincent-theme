@@ -1,0 +1,20 @@
+theme_background:
+  default: "/uploads/default/original/1X/68229c81258c4fe5576141fd8eb4fbc59778d1de.svg"
+  description:
+    en: If you wish to change the default background add the url of the new background above.
+dark_background_overlay:
+  default: false
+  description:
+    en: Enabel this if you you've set a custom background above.
+rounded_borders:
+  default: false
+  description:
+    en: Enable rounded borders?
+button_text_case:
+  default: uppercase
+  type: enum
+  choices:
+    - uppercase
+    - capitalize
+  description:
+    en: What text case should buttons have? 
