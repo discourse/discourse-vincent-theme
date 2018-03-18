@@ -5,7 +5,7 @@ theme_background:
 dark_background_overlay:
   default: false
   description:
-    en: Enabel this if you've set a custom background above.
+    en: Enable this if you've set a custom background above.
 rounded_borders:
   default: false
   description:
