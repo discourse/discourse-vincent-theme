@@ -2255,6 +2255,11 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 	    margin-top: -10px;
 	}
 
+	.post-actions {
+	    padding-top: 10px;
+	    margin-top: -10px;
+	}
+
 	// plugin support
 	#whos-online {
 		border-radius: 10px;
