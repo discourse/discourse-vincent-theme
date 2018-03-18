@@ -54,7 +54,7 @@ $i: !important;
 
 $v-font-weight: 300 !default;
 $v-font-size: 1.1em !default;
-$v-theme-background: url(#{$vincent-background}) !default;
+$v-theme-background: url(#{$theme_background}) !default;
 $v-hue: 0 !default;
 $v-saturation: -25 !default;
 $v-lightness: 0 !default;
@@ -86,7 +86,7 @@ $body-background-gradient-opacity: 0.45 !default;
 $body-gradient-color-first: adjust-hue($theme-base, -23);
 $body-gradient-color-second: adjust-hue($theme-base, 15);
 $highlight-speed: 1.5s !default;
-$button-text-case: uppercase !default;
+$button-text-case: #{$button_text_case} !default;
 
 // fonts --------------------------------------------------------------------------------------
 
@@ -111,7 +111,6 @@ h6 {
 	line-height: 1.65;
 	letter-spacing: 0.3px;
 	font-variant-ligatures: no-common-ligatures;
-	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: subpixel-antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -129,7 +128,6 @@ a {
 			darken(reverse-lightness(rgba($main-background, 1)), 32%),
 			100%
 		);
-		// font-family: 'Roboto', sans-serif;
 
 		a {
 			-webkit-text-stroke: 0;
@@ -1431,6 +1429,7 @@ button.post-retort:first-of-type {
 .spoiled p {
 	text-shadow: inherit;
 	-webkit-text-stroke: inherit;
+	color: inherit;
 }
 
 // Discourse signature plugin  ------------------------
@@ -1926,13 +1925,11 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 	flex-direction: column;
 }
 
-
 #topic-title .title-wrapper,
 #topic-footer-buttons,
 .small-action {
 	max-width: 100%;
 }
-
 
 #topic-title {
 	padding: 0;
@@ -2032,47 +2029,42 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 }
 
 .topic-post .topic-avatar {
-    position: absolute;
+	position: absolute;
 }
 
-
 .posts-wrapper {
-    width: 690px;
-    margin: 0 auto;
-    max-width: 100%;
+	width: 690px;
+	margin: 0 auto;
+	max-width: 100%;
 }
 
 .gap {
-    width: auto;
-    padding: 1em;
+	width: auto;
+	padding: 1em;
 }
 
 #topic-title .title-wrapper {
-    padding: 1em 0;
+	padding: 1em 0;
 }
 
 #topic-title .edit-topic-title {
-    padding: 1em;
-    background: rgba(0, 0, 0, .5);
+	padding: 1em;
+	background: rgba(0, 0, 0, 0.5);
 }
 
 #topic-title .title-wrapper {
-    padding-bottom: 7px;
-    margin-bottom: 16px;
-}
-
-#topic-footer-buttons {
-    margin-left: -8px $i;
+	padding-bottom: 7px;
+	margin-bottom: 16px;
 }
 
 .title-wrapper .topic-category {
-    padding: 6px;
-    align-items: center;
+	padding: 6px;
+	align-items: center;
 }
 
 //
 .embedded-posts {
-    border: none;
+	border: none;
 }
 
 .embedded-posts {
@@ -2080,28 +2072,182 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 }
 
 .embedded-posts .reply {
-    margin-left: 30px;
+	margin-left: 30px;
 }
 
 .embedded-posts .topic-avatar {
-    padding: .5em;
+	padding: 0.5em;
 }
 
 .reply .cooked {
-    padding-bottom: 15px;
+	padding-bottom: 15px;
 }
 
 .embedded-posts.top {
-    margin-left: 0;
+	margin-left: 0;
 }
 
-.embedded-posts .collapse-down, .embedded-posts .collapse-up {
-    color: $text-base;
-    background: $header_background;
-    border-color: $border-color;
+.embedded-posts .collapse-down,
+.embedded-posts .collapse-up {
+	color: $text-base;
+	background: $header_background;
+	border-color: $border-color;
 }
 //
 
 .timeline-container {
-    z-index: 1;
+	z-index: 1;
+}
+
+.select-kit.dropdown-select-box .dropdown-select-box-header:hover .d-icon {
+	color: inherit;
+}
+
+.list-controls {
+	.btn {
+		min-height: 36px;
+	}
+}
+
+@if $dark_background_overlay == "true" {
+	body:before {
+		background: black;
+		opacity: 0.7;
+		z-index: 0;
+	}
+
+	#background {
+		opacity: 0.85;
+	}
+
+	// fix IE EDGE backgrounds
+
+	@supports (-ms-ime-align: auto) {
+		body:before {
+			z-index: 2;
+		}
+
+		#background {
+			z-index: 1;
+		}
+	}
+
+	@supports (-ms-accelerator: true) {
+		body:before {
+			z-index: 2;
+		}
+
+		#background {
+			z-index: 1;
+		}
+	}
+
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		body:before {
+			z-index: 2;
+		}
+
+		#background {
+			z-index: 1;
+		}
+	}
+}
+
+#topic-title .title-wrapper {
+	background: rgba(0, 0, 0, 0.5);
+	padding: 1em;
+	margin-top: 1em;
+}
+
+.title-wrapper .topic-category {
+	padding-left: 0;
+}
+
+@if $rounded_borders == "true" {
+	#post_1 .contents,
+	.nav-pills > li.active > a,
+	.topic-map .buttons .btn,
+	.header-dropdown-toggle a,
+	#reply-control .d-editor-button-bar .btn {
+		border-radius: 0;
+	}
+
+	.contents,
+	.menu-panel.drop-down,
+	.topic-map,
+	.embedded-posts.bottom,
+	article:not(#post_1) section.post-menu-area {
+		border-radius: 0 0 10px 10px;
+	}
+
+	.topic-meta-data,
+	#reply-control,
+	.embedded-posts.top {
+		border-radius: 10px 10px 0 0;
+	}
+
+	.popup-menu,
+	.list-controls,
+	.select-kit.dropdown-select-box.is-expanded .select-kit-body,
+	table,
+	.column,
+	.group-activity.container,
+	#topic-title .title-wrapper,
+	.row .alert.alert-info,
+	.boxed.white,
+	.cooked > blockquote,
+	.topic-list-bottom,
+	.group-details-container,
+	.group-outlet,
+	.admin-controls,
+	#banner,
+	.user-nav,
+	.full-width > ul.nav.nav-pills,
+	.list-controls button.btn {
+		border-radius: 10px;
+	}
+
+	aside.quote {
+		.title {
+			border-radius: 10px 10px 0 0;
+		}
+
+		blockquote {
+			border-radius: 0 0 10px 10px;
+		}
+	}
+
+	input[type],
+	.btn,
+	button:hover,
+	button.d-hover {
+		border-radius: 4px;
+	}
+
+	.topic-map .map-collapsed .buttons .btn {
+		border-radius: 0 0 10px 0;
+	}
+
+	#reply-control,
+	table,
+	.column,
+	.group-outlet {
+		overflow: hidden;
+	}
+
+	a {
+		border-radius: 3px;
+	}
+
+	.cooked > .onebox,
+	.user-table,
+	.badge-card,
+	.user-stream-item {
+		border-radius: 10px;
+	}
+
+	// plugin support
+	#whos-online {
+		border-radius: 10px;
+	}
 }
