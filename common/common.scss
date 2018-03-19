@@ -2165,9 +2165,8 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 }
 
 .spoiled {
-    -webkit-text-stroke: 0;
+	-webkit-text-stroke: 0;
 }
-
 
 @if $rounded_borders == "true" {
 	#post_1 .contents,
@@ -2258,19 +2257,19 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 		border-radius: 10px;
 	}
 
-	.category-box, .category-box-inner {
-    border-radius: 15px;
+	.category-box,
+	.category-box-inner {
+		border-radius: 15px;
 	}
 
 	.embedded-posts.bottom {
-	    margin-top: -10px;
+		margin-top: -10px;
 	}
 
 	.post-actions {
-	    padding-top: 10px;
-	    margin-top: -10px;
+		padding-top: 10px;
+		margin-top: -10px;
 	}
-
 
 	// plugin support
 	#whos-online {
