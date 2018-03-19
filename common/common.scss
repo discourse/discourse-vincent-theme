@@ -76,16 +76,16 @@ $tertiary-background: rgba($main-background, 0.8) !default;
 $text-base: reverse-lightness($secondary) !default;
 $trim-background: rgba($text-base, 0.1) !default;
 $border-color: desaturate($trim-background, 100%) !default;
-$highlight-color: rgba($text-base, 0.1) !default;
+$highlight-color: rgba($text-base, 0.25) !default;
 $link-color: lighten($theme-base, 25%) !default;
 
 // settings -------------------------------
 
 $body-background-pattern-opacity: 0.25 !default;
 $body-background-gradient-opacity: 0.45 !default;
-$body-gradient-color-first: adjust-hue($theme-base, -23);
+$body-gradient-color-first: adjust-hue($theme-base, -23deg);
 $body-gradient-color-second: adjust-hue($theme-base, 15);
-$highlight-speed: 1.5s !default;
+$highlight-speed: #{$highlight_duration}s !default;
 $button-text-case: #{$button_text_case} !default;
 
 // fonts --------------------------------------------------------------------------------------
@@ -313,7 +313,6 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 .latest-topic-list-item:nth-of-type(odd),
 .latest-topic-list,
 .offset2 .cooked,
-.post-links-container,
 #user-card .card-content,
 .user-nav,
 .user-main .staff-counters {
@@ -1879,8 +1878,6 @@ html.mobile-view.mobile-device {
 .group-info .avatar-flair,
 .groups-table .groups-info .avatar-flair {
 	border-radius: 50%;
-	width: 40px;
-	height: 40px;
 	align-items: center;
 	justify-content: center;
 	display: flex;
@@ -2159,6 +2156,10 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 	margin-top: 1em;
 }
 
+.post-links-container {
+	background: rgba(0, 0, 0, 0.5);
+}
+
 .title-wrapper .topic-category {
 	padding-left: 0;
 }
@@ -2167,11 +2168,11 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
     -webkit-text-stroke: 0;
 }
 
+
 @if $rounded_borders == "true" {
 	#post_1 .contents,
 	.nav-pills > li.active > a,
 	.topic-map .buttons .btn,
-	.header-dropdown-toggle a,
 	#reply-control .d-editor-button-bar .btn {
 		border-radius: 0;
 	}
@@ -2181,7 +2182,8 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 	.topic-map,
 	.embedded-posts.bottom,
 	article:not(#post_1) section.post-menu-area,
-	.post-links-container {
+	.post-links-container,
+	.reply .cooked {
 		border-radius: 0 0 10px 10px;
 	}
 
@@ -2208,8 +2210,10 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 	#banner,
 	.user-nav,
 	.full-width > ul.nav.nav-pills,
-	.list-controls button.btn, 
-	.moderator .topic-body {
+	.list-controls button.btn,
+	.moderator .topic-body,
+	.topic-body.highlighted,
+	#user-card {
 		border-radius: 10px;
 	}
 
@@ -2236,7 +2240,8 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 
 	table,
 	.column,
-	.group-outlet {
+	.group-outlet,
+	#user-card {
 		overflow: hidden;
 	}
 
@@ -2247,8 +2252,14 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 	.cooked > .onebox,
 	.user-table,
 	.badge-card,
-	.user-stream-item {
+	.user-stream-item,
+	.d-editor-preview blockquote,
+	.d-editor-preview aside.onebox {
 		border-radius: 10px;
+	}
+
+	.category-box, .category-box-inner {
+    border-radius: 15px;
 	}
 
 	.embedded-posts.bottom {
@@ -2259,6 +2270,7 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 	    padding-top: 10px;
 	    margin-top: -10px;
 	}
+
 
 	// plugin support
 	#whos-online {
