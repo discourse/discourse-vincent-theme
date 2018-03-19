@@ -17,4 +17,10 @@ button_text_case:
     - uppercase
     - capitalize
   description:
-    en: What text case should buttons have? 
+    en: What text case should buttons have?
+highlight_duration:
+  default: 1.5
+  min: 0.25
+  max: 5
+  description:
+    en: How long - in seconds - should the highlight last?
