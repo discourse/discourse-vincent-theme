@@ -546,7 +546,6 @@ td.main-link .topic-title,
 #list-area,
 .topic-meta-data,
 .extra-info-wrapper .topic-header-extra,
-.topic-post.deleted section.post-actions .post-action,
 .show-more.has-topics .alert,
 #post_1 .post-actions,
 ol.category-breadcrumb {
@@ -1833,16 +1832,17 @@ html.desktop-view.not-mobile-device {
   .list-controls .nav {
     flex: 1;
   }
-
+  .topic-body {
+    max-width: 690px;
+  }
+  .embedded-posts .topic-body {
+    width: 100%;
+  }
   #navigation-bar {
     margin: 0;
     span.unread {
       display: none;
     }
-  }
-
-  .topic-body {
-    width: inherit;
   }
 }
 
@@ -1862,8 +1862,19 @@ html.mobile-view.mobile-device {
   }
 
   .post-action {
-    margin-right: 0;
+    margin-top: 0.25em;
     margin-left: 0.25em;
+  }
+
+  .post-actions {
+    margin: 0;
+    padding-bottom: 0.5em;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    &:empty {
+      display: none;
+    }
   }
 
   @media (max-width: 400px) {
@@ -1900,13 +1911,6 @@ html.mobile-view.mobile-device {
   .list-controls .nav-pills > li {
     background: none;
   }
-  .cooked p {
-    margin-bottom: 0;
-    &:empty:last-child {
-      display: none;
-    }
-  }
-
   .list-controls .nav-pills {
     padding: 0 0.5em;
   }
@@ -1935,6 +1939,12 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 .post-menu-area,
 .moderator .topic-body .contents .cooked {
   background: $header_background;
+}
+
+.mobile-view.mobile-device {
+  .topic-post .boxed .contents {
+    background: $header_background;
+  }
 }
 
 .topic-avatar {
@@ -2018,7 +2028,6 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 }
 
 .post-actions {
-  text-align: left;
   background: $q-background;
   margin: 0;
   padding-bottom: 1em;
