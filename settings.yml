@@ -1,5 +1,5 @@
 theme_background:
-  default: "#{$vincent-background}"
+  default: ""
   description:
     en: If you wish to change the default background add the url of the new background above.
 dark_background_overlay:
