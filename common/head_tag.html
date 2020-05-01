@@ -5,8 +5,8 @@
 
   {{#if showCategoryAdmin}}
     {{categories-admin-dropdown
-      create=createCategory
-      reorder=reorderCategories}}
+      onChange=(action "selectCategoryAdminDropdownAction")
+    }}
   {{/if}}
 
   {{navigation-bar navItems=navItems filterMode=filterMode category=category}}
