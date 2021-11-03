@@ -58,7 +58,7 @@ $v-theme-background: null;
 @if ($theme_background == "") {
     $v-theme-background: url(#{$vincent_background}) !default;
 } @else {
-    $v-theme-background: url(#{$theme_background}) !default;    
+    $v-theme-background: url(#{$theme_background}) !default;
 }
 
 $v-hue: 0 !default;
@@ -1813,6 +1813,10 @@ button {
 
 tbody {
   border-top-width: 1px;
+}
+
+.navigation-container {
+  --nav-space: 0;
 }
 
 // desktop only
