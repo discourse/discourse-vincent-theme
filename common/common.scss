@@ -268,7 +268,7 @@ span.deleted-posts,
 .links-section .domain,
 .top-sub-section .topic-info,
 .user-main .staff-counters,
-.topic-list .topic-list-item-separator td span,
+.topic-list .topic-list-item-separator .topic-list-data span,
 nav.post-controls .highlight-action,
 .gap,
 .period-chooser .top-date-string,
@@ -302,9 +302,9 @@ ul.general,
 .alert.alert-info,
 .body-page,
 .topic-list,
-.topic-list tbody tr:nth-of-type(even),
+.topic-list .topic-list-body .topic-list-item:nth-of-type(even),
 .category-list,
-.category-list tbody tr:nth-of-type(even),
+.category-list .topic-list-body .topic-list-item:nth-of-type(even),
 .search-container,
 .search-advanced-options,
 .user-stream-item.item,
@@ -318,6 +318,7 @@ tr.topic-list-item-separator + .topic-list-item + .topic-list-item,
 #banner,
 .latest-topic-list-item:nth-of-type(odd),
 .latest-topic-list,
+.top-topic-list,
 .offset2 .cooked,
 #user-card .card-content,
 .user-nav,
@@ -450,7 +451,7 @@ hr,
 
 // border border-bottom ---------------------------
 
-.topic-list .topic-list-item-separator td,
+.topic-list .topic-list-item-separator .topic-list-data,
 .nav-stacked li,
 .admin-contents table td,
 .table-heading,
@@ -463,7 +464,7 @@ hr,
 img.avatar,
 .menu-panel,
 #share-link.visible,
-.topic-list .topic-list-item-separator td,
+.topic-list .topic-list-item-separator .topic-list-data,
 .admin-controls,
 .topic-status-info,
 .admin-controls .nav.nav-pills li.active a,
@@ -735,7 +736,7 @@ a.mention-group,
 
 // padding x-Large on sides only ----------------------
 
-.topic-list .topic-list-item-separator td span,
+.topic-list .topic-list-item-separator .topic-list-data span,
 .main-content .nav-drop .selected-nav-item,
 .cooked,
 .moderator .cooked,
@@ -815,7 +816,11 @@ nav.post-controls {
 }
 
 section.post-menu-area {
-  padding: 10px;
+  padding: 10px 10px 10px 67px;
+}
+
+.topic-body .cooked {
+  padding: 1em 11px 0.25em 67px;
 }
 
 section.embedded-posts.bottom,
@@ -921,7 +926,7 @@ section.post-menu-area {
 
 // Animation  ---------------------------------------------------------------------------------
 
-.topic-list > tbody > tr.highlighted,
+.topic-list > .topic-list-body > tr.highlighted,
 .topic-body.highlighted {
   animation: Vincent-highlight $highlight-speed ease-in-out;
 }
@@ -1191,8 +1196,7 @@ a {
     background: $n;
   }
 
-  .topic-list th,
-  .topic-list td {
+  .topic-list .topic-list-data {
     padding: 0.75em;
   }
 
@@ -1357,7 +1361,7 @@ blockquote {
   color: lighten(desaturate($theme-base, 20%), 10%);
 }
 
-table.topic-list > thead,
+.topic-list > .topic-list-header,
 table.category-list > thead,
 .latest-topic-list .table-heading,
 .table-heading {
@@ -1824,7 +1828,11 @@ tbody {
 html.desktop-view.not-mobile-device {
   .topic-post .row,
   .reply .topic-body {
-    display: flex;
+    // display: flex;
+  }
+
+  .topic-body {
+    margin-left: -67px;
   }
 
   .reply .topic-body {
@@ -2079,10 +2087,6 @@ $q-background: rgba(contrast($text-base), 0.5) !default;
 
 .topic-body .topic-meta-data {
   padding: 0.5em 0.5em 0.5em 66px;
-}
-
-.topic-post .topic-avatar {
-  position: absolute;
 }
 
 .posts-wrapper {
