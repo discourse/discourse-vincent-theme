@@ -1,10 +1,8 @@
 // functions  --------------------------------------------------------------------------------
 
 // Calculate brightness value
-@use "sass:math";
-
 @function brightness($color) {
-  @return math.div(red($color) + green($color) + blue($color), 255 * 3);
+  @return (red($color) + green($color) + blue($color)) / (255 * 3);
 }
 
 // to base color
