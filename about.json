@@ -3,7 +3,8 @@
   "about_url": "https://meta.discourse.org/t/76662",
   "license_url": "https://github.com/discourse/discourse-vincent-theme/blob/main/LICENSE",
   "assets": {
-    "vincent-background": "assets/vincent-background.svg"
+    "vincent-background": "assets/vincent-background.svg",
+    "assistant-light": "assets/Assistant-Light.ttf"
   },
   "color_schemes": {
     "Vincent Dark": {
