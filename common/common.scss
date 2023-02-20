@@ -64,7 +64,7 @@ $v-font-weight: 300 !default;
 $v-font-size: 1.1em !default;
 $v-theme-background: null;
 @if ($theme_background == "") {
-  $v-theme-background: url(#{$vincent_background}) !default;
+  $v-theme-background: url(#{$vincent-background}) !default;
 } @else {
   $v-theme-background: url(#{$theme_background}) !default;
 }
